@@ -1,7 +1,7 @@
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Loader2 } from 'lucide-react'
-import {FiYoutube} from 'react-icons/Fi'
+import {FiYoutube} from 'react-icons/fi'
 import Link from 'next/link'
 import { IoLogoInstagram } from 'react-icons/io5'
 import { PiFacebookLogoBold, PiSnapchatLogoBold } from 'react-icons/pi'
