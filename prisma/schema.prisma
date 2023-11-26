@@ -1,0 +1,173 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+enum OrderState {
+  PROSSECING
+  PENDING
+  COMFIRMED
+  CANCELED
+}
+
+model User {
+  id    String @id @unique
+  email String @unique
+  username String @unique
+  createdAt  DateTime @default(now())
+  avatar String @default("avatar.jpg")
+  theme Int @default(1)
+  isSeller String @default("0")
+  userRank Int @default(1)
+  userBalance Int @default(0)
+  youtubeLink String 
+  facebookLink String 
+  instagramLink String 
+  tiktokLink String 
+  snapchatLink String
+  linkedLink String 
+
+  Link Link[]
+  Visitors Visitors[]
+  userProducts userProducts[]
+  orders orders[]
+  transactions transactions[]
+}
+
+model Link {
+  id         String @id @unique @default(cuid())
+  linkTitle  String
+  linkUrl    String
+  linkUrlApp String
+
+  createdAt  DateTime @default(now())
+  
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
+  Visitors Visitors[]
+
+  @@index([userId])
+}
+
+model Visitors {
+  id         String @id @unique @default(cuid())
+  linkType  String
+
+  ip String
+  country String
+  city String
+  region String
+  location String
+
+  createdAt  DateTime @default(now())
+
+  Link   Link?   @relation(fields: [linkId], references: [id])
+  linkId String?
+  
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
+
+  @@index([userId])
+  @@index([linkId])
+}
+
+
+model Category {
+  id String @id @unique @default(cuid())
+  catTitle String
+  catDesc String
+  catPar String @default("first")
+  catOpt String
+
+  Product Products[]
+}
+
+model Products {
+  id String @id @unique @default(cuid())
+  productTitle String
+  productDesc String
+  productImg String
+  productVar String
+  productState Boolean @default(true)
+  productCatAdd String
+  productPrice String @default("0.00")
+  productCommision Int @default(0)
+
+  Category   Category?   @relation(fields: [productCatId], references: [id])
+  productCatId String?
+
+  userProducts userProducts[]
+  orders orders[]
+  transactions transactions[]
+
+  @@index([productCatId])
+}
+
+model userProducts {
+  id         String @id @unique @default(cuid())
+  createdAt  DateTime @default(now())
+
+  Products   Products?   @relation(fields: [productId], references: [id])
+  productId    String?
+  
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
+  @@index([userId])
+  @@index([productId])
+}
+
+model orders {
+  id         String @id @unique @default(cuid())
+  createdAt  DateTime @default(now())
+  clientName String
+  clientPhone String
+  clientAdresse String
+  productVar String
+  orderState OrderState @default(PROSSECING)
+
+  Products   Products?   @relation(fields: [productId], references: [id])
+  productId    String
+  
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String
+
+
+  @@index([userId])
+  @@index([productId])
+}
+
+model transactions {
+  id         String @id @unique @default(cuid())
+  createdAt  DateTime @default(now())
+  transactionValue Int
+  transactionType String
+  
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String
+
+  Products   Products?   @relation(fields: [productId], references: [id])
+  productId    String
+
+  @@index([userId])
+  @@index([productId])
+}
+
+model Themes {
+  id String @id @unique @default(cuid())
+  themeType String @default("COLOR")
+  themeBgIlmg String?
+  themeNum Int
+  themeBg String
+
+}
