@@ -62,7 +62,7 @@ const AdminOrders = () => {
 
                     return (
                         <div key={index} className={`flex flex-col w-full border-b-4 border-zinc-600 p-3 item-start justify-center ${bgColor}`}>
-                            <div className='flex flex-row w-full justify-between items-center'>
+                            <div key={index} className='flex flex-row w-full justify-between items-center'>
                                 <div className='flex flex-col w-full'>
                                     <h1 className='text-md font-semibold'>
                                         Demande id: {demande.id}
@@ -76,7 +76,7 @@ const AdminOrders = () => {
                                 </div>
                                 
                             </div>
-                            <div className='flex gap-5 border-t-2 border-zinc-300 mt-1 w-full'>
+                            <div key={index} className='flex gap-5 border-t-2 border-zinc-300 mt-1 w-full'>
                                 <div className='font-semibold flex w-fit items-center justify-center'>
                                     Value : {demande.transactionValue} dhs
                                 </div>
@@ -87,16 +87,16 @@ const AdminOrders = () => {
                                     Current balance: {demande.User?.userBalance} dhs
                                 </div>
                             </div>
-                            <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
+                            <div key={index} className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
                             {demande.transactionType == "DEMANDE" ? (<>
-                                <button className='text-md font-semibold bg-green-400 py-1 px-2 border-2 border-green-700 m-1'
+                                <button key={index} className='text-md font-semibold bg-green-400 py-1 px-2 border-2 border-green-700 m-1'
                                 onClick={() => {
                                     editBalance({userId: demande.userId, value: demande.transactionValue, transactionId: demande.id})
                                 }}
                                 >
                                     COMFIRMED
                                 </button>
-                                <button className='text-md text-white font-semibold bg-red-400 py-1 px-2 border-2 border-red-700 m-1'
+                                <button key={index} className='text-md text-white font-semibold bg-red-400 py-1 px-2 border-2 border-red-700 m-1'
                                 onClick={() => {
                                     editDemande({newValue: "CANCELED", transactionId: demande.id})
                                 }}

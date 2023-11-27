@@ -76,7 +76,7 @@ const AdminOrders = () => {
 
                     return (
                         <div key={index} className={`flex flex-col w-full border-b-4 border-zinc-600 p-3 item-start justify-center ${bgColor}`}>
-                            <div className='flex flex-row w-full justify-between items-center'>
+                            <div key={index} className='flex flex-row w-full justify-between items-center'>
                                 <div className='text-lg font-semibold mr-2'>
                                     
                                     <Image src={imgs[1]} height={150} width={150} alt={"Product image"} />
@@ -94,7 +94,7 @@ const AdminOrders = () => {
                                 </div>
                                 
                             </div>
-                            <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
+                            <div key={index} className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
                                 <div className='font-semibold flex w-fit items-center justify-center'>
                                     Name: {order.clientName}
                                 </div>
@@ -105,7 +105,7 @@ const AdminOrders = () => {
                                     Adress: {order.clientAdresse}
                                 </div>
                             </div>
-                            <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
+                            <div key={index} className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
                                 <div className='font-semibold flex w-fit items-center justify-center'>
                                     Product var: {order.productVar}
                                 </div>
@@ -115,14 +115,14 @@ const AdminOrders = () => {
                             </div>
                             <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
                             {order.orderState != "COMFIRMED" && order.orderState != "CANCELED" ? (<>
-                                <button className='text-md font-semibold bg-blue-400 py-1 px-2 border-2 border-blue-700 m-1'
+                                <button key={index} className='text-md font-semibold bg-blue-400 py-1 px-2 border-2 border-blue-700 m-1'
                                 onClick={() => {
                                     editOrderState({orderId: order.id, newState: "PENDING"})
                                 }}
                                 >
                                     PENDING
                                 </button>
-                                    <button className='text-md font-semibold bg-green-400 py-1 px-2 border-2 border-green-700 m-1'
+                                    <button key={index} className='text-md font-semibold bg-green-400 py-1 px-2 border-2 border-green-700 m-1'
                                     onClick={() => {
                                         editBalance({userId: order.userId, addValue: commission, productId: order.productId})
                                         editOrderState({orderId: order.id, newState: "COMFIRMED"})
@@ -131,7 +131,7 @@ const AdminOrders = () => {
                                         COMFIRMED
                                     </button>
                                 
-                                <button className='text-md font-semibold bg-red-400 py-1 px-2 border-2 border-red-700 m-1'
+                                <button key={index} className='text-md font-semibold bg-red-400 py-1 px-2 border-2 border-red-700 m-1'
                                 onClick={() => {
                                     editOrderState({orderId: order.id, newState: "CANCELED"})
                                 }}
