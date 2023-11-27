@@ -8,6 +8,7 @@ import { toast } from "./ui/use-toast"
 import { Switch } from "./ui/switch"
 import {MdDelete} from "react-icons/md"
 import { trpc } from "@/app/_trpc/Client"
+import Image from 'next/image'
 
 
 const AddProduct = () => {
@@ -253,7 +254,8 @@ const AddProduct = () => {
                         return (
                             <>
                             <div className="relative m-1" key={index}>
-                                <img className=" h-[250px] w-[250px] rounded-lg " src={img} />
+                                <Image width={250} height={250} className=" h-[250px] w-[250px] rounded-lg " src={img} alt={"Product image"}/>
+                                
                                 <MdDelete 
                                 onClick={() => (deleteImg(img))}
                                 className="h-[40px] w-[40px] cursor-pointer px-1 text-zinc-800 bg-red-400 border-red-700 border-2 rounded-md absolute z-10 bottom-0 right-0 m-1 " />

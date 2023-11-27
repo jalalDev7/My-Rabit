@@ -1,7 +1,7 @@
 import { trpc } from '@/app/_trpc/Client'
 import { format } from 'date-fns'
 import { Loader2 } from 'lucide-react'
-import Link from 'next/link'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import { toast } from './ui/use-toast'
 
@@ -78,7 +78,8 @@ const AdminOrders = () => {
                         <div key={index} className={`flex flex-col w-full border-b-4 border-zinc-600 p-3 item-start justify-center ${bgColor}`}>
                             <div className='flex flex-row w-full justify-between items-center'>
                                 <div className='text-lg font-semibold mr-2'>
-                                    <img src={imgs[1]} height="150px" width="150px" />
+                                    
+                                    <Image src={imgs[1]} height={150} width={150} alt={"Product image"} />
                                 </div>
                                 <div className='flex flex-col w-full'>
                                     <h1 className='text-md font-semibold'>

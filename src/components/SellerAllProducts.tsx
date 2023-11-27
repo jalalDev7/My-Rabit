@@ -6,7 +6,7 @@ import {CiBookmarkRemove} from "react-icons/ci"
 import { GrOverview } from "react-icons/gr"
 import { toast } from "./ui/use-toast"
 import { Loader2 } from "lucide-react"
-
+import Image from 'next/image'
 
 
 
@@ -87,7 +87,8 @@ const SellerAllProducts = () => {
                                         <div className='flex flex-row justify-between items-start w-full m-1'>
                                             <div className="flex flex-col w-full">
                                                 <div className="flex items-center justify-center border-2 border-zinc-200 rounded-lg  p-1">
-                                                    <img src={imgs[1]} className='h-[250px] w-[250px] rounded-lg' />
+                                                    <Image src={imgs[1]} className='h-[250px] w-[250px] rounded-lg'
+                                                    height={250} width={250} alt={"product image"}  />
                                                 </div>
                                                 <div className="p-2 flex flex-col w-full justify-between items-start">
                                                    <h1 className="text-lg font-bold flex items-start ml-2">

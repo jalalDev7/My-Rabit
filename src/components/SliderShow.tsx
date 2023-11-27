@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Image from 'next/image'
 import Link from 'next/link'
 import { trpc } from '@/app/_trpc/Client'
 
@@ -24,7 +24,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
             </div>
 
             <div className='flex w-full items-center justify-center'>
-            <img src={imgs[1]}
+            <Image src={imgs[1]} height={180} width={180} alt={"product image"}
             className='lg:w-[150px] lg:h-[150px] 2xl:w-[200px] 2xl:h-[200px] w-[180px] h-[180px] transition-all duration-700 ease-in-out rounded-lg ' />
             </div>
 

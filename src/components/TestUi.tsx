@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { FaArrowRight} from 'react-icons/fa';
 import { notFound } from 'next/navigation';
 import ProductTopBar from './ProductTopBar';
-
+import Image from 'next/image'
 
 interface typeOb   {
   id: string,
@@ -68,7 +68,8 @@ const  TestUi = (props: {username: typeOb}) => {
     <div className={`flex items-center justify-end w-full h-full relative`}>
 
       <div className='absolute w-screen h-screen rounded-full blur-2xl z-0 opacity-75 '>
-        <img src={props.username.avatar} className='absolute h-full w-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]' />
+        <Image src={props.username.avatar} className='absolute h-full w-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]' 
+        height={1} width={1} alt={"product image"}/>
 
       </div>
 
