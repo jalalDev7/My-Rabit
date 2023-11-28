@@ -75,7 +75,7 @@ const AdminOrders = () => {
                     const commission = order.Products.productCommision
 
                     return (
-                        <div key={index} className={`flex flex-col w-full border-b-4 border-zinc-600 p-3 item-start justify-center ${bgColor}`}>
+                        <div key={order.id} className={`flex flex-col w-full border-b-4 border-zinc-600 p-3 item-start justify-center ${bgColor}`}>
                             <div className='flex flex-row w-full justify-between items-center'>
                                 <div className='text-lg font-semibold mr-2'>
                                     
