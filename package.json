@@ -142,6 +142,9 @@
   "uploadthing": "^5.7.1",
   
     
+  "uuid": "^9.0.1",
+  
+    
   "zod": "^3.22.4"
   
   },
@@ -156,6 +159,9 @@
   
     
   "@types/react-dom": "^18",
+  
+    
+  "@types/uuid": "^9.0.7",
   
     
   "autoprefixer": "^10",
