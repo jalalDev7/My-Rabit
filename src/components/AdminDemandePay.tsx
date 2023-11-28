@@ -51,7 +51,7 @@ const AdminOrders = () => {
             />
             {getAllDemandes && getAllDemandes.length > 0 ? (
 
-            getAllDemandes.map((demande, index) => {
+                getAllDemandes.map((demande, index) => {
 
                     let bgColor = "bg-blue-100"
 
