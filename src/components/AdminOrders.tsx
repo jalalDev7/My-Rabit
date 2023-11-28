@@ -4,7 +4,7 @@ import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { toast } from './ui/use-toast'
-import {v4 as uuidv4} from 'uuid'
+
 
 const AdminOrders = () => {
 
@@ -76,7 +76,7 @@ const AdminOrders = () => {
                     const commission = order.Products.productCommision
 
                     return (
-                        <div key={uuidv4()} className={`flex flex-col w-full border-b-4 border-zinc-600 p-3 item-start justify-center ${bgColor}`}>
+                        <div key={order.id} className={`flex flex-col w-full border-b-4 border-zinc-600 p-3 item-start justify-center ${bgColor}`}>
                             <div className='flex flex-row w-full justify-between items-center'>
                                 <div className='text-lg font-semibold mr-2'>
                                     
