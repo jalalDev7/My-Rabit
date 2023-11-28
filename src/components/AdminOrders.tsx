@@ -113,8 +113,9 @@ const AdminOrders = () => {
                                     User: {order.userId}
                                 </div>
                             </div>
+                            
+                            {order.orderState != "COMFIRMED" && order.orderState != "CANCELED" ? (
                             <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
-                            {order.orderState != "COMFIRMED" && order.orderState != "CANCELED" ? (<>
                                 <button className='text-md font-semibold bg-blue-400 py-1 px-2 border-2 border-blue-700 m-1'
                                 onClick={() => {
                                     editOrderState({orderId: order.id, newState: "PENDING"})
@@ -138,8 +139,9 @@ const AdminOrders = () => {
                                 >
                                     CANCELED
                                 </button>
-                                </>): []}
                             </div>
+                            ): []}
+                            
                         </div>
                     )
                 })
