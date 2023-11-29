@@ -249,7 +249,7 @@ export const appRouter = router({
     
     return cats
   }),
-  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.string(),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(),})).mutation(async ({ ctx, input }) => {
+  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(),})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db

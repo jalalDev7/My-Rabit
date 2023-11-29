@@ -5,13 +5,11 @@ import { useState } from "react"
 import { FaArrowLeft } from "react-icons/fa"
 import Image from 'next/image'
 
-const ProductViewImg = (props: {productImg: string, username: string}) => {
+const ProductViewImg = (props: {productImg: string[], username: string}) => {
 
   const {productImg} = props
 
-  const imgs = productImg.split(',')
-
-  const [bigOne, setBigOne] = useState(imgs[1])
+  const [bigOne, setBigOne] = useState(productImg[0])
  
   return (
 
@@ -22,8 +20,7 @@ const ProductViewImg = (props: {productImg: string, username: string}) => {
             />
         </div>
         <div className='flex flex-row w-full justify-center items-center gap-1'>
-          {imgs.map((img, indx) => {
-            if (indx == 0) return null
+          {productImg.map((img, indx) => {
             return (<Image key={indx} src={img} height={150} width={150} alt={"product image"} 
                     onClick={() => (setBigOne(img))}
                     className="cursor-pointer 2xl:w-[150px] 2xl:h-[150px] lg:w-[150px] lg:h-[150px] w-[120px] h-[150px] "

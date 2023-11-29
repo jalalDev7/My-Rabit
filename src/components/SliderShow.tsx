@@ -15,7 +15,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
       
       getUserProducts.map((item, index) => {
 
-        const imgs = item.productImg.split(',')
+      
 
         return (
           <div key={index} className='bg-white/50 flex flex-col hover:shadow-xl rounded-xl border-black p-1 items-center justify-start border-2 w-full '>
@@ -24,7 +24,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
             </div>
 
             <div className='flex w-full items-center justify-center'>
-            <Image src={imgs[1]} height={180} width={180} alt={"product image"}
+            <Image src={item.productImg[0]} height={180} width={180} alt={"product image"}
             className='lg:w-[150px] lg:h-[150px] 2xl:w-[200px] 2xl:h-[200px] w-[180px] h-[180px] transition-all duration-700 ease-in-out rounded-lg ' />
             </div>
 

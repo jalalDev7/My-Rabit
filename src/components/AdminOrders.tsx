@@ -72,7 +72,7 @@ const AdminOrders = () => {
                     if (order.orderState == "COMFIRMED") bgColor = "bg-green-100"
                     if (order.orderState == "CANCELED") bgColor = "bg-red-100"
                     if (!order.Products) return null
-                    const imgs = order.Products.productImg.split(',')
+                    
                     const commission = order.Products.productCommision
 
                     return (
@@ -80,7 +80,7 @@ const AdminOrders = () => {
                             <div className='flex flex-row w-full justify-between items-center'>
                                 <div className='text-lg font-semibold mr-2'>
                                     
-                                    <Image src={imgs[1]} height={150} width={150} alt={"Product image"} />
+                                    <Image src={order.Products.productImg[0]} height={150} width={150} alt={"Product image"} />
                                 </div>
                                 <div className='flex flex-col w-full'>
                                     <h1 className='text-md font-semibold'>

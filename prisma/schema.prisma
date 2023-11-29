@@ -96,7 +96,7 @@ model Products {
   id String @id @unique @default(cuid())
   productTitle String
   productDesc String
-  productImg String
+  productImg String[]
   productVar String
   productState Boolean @default(true)
   productCatAdd String

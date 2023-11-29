@@ -88,7 +88,7 @@ const AddProduct = () => {
             productDesc: productDesc,
             productVar: productVar,
             productCatId: productCat,
-            productImg: imgList,
+            productImg: productImg,
             productState: hiddenProduct,
             productPrice: productPrice,
             productCommision: productCommision

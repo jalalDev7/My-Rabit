@@ -52,7 +52,7 @@ const SellerChoosenProducts = () => {
 
             getUserProducts.map((item) => {
 
-                const imgs = item.productImg.split(',')
+                
 
                 return (                    
                         <div key={item.id} className='flex flex-col bg-zinc-50 rounded-lg shadow-md border-zinc-200 border-[1px] w-full'>
@@ -60,7 +60,7 @@ const SellerChoosenProducts = () => {
                             <div className='flex flex-row justify-between items-start w-full m-1'>
                                 <div className="flex flex-col w-full">
                                     <div className="flex items-center justify-center border-2 border-zinc-200 rounded-lg  p-1">
-                                        <Image src={imgs[1]} className='h-[250px] w-[250px] rounded-lg' 
+                                        <Image src={item.productImg[0]} className='h-[250px] w-[250px] rounded-lg' 
                                         height={250} width={250} alt={"product image"}/>
                                     </div>
                                     <div className="p-2 flex flex-col w-full justify-between items-start">
