@@ -9,6 +9,9 @@
   "scripts": {
   
     
+  "postinstall": "prisma generate",
+  
+    
   "dev": "next dev",
   
     
