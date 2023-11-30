@@ -297,6 +297,16 @@ export const appRouter = router({
         productId: input.id,
       },
     })
+    await db.orders.deleteMany({
+      where: {
+        productId: input.id,
+      },
+    })
+    await db.transactions.deleteMany({
+      where: {
+        productId: input.id,
+      },
+    })
 
     return await db.products.delete({
         where: {

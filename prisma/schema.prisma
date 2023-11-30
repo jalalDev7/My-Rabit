@@ -157,7 +157,7 @@ model transactions {
   userId String
 
   Products   Products?   @relation(fields: [productId], references: [id])
-  productId    String
+  productId    String?
 
   @@index([userId])
   @@index([productId])
