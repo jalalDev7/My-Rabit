@@ -10,7 +10,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
 
   return (
     <>
-    <div className='grid 2xl:grid-cols-6 lg:grid-cols-4 grid-cols-3 w-full items-center justify-center gap-2 my-2 lg:px-32 2xl:px-52'>
+    <div className='grid 2xl:grid-cols-6 lg:grid-cols-4 grid-cols-2 w-full items-center justify-center gap-2 my-2 lg:px-32 2xl:px-52'>
       {getUserProducts && getUserProducts.length > 0 ? (
       
       getUserProducts.map((item, index) => {
