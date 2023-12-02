@@ -7,6 +7,19 @@ import { toast } from './ui/use-toast'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import EditProduct from './EditProduct'
 
+interface productType {
+    id: string,
+    productTitle: string,
+    productDesc: string,
+    productVar: string,
+    productCatId: string | null,
+    productImg: string[],
+    productState: boolean,
+    productPrice: string,
+    productCommision: number,
+    productCatAdd: string,
+}
+
 const AdminProducts = () => {
 
     const [isOpen,setIsOpen] = useState<boolean>()
@@ -16,6 +29,19 @@ const AdminProducts = () => {
     const [searchQ, setSearchQ] = useState("")
     
     const {data: getProducts, isLoading, isError} = trpc.getProductsByTitle.useQuery({query: searchQ})
+
+    const [productToEdit, setProductToEdit] = useState<productType>({
+        id: "No",
+        productTitle: "no",
+        productDesc: "string",
+        productVar: "string",
+        productCatId: "string",
+        productImg: ["string"],
+        productState: true,
+        productPrice: "string",
+        productCommision: 0,
+        productCatAdd: "string",
+    })
 
     const handleQuery = (query: string) => {
         setSearchQ(query)
@@ -50,20 +76,18 @@ const AdminProducts = () => {
                                 {item.productTitle}
                             </div>
                             <div className='flex flex-row'>
-                            <Dialog open={isOpen} onOpenChange={(v) => {
-                          if(!v) {
-                              setIsOpen(v)
-                          }
-                      }}>
-                                <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+                            <Dialog open={isOpen} onOpenChange={(v) => {if(!v) {setIsOpen(v)}}} >
+                                <DialogTrigger onClick={() => {
+                                    setProductToEdit(item)
+                                    setIsOpen(true)}} asChild>
                                     <AiOutlineEdit className=" text-4xl bg-blue-200 hover:bg-blue-300 rounded-lg p-1 m-1 " />
                                 </DialogTrigger>
-                                <DialogContent>
-                                    <EditProduct productId={item.id} />
+                                <DialogContent className='w-[70%]'>
+                                    <EditProduct productId={productToEdit}  />
                                 </DialogContent>
-                                </Dialog>
+                            </Dialog>
 
-                                <AiOutlineDelete className=" text-4xl bg-red-200  hover:bg-red-300 rounded-lg p-1 m-1 cursor-pointer " 
+                            <AiOutlineDelete className=" text-4xl bg-red-200  hover:bg-red-300 rounded-lg p-1 m-1 cursor-pointer " 
                                 onClick={() => (deleteProduct({id: item.id}))}
                                 />
                             </div>

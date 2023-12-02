@@ -735,7 +735,7 @@ export const appRouter = router({
     
     return themeData
   }),
-  editProduct: privateProcedure.input(z.object({productId: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(),})).mutation(async ({ ctx, input }) => {
+  editProduct: privateProcedure.input(z.object({productId: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productImg: z.array(z.string()),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(),})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
@@ -747,6 +747,7 @@ export const appRouter = router({
         productTitle: input.productTitle,
         productDesc: input.productDesc,
         productVar: input.productVar,
+        productImg: input.productImg,
         productState: input.productState,
         productPrice: input.productPrice,
         productCommision: input.productCommision,

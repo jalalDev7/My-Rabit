@@ -13,10 +13,10 @@ import AdminThemes from "./AdminThemes"
   
 const AdminTools = () => {
 
-  document.title = `My-Rabit.com | Admin`
+  
 
   const [uiChooser, setUiChooser] = useState("products")
-
+  window.document.title = `My-Rabit.com | Admin`
 
   return (<>
     <div className="flex flex-row py-2 w-full items-center justify-center gap-2">
