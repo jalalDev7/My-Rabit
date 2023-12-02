@@ -17,6 +17,7 @@ import { Progress } from "./ui/progress"
 import ThemesEditor from "./ThemesEditor"
 import BalanceEditor from "./BalanceEditor"
 import DemandesPay from "./DemandesPay"
+import { FaRegCopy } from "react-icons/fa"
 
 
 interface typeOb   {
@@ -139,7 +140,7 @@ const Settings = (props: {userData: typeOb} ) => {
         <div 
         className='bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start w-full lg:row-span-2 2xl:row-span-2'>
         <Form {...form} >
-        <form onSubmit={form.handleSubmit(onSubmit)} onChange={() => (form.reset)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} onChange={() => (form.reset)} className="space-y-4">
           <FormField
             control={form.control}
             name="username"
@@ -147,9 +148,14 @@ const Settings = (props: {userData: typeOb} ) => {
               <FormItem>
                 <FormLabel className="text-lg font-semibold p-2">Customize your user name :</FormLabel>
                 <FormControl>
-                  <Input  placeholder="Follow me on Youtube" {...field} width="301" />
+                  <Input  placeholder="username" {...field} width="301" />
                 </FormControl>
-                <FormLabel  className="text-sm p-2">Your link: https://localhost:3000/{form.getValues("username")}</FormLabel>
+                <FormLabel  className="flex flex-row gap-2 text-sm p-2">
+                  https://my-rabit.com/{form.getValues("username")}
+                  <FaRegCopy className="w-[15px] h-[15px] cursor-pointer " alt="Copy link"
+                  onClick={() => (navigator.clipboard.writeText(`https://my-rabit.com/${form.getValues("username")}`))}
+                  />
+                </FormLabel>
                 <FormMessage />
               </FormItem>
             )}

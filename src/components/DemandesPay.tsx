@@ -26,7 +26,7 @@ const DemandesPay = () => {
 
                     return (
                         <div key={index} className={`flex flex-col w-full border-b-2 border-zinc-300 p-3 item-start justify-center ${bgColor}`}>
-                            <div className='flex flex-row w-full justify-between items-center'>
+                            <div className='flex 2xl:flex-row lg:flex-row flex-col gap-2 w-full 2xl:justify-between lg:justify-between items-center'>
                                 <div className='flex flex-col w-full'>
                                     <h1 className='text-md font-semibold'>
                                         Transaction id: {history.id}

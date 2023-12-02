@@ -27,10 +27,10 @@ const dashboardTopBar =  () => {
       <>
       <div className="flex flex-col w-full border-b-2 border-zinc-200 justify-center">
         <div className="flex flex-row w-full justify-between">
-          <h1 className="flex text-2xl font-semibold w-full">
+          <h1 className="flex 2xl:text-2xl lg:text-2xl text-lg font-semibold w-full">
             Welcome {user.username}
           </h1>
-          <h1 className="flex text-2xl font-semibold w-full justify-end">
+          <h1 className="flex 2xl:text-2xl lg:text-2xl text-lg font-semibold w-full justify-end">
             Balance: {user.userBalance} MAD
           </h1>
         </div>
@@ -39,7 +39,7 @@ const dashboardTopBar =  () => {
             <span className=" text-lg font-semibold">Your link :</span> 
             <div className="bg-zinc-200 flex w-fit items-center justify-between p-2 ml-2 rounded-lg cursor-pointer hover:shadow-md ">
               <FaRegCopy className="w-[20px] h-[20px] " alt="Copy link"
-              onClick={() => (handleCopy(`localhost:3000/${user.username}`))}
+              onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
               />
             </div>
             <div className="bg-zinc-200 flex w-fit items-center justify-between p-1 ml-2 rounded-lg cursor-pointer hover:shadow-md ">

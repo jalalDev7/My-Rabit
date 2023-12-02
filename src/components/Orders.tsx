@@ -36,7 +36,7 @@ const Orders = () => {
 
                     return (
                         <div key={index} className={`flex flex-col w-full border-b-2 border-zinc-300 p-3 item-start justify-center ${bgColor}`}>
-                            <div className='flex flex-row w-full justify-between items-center'>
+                            <div className='flex flex-col 2xl:flex-row lg:flex-row w-full 2xl:justify-between lg:justify-between items-center gap-2'>
                                 <div className='flex flex-col w-full'>
                                     <h1 className='text-md font-semibold'>
                                         Order id: {order.id}
