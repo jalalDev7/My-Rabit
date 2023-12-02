@@ -7,7 +7,7 @@ import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { FaArrowLeft } from 'react-icons/fa'
 
-const ProductViewBuy = (props: {productVar: string, productId: string, user: string}) => {
+const ProductViewBuy = (props: {productPrice: string, productVar: string, productId: string, user: string}) => {
 
   const [buyState, setBuyState] = useState("before")
 
@@ -65,11 +65,11 @@ const ProductViewBuy = (props: {productVar: string, productId: string, user: str
     {buyState == "before" ? (
       <div className='flex w-full mb-5'>
       <div className='flex flex-col w-full p-3  border-2 border-zinc-200 rounded-lg justify-center'>
-        <h1 className='text-lg font-semibold py-2'>
+        <h1 className='text-2xl font-bold py-2'>
           Quick buy
         </h1>
+        
         <div className='flex flex-row justify-start items-center'>
-          Varaibles :
               {vars.map((getVar,indx) => {
                 let speciaClass = ""
                 if (getVar == varChoosen) {
@@ -95,6 +95,19 @@ const ProductViewBuy = (props: {productVar: string, productId: string, user: str
         <div className='flex flex-row w-full justify-between items-center gap-2'>
             <input type="text" className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' placeholder='Your adresse'
             onChange={(event) => {setClientAdress(event.currentTarget.value)}} />
+        </div>
+        <div className='flex flex-row justify-between items-center w-full border-b-2 border-zinc-300'>
+          <div className='text-md font-semibold'>
+            Price : {props.productPrice} Dhs
+          </div>
+          <div className='text-md font-semibold'>
+            Delivery : 0.00 Dhs
+          </div>
+        </div>
+        <div className='flex w-full justify-end'>
+          <div className='text-md font-semibold'>
+            Total : {props.productPrice} Dhs
+          </div>
         </div>
         <button 
         onClick={handleClick}
