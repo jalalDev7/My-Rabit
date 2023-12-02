@@ -274,7 +274,7 @@ const EditProduct = (getProductData: {productId: productType }) => {
             <button 
             onClick={() => (addNewProduct())}
             className='bg-black text-white font-semibold rounded-lg py-2 px-5 my-1'>
-                Add new product
+                Edit product
             </button>
         </div>
     </>
