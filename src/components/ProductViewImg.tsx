@@ -29,7 +29,7 @@ const ProductViewImg = (props: {productImg: string[], username: string}) => {
             
         </div>
         <div className='absolute left-2 top-4 z-0 hover:bg-zinc-200 rounded-full'>
-            <Link href={`http://localhost:3000/${props.username}`}>
+            <Link href={`/${props.username}`}>
               <FaArrowLeft className="w-[25px] h-[25px]" />
             </Link>
         </div>
