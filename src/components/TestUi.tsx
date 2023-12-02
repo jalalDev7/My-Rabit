@@ -66,12 +66,12 @@ const  TestUi = (props: {username: typeOb}) => {
   <>
     
     <div className={`flex items-center justify-end w-full h-full relative`}>
-
       <div className='absolute w-screen h-screen rounded-full blur-2xl z-0 opacity-75 '>
-        <Image src={props.username.avatar} className='absolute h-full w-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]' 
+        <Image src={props.username.avatar} className='absolute h-full w-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-0' 
         height={1} width={1} alt={"product image"}/>
 
       </div>
+      
 
       <div className="flex flex-col rounded-2xl h-screen w-full justify-start relative">
 

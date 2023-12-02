@@ -28,7 +28,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
             className='lg:w-[150px] lg:h-[150px] 2xl:w-[200px] 2xl:h-[200px] w-[180px] h-[180px] transition-all duration-700 ease-in-out rounded-lg ' />
             </div>
 
-            <div className='flex flex-row w-full justify-between items-center mt-1 mx-1 px-4'>
+            <div className='flex flex-row w-full justify-between items-center mt-1 mx-1 lg:px-4 2xl:px-4 px-1'>
 
               <p className='text-lg font-bold 2xl:text-xl'>
                 {item.productPrice}  dhs

@@ -7,7 +7,7 @@ import { IoLogoInstagram } from 'react-icons/io5'
 import { PiFacebookLogoBold, PiSnapchatLogoBold } from 'react-icons/pi'
 import {TbBrandTiktok } from 'react-icons/tb'
 import { AiOutlineLinkedin } from 'react-icons/ai'
-import { FaArrowLeft } from 'react-icons/fa'
+import Image from 'next/image'
 
 interface typeOb   {
   id: string,
@@ -28,7 +28,9 @@ interface typeOb   {
 
 const productTopBar = (props: {user: typeOb}) => {
   return (
-    <div className='flex flex-col w-full justify-center items-center p-[5px] mt-[10px] mb-[5px] 2xl:col-span-3 lg:col-span-2'>
+    <>
+    
+      <div className='flex flex-col w-full justify-center items-center p-[5px] mt-[10px] mb-[5px] 2xl:col-span-3 lg:col-span-2'>
           <Avatar className='h-[150px] w-[150px] items-center'>
             <AvatarImage src={props.user.avatar}/>
             <AvatarFallback><Loader2 className='h-[50px] w-[50px] animate-spin '/></AvatarFallback>
@@ -80,6 +82,8 @@ const productTopBar = (props: {user: typeOb}) => {
             ): null}
           </div>
         </div>
+    </>
+    
         
   )
 }
