@@ -34,12 +34,14 @@ model User {
   tiktokLink String 
   snapchatLink String
   linkedLink String 
+  userState String @default("user")
 
   Link Link[]
   Visitors Visitors[]
   userProducts userProducts[]
   orders orders[]
   transactions transactions[]
+  notifications Notifications[]
 }
 
 model Link {
@@ -170,4 +172,17 @@ model Themes {
   themeNum Int
   themeBg String
 
+}
+
+model Notifications {
+  id String @id @unique @default(cuid())
+  notiText String
+  notiCallToAction String?
+  notiLink String?
+  notiColor String @default("yellow")
+
+  User User?   @relation(fields: [userId], references: [id])
+  userId String[]
+
+  @@index([userId])
 }

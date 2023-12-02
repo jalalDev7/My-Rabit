@@ -12,6 +12,7 @@ import { toast } from './ui/use-toast'
 const dashboardTopBar =  () => {
 
   const {data: user, isLoading} = trpc.getUserInfo.useQuery()
+  const {data: noti} = trpc.getUserNoti.useQuery()
 
   const handleCopy = (link: string) => {
     navigator.clipboard.writeText(link)
@@ -53,12 +54,37 @@ const dashboardTopBar =  () => {
               </Link>
             </div>
           </h3>
-          
-          <h3 className=" text-lg font-semibold" hidden={true}>
-            http://localhost:3000/{user.username}
-          </h3>
         </div>
       </div>
+      {noti && noti.length > 0 ? (
+        noti.map((item) => {
+          let bgColor = "bg-blue-100"
+          let borderColor = "border-blue-100"
+          if (item.notiColor == "red") {
+            bgColor = "bg-red-100"
+            borderColor = "border-red-500"
+          }
+          if (item.notiColor == "green") {
+            bgColor = "bg-green-100"
+            borderColor = "border-green-500"
+          }
+          if (item.notiColor == "yellow") {
+            bgColor = "bg-yellow-100"
+            borderColor = "border-yellow-500"
+          }
+          return (
+            <div className={`flex flex-row w-fill justify-between border-2 ${bgColor} ${borderColor} p-2 mt-1 font-semibold`}>
+              <h1>
+                {item.notiText}
+              </h1>
+              <Link href={item.notiLink ? "": ""}>
+                {item.notiCallToAction}
+              </Link>
+            </div>
+          )
+        })
+        
+      ): null}
       </>
     ): isLoading ? (
       <div className='w-full mt-24 flex justify-center'>

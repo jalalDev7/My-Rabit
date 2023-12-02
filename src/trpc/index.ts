@@ -35,9 +35,19 @@ export const appRouter = router({
           tiktokLink: "",
           facebookLink: ""
         },
+      }).then(async (res) => {
+        await db.notifications.create({
+          data: {
+            notiText: "Please setup your profile and change your username.",
+            notiCallToAction: "Settings",
+            notiLink: "/settings",
+            notiColor: "red",
+            userId: [res.id],
+
+          }
+        })
       })
     }
-
     return { success: true }
   }),
   getUserByUsername: publicProcedure.input(z.object({query: z.string()})).query(async (opts) => {
@@ -68,6 +78,22 @@ export const appRouter = router({
     if (!userData) throw new TRPCError({code: "UNAUTHORIZED"})
     
     return userData
+  }),
+  getUserNoti: privateProcedure.query(async ({ctx}) => {
+
+    const {userId, user} = ctx
+    if (!user.id) throw new TRPCError({code: "UNAUTHORIZED"})
+
+    const userNoti = await db.notifications.findMany({
+      where: {
+        userId: {
+          has: userId,
+        }
+      }
+    })
+    if (!userNoti) throw new TRPCError({code: "UNAUTHORIZED"})
+    
+    return userNoti
   }),
   getUserLinks: privateProcedure.query(async ({ctx}) => {   
     const {userId, user} = ctx
