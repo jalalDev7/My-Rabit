@@ -22,7 +22,7 @@ export default function Home() {
       <LogoutLink className={buttonVariants({
         size: 'lg',
         className: "mt-5",
-      })} href='/kp_70c28009033341c58a292531da5e12c8' target='_blank'>
+      })}>
         Get Started <ArrowRight className='ml-2 h-5 w-5 ' />
       </LogoutLink>
     </MaxWidthWrapper>
