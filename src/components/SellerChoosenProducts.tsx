@@ -22,7 +22,7 @@ const SellerChoosenProducts = () => {
             utils.getUserProducts.invalidate()
             //window.location.reload();
             return toast({
-                title: "New product added",
+                title: "Prodect deleted from your page",
                 description: "Thanks you",
                 variant: "success",
               })
