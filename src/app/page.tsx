@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import Image from 'next/image';
 import NavBar from '@/components/NavBar';
+import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/server';
 
 
 
@@ -18,12 +19,12 @@ export default function Home() {
       <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
         With My-Rabit you can earn more money from your traffic
       </p>
-      <Link className={buttonVariants({
+      <LogoutLink className={buttonVariants({
         size: 'lg',
         className: "mt-5",
       })} href='/kp_70c28009033341c58a292531da5e12c8' target='_blank'>
         Get Started <ArrowRight className='ml-2 h-5 w-5 ' />
-      </Link>
+      </LogoutLink>
     </MaxWidthWrapper>
 
     <div>

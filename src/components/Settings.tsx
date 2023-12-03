@@ -352,7 +352,7 @@ const Settings = (props: {userData: typeOb} ) => {
               <FormItem>
                 <FormLabel className="text-md font-semibold p-2">Your tiktok link :</FormLabel>
                 <FormControl>
-                  <Input placeholder="Youtube link" {...field} width="301" />
+                  <Input placeholder="Tiktok link" {...field} width="301" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
