@@ -73,8 +73,8 @@ const Settings = (props: {userData: typeOb} ) => {
 
       const prevAv = props.userData.avatar
       const formSchema = z.object({
-        username: z.string().min(6, {
-          message: "please enter a valide username",
+        username: z.string().min(4, {
+          message: "please enter a valide username contain plus than 4 caracters",
         }),
         avatar: z.string(),
         youtube: z.string(),
@@ -84,11 +84,12 @@ const Settings = (props: {userData: typeOb} ) => {
         linked: z.string(),
         tiktok: z.string(),
       })
-      
+      let prevUserName = "username"
+      if (props.userData.username != props.userData.id) prevUserName = props.userData.username
       const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-          username: props.userData.username,
+          username: prevUserName,
           avatar: prevAvatar,
           youtube: props.userData.youtubeLink,
           instagram: props.userData.instagramLink,

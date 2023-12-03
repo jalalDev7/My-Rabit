@@ -39,7 +39,7 @@ const dashboardTopBar =  () => {
       <div className="flex flex-col w-full border-b-2 border-zinc-200 justify-center">
         <div className="flex flex-row w-full justify-between">
           <h1 className="flex 2xl:text-2xl lg:text-2xl text-lg font-semibold w-full">
-            Welcome {user.username}
+            Welcome {user.username != user.id ? user.username : null}
           </h1>
           <h1 className="flex 2xl:text-2xl lg:text-2xl text-lg font-semibold w-full justify-end">
             Balance: {user.userBalance} MAD
