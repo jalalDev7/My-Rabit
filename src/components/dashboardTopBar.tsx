@@ -8,11 +8,16 @@ import { BiEditAlt } from 'react-icons/bi'
 import { GrFormView } from 'react-icons/gr'
 import {FaRegCopy} from "react-icons/fa"
 import { toast } from './ui/use-toast'
+import {IoMdCloseCircleOutline} from 'react-icons/io'
 
 const dashboardTopBar =  () => {
 
+  const utils = trpc.useContext()
+
   const {data: user, isLoading} = trpc.getUserInfo.useQuery()
   const {data: noti} = trpc.getUserNoti.useQuery()
+
+  const {mutate: deleteNotiDb} = trpc.deleteNoti.useMutation()
 
   const handleCopy = (link: string) => {
     navigator.clipboard.writeText(link)
@@ -21,6 +26,11 @@ const dashboardTopBar =  () => {
       description: "You can share it on your social media accounts",
       variant: "success",
     })
+  }
+
+  const deleteNoti = (id: string) => {
+    deleteNotiDb({id: id})
+    utils.getUserNoti.invalidate()
   }
 
   return (
@@ -72,16 +82,22 @@ const dashboardTopBar =  () => {
             bgColor = "bg-yellow-100"
             borderColor = "border-yellow-500"
           }
-          return (
-            <div className={`flex flex-row w-fill justify-between border-2 ${bgColor} ${borderColor} p-2 mt-1 font-semibold`}>
+          return (<>
+            <div key={item.id} className={`flex flex-row w-fill justify-between border-2 ${bgColor} ${borderColor} p-2 mt-1 font-semibold`}>
               <h1>
                 {item.notiText}
               </h1>
-              <Link href={item.notiLink ? "": ""}>
-                {item.notiCallToAction}
-              </Link>
+              {item.notiLink ? (
+                <div className='flex flex-row gap-2 items-center'>
+                  <Link href={item.notiLink}>
+                    {item.notiCallToAction}
+                  </Link>
+                  <IoMdCloseCircleOutline className="h-[20px] w-[20px] cursor-pointer text-zinc-700 hover:text-black hover:bg-zinc-200 rounded-full "
+                  onClick={() => (deleteNoti(item.id))} />
+                </div>
+              ): null}
             </div>
-          )
+            </>)
         })
         
       ): null}

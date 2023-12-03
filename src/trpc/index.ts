@@ -792,6 +792,49 @@ export const appRouter = router({
     return deleteItem.success
   }),
 
+  deleteNoti: privateProcedure.input(z.object({ id: z.string() })).mutation(async ({ ctx, input }) => {
+    const { userId } = ctx
+
+    const getNoti = await db.notifications.findFirst({
+      where : {
+        AND: [
+          {
+            id: input.id,
+          },
+          {
+            userId: {
+              has: userId,
+            }
+          }
+        ]
+      }
+    })
+
+    if (!getNoti) throw new TRPCError({code: "NOT_FOUND"})
+
+    if (getNoti.userId.length == 1) {
+
+      await db.notifications.delete({
+        where: {
+          id: input.id,
+        }
+      })
+
+    } else {
+
+      const filtredUsers = getNoti.userId.filter((user) => user != userId)
+
+      await db.notifications.update({
+        where: { id: input.id },
+        data: {
+          userId: filtredUsers
+        }
+      })
+      
+    }
+
+    return {success: true}
+  }),
 
 
   testApi : publicProcedure.query(async () => {
