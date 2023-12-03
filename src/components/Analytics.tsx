@@ -45,7 +45,7 @@ const Analytics = () => {
         </div>
         <div className='flex bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-between items-center '>
             <p className='text-lg font-bold'>
-                Orders comfirmed:
+                Orders confirmed:
             </p>
             <span className='bg-green-200 p-2 rounded-lg font-semibold'>
                 +{filtredOrders.length}
