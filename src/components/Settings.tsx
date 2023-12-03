@@ -103,6 +103,7 @@ const Settings = (props: {userData: typeOb} ) => {
       function onSubmit(values: z.infer<typeof formSchema>) {
         editProfile({
           username: form.getValues("username"),
+          avatar: prevAvatar,
           youtube: form.getValues("youtube"),
           facebook: form.getValues("facebook"),
           instagram: form.getValues("instagram"),

@@ -23,7 +23,7 @@ model User {
   email String @unique
   username String @unique
   createdAt  DateTime @default(now())
-  avatar String @default("avatar.jpg")
+  avatar String @default("/avatar.jpg")
   theme Int @default(1)
   isSeller String @default("0")
   userRank Int @default(1)
