@@ -1,10 +1,9 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import Image from 'next/image';
 import NavBar from '@/components/NavBar';
-import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/server';
+import { RegisterLink } from '@kinde-oss/kinde-auth-nextjs/server';
 
 
 
@@ -19,12 +18,12 @@ export default function Home() {
       <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
         With My-Rabit you can earn more money from your traffic
       </p>
-      <LogoutLink className={buttonVariants({
+      <RegisterLink className={buttonVariants({
         size: 'lg',
         className: "mt-5",
       })}>
         Get Started <ArrowRight className='ml-2 h-5 w-5 ' />
-      </LogoutLink>
+      </RegisterLink>
     </MaxWidthWrapper>
 
     <div>
