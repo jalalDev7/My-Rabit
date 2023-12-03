@@ -31,6 +31,7 @@ const dashboardTopBar =  () => {
   const deleteNoti = (id: string) => {
     deleteNotiDb({id: id})
     utils.getUserNoti.invalidate()
+    window.location.reload();
   }
 
   return (

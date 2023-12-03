@@ -47,17 +47,15 @@ const SellerChoosenProducts = () => {
         Choosen Products
     </h1>
     <div className='flex flex-col w-full items-start justify-center p-4'>
-    <div className='grid lg:grid-cols-3 2xl:grid-cols-4 bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-center items-center  gap-4  w-full'>
+    <div className='grid lg:grid-cols-3 2xl:grid-cols-4 bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-center items-center gap-4  w-full'>
         {getUserProducts && getUserProducts.length > 0 ? (
 
             getUserProducts.map((item) => {
 
-                
-
                 return (                    
                         <div key={item.id} className='flex flex-col bg-zinc-50 rounded-lg shadow-md border-zinc-200 border-[1px] w-full'>
                             <div className="flex flex-row relative w-full ">
-                            <div className='flex flex-row justify-between items-start w-full m-1'>
+                            <div className='flex flex-col justify-between items-start w-full m-1'>
                                 <div className="flex flex-col w-full">
                                     <div className="flex items-center justify-center border-2 border-zinc-200 rounded-lg  p-1">
                                         <Image src={item.productImg[0]} className='h-[250px] w-[250px] rounded-lg' 
@@ -65,7 +63,7 @@ const SellerChoosenProducts = () => {
                                     </div>
                                     <div className="p-2 flex flex-col w-full justify-between items-start">
                                        <h1 className="text-lg font-bold flex items-start ml-2">
-                                        {item.productTitle}
+                                        {item.productTitle.slice(0,35)}...
                                         </h1> 
                                         <div className="flex flex-row justify-between items-center w-full">
                                             <h3 className="flex items-center justify-start w-full text-md font-semibold py-1 border-r-2 border-zinc-200 ml-4">
@@ -78,13 +76,13 @@ const SellerChoosenProducts = () => {
                                     </div>
                                     
                                 </div>
-                                <div className='flex flex-col border-l-2 border-zinc-200 items-center justify-start h-full p-3 relative'>
+                                <div className='flex flex-row border-t-2 w-full border-zinc-200 items-center justify-between h-full p-1 relative'>
                                     
-                                    <div className='flex flex-col justify-center items-center font-semibold'>
+                                    <div className='flex flex-row gap-2 justify-center items-center font-semibold'>
                                         <AiOutlineShoppingCart className="h-[30px] w-[30px] text-green-700 " />
                                         {item.orders.length}
                                     </div>
-                                    <div className='justify-end items-center absolute bottom-2 '>
+                                    <div className='flex flex-row items-center '>
                                         <Link href={`/product/${item.id}/${getUser?.username}`}>
                                             <GrOverview className=" text-4xl bg-zinc-200 hover:bg-zinc-300 rounded-lg p-1 m-1 " />
                                         </Link>
