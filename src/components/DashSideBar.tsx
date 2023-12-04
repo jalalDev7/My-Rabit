@@ -26,42 +26,38 @@ const DashSideBar = async () => {
   return (
     
     <>
-    <div className='fixed bg-white h-screen p-4 border-r-[1px] flex flex-col justify-start 2xl:w-[80px] lg:w-[80px] w-[45px] '>
+    <div className='fixed grid grid-cols-6 bottom-0 bg-white w-screen p-2 border-t-[1px] justify-center items-center z-10'>
         <Link href="/dashboard" >
-          <div className='flex flex-col items-center 2xl:bg-zinc-900 lg:bg-zinc-900 2xl:p-2 lg:p-2 p-1 2xl:text-white lg:text-white rounded-lg mb-5 hover:shadow-xl '>
-            <RiDashboardFill className='lg:h-[30px] 2xl:h-[30px] lg:w-[30px] 2xl:w-[30px] h-[25px] w-[25px] '/>
+          <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center'>
+            <RiDashboardFill className='h-[45px] w-[45px] '/>
           </div>
         </Link>
         <Link href="/settings" >
-          <div className='flex flex-col items-center 2xl:bg-zinc-200 lg:bg-zinc-200 2xl:p-2 lg:p-2 p-1 text-black rounded-lg mb-5 hover:shadow-xl '>
-            <RiSettings3Fill className='lg:h-[30px] 2xl:h-[30px] lg:w-[30px] 2xl:w-[30px] h-[25px] w-[25px] '/>
-            
+          <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg  hover:shadow-xl hover:bg-zinc-200 justify-center'>
+            <RiSettings3Fill className='h-[45px] w-[45px] '/>
           </div>
         </Link>
         <Link href="/seller" >
-          <div className='flex flex-col items-center 2xl:bg-zinc-200 lg:bg-zinc-200 2xl:p-2 lg:p-2 p-1 text-black rounded-lg mb-5 hover:shadow-xl '>
-            <AiOutlineShop className='lg:h-[30px] 2xl:h-[30px] lg:w-[30px] 2xl:w-[30px] h-[25px] w-[25px] '/>
+          <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg  hover:shadow-xl hover:bg-zinc-200 justify-center '>
+            <AiOutlineShop className='h-[45px] w-[45px] '/>
             
           </div>
         </Link>
         <Link href="/orders" >
-          <div className='flex flex-col items-center 2xl:bg-zinc-200 lg:bg-zinc-200 2xl:p-2 lg:p-2 p-1 text-black rounded-lg mb-5 hover:shadow-xl '>
-            <LiaCashRegisterSolid className='lg:h-[30px] 2xl:h-[30px] lg:w-[30px] 2xl:w-[30px] h-[25px] w-[25px] '/>
-            
+          <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center '>
+            <LiaCashRegisterSolid className='h-[45px] w-[45px] '/>
           </div>
         </Link>
         {dbUser?.userRank == 0 ? (
           <Link href="/admin" >
-            <div className='flex flex-col items-center 2xl:bg-zinc-200 lg:bg-zinc-200 2xl:p-2 lg:p-2 p-1 text-black rounded-lg mb-5 hover:shadow-xl '>
-              <GrUserAdmin className='lg:h-[30px] 2xl:h-[30px] lg:w-[30px] 2xl:w-[30px] h-[25px] w-[25px] '/>
+            <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center '>
+              <GrUserAdmin className='h-[45px] w-[45px] '/>
             </div>
           </Link>
-        ): []}
-        
-
+        ): null}
         <LogoutLink>
-          <div className='flex flex-col items-center 2xl:bg-zinc-900 lg:bg-zinc-900 2xl:p-2 lg:p-2 p-1 text-white rounded-lg mb-5 hover:shadow-xl absolute bottom-2 left-2'>
-            <IoLogOut className='lg:h-[30px] 2xl:h-[30px] lg:w-[30px] 2xl:w-[30px] h-[25px] w-[25px] '/>
+          <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg  hover:shadow-xl hover:bg-zinc-200 justify-center'>
+            <IoLogOut className='h-[45px] w-[45px] '/>
           </div>
           </LogoutLink>
     </div>
