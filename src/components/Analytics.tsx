@@ -23,7 +23,7 @@ const Analytics = () => {
       
   return (
     <>
-    <h1 className='text-2xl mt-10 px-5'>
+    <h1 className='text-2xl mt-5 px-5'>
         Analytics
     </h1>
     <div className='grid lg:grid-cols-3 2xl:grid-cols-4 gap-4 p-4 items-center'>

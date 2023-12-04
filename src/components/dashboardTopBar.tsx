@@ -9,6 +9,7 @@ import { GrFormView } from 'react-icons/gr'
 import {FaRegCopy} from "react-icons/fa"
 import { toast } from './ui/use-toast'
 import {IoMdCloseCircleOutline} from 'react-icons/io'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
 const dashboardTopBar =  () => {
 
@@ -37,34 +38,42 @@ const dashboardTopBar =  () => {
   return (
     user ? (
       <>
-      <div className="flex flex-col w-full border-b-2 border-zinc-200 justify-center">
-        <div className="flex flex-row w-full justify-between">
-          <h1 className="flex 2xl:text-2xl lg:text-2xl text-lg font-semibold w-full">
-            Welcome {user.username != user.id ? user.username : null}
-          </h1>
-          <h1 className="flex 2xl:text-2xl lg:text-2xl text-lg font-semibold w-full justify-end">
+      <div className="flex flex-col w-full justify-center ">
+        <div className="flex flex-row w-full border-b-2 border-zinc-400  justify-between p-2 bg-white shadow-lg">
+          <div className='flex flex-row gap-2 2xl:text-2xl lg:text-2xl text-md font-semibold w-full items-center'>
+            <Avatar className='h-[35px] w-[35px] items-center'>
+              <AvatarImage src={user.avatar}/>
+                <AvatarFallback>
+                  <Loader2 className='h-[35px] w-[35px] animate-spin '/>
+                </AvatarFallback>
+             </Avatar>
+            <h1>
+              Welcome {user.username != user.id ? user.username : null}
+            </h1>
+          </div>
+          
+          <h1 className="flex 2xl:text-2xl lg:text-2xl text-md font-semibold w-full items-center justify-end">
             Balance: {user.userBalance} MAD
           </h1>
         </div>
-        <div className="flex flex-col mb-5  mt-1">
-          <h3 className="flex flex-row">
-            <span className=" text-lg font-semibold">Your link :</span> 
-            <div className="bg-zinc-200 flex w-fit items-center justify-between p-2 ml-2 rounded-lg cursor-pointer hover:shadow-md ">
-              <FaRegCopy className="w-[20px] h-[20px] " alt="Copy link"
-              onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
-              />
-            </div>
-            <div className="bg-zinc-200 flex w-fit items-center justify-between p-1 ml-2 rounded-lg cursor-pointer hover:shadow-md ">
-              <Link href={`/${user.username}`}>
-              <GrFormView className="w-[20px] h-[20px] " alt="Copy link" />
-              </Link>
-            </div>
-            <div className="bg-zinc-200 flex w-fit items-center justify-between p-1 ml-2 rounded-lg cursor-pointer hover:shadow-md">
-              <Link href="/settings">
-                <BiEditAlt className="w-[20px] h-[20px] " alt="Copy link" />
-              </Link>
-            </div>
-          </h3>
+
+        <div className="flex flex-row gap-2 py-2 px-4">
+          <h3 className="2xl:text-2xl lg:text-2xl text-md font-semibold">Your link :</h3>
+          <div className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
+            <FaRegCopy className="w-[15px] h-[15px] " alt="Copy link"
+            onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
+            />
+          </div>
+          <div className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
+            <Link href={`/${user.username}`}>
+              <GrFormView className="w-[15px] h-[15px] " alt="Copy link" />
+            </Link>
+          </div>
+          <div className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
+            <Link href="/settings">
+              <BiEditAlt className="w-[15px] h-[15px] " alt="Copy link" />
+            </Link>
+          </div>
         </div>
       </div>
       {noti && noti.length > 0 ? (

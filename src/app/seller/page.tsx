@@ -23,7 +23,7 @@ const Page = async () => {
   
   return (<>
     <div className="flex flex-row mb-32">
-      <div className="w-full">
+      <div className="w-full bg-zinc-100">
         <DashboardTopBar />
         <Seller />
       </div>

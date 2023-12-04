@@ -135,7 +135,7 @@ const Settings = (props: {userData: typeOb} ) => {
 
   return (
       <>
-    <h1 className='text-2xl mt-10 px-5'>
+    <h1 className='text-2xl mt-5 px-5'>
         Settings
     </h1>
     <div className='grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 w-full gap-4 p-4 items-start justify-start '>
