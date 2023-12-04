@@ -21,8 +21,8 @@ const page = async () => {
   if (!dbUser || dbUser.userRank > 0) return notFound()
   return (
     <>
-      <div className="flex flex-row">
-        <div className="w-full p-4">
+      <div className="flex flex-row mb-32">
+        <div className="w-full">
           <DashboardTopBar />
           <AdminTools />
         </div>

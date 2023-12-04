@@ -21,8 +21,8 @@ const Page = async () => {
   if (!dbUser) redirect('/auth-callback?origin=dashboard')
 
   return (<>
-    <div className="flex flex-row">
-      <div className="w-full p-4">
+    <div className="flex flex-row mb-32">
+      <div className="w-full">
         <DashboardTopBar />
         <Dashboard/>
       </div>

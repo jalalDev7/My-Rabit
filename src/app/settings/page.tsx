@@ -23,13 +23,12 @@ const Page = async () => {
 
   
   return (<>
-    <div className="flex flex-row">
-      <DashSideBar />
-      <div className="2xl:ml-[85px] lg:ml-[85px] ml-[43px] w-full p-4">
+    <div className="flex flex-row mb-32">
+      <div className="w-full">
       <DashboardTopBar />
       <Settings userData={dbUser} />
       </div>
-        
+      <DashSideBar />
     </div>
 
   </>

@@ -26,7 +26,7 @@ const DashSideBar = async () => {
   return (
     
     <>
-    <div className='fixed grid grid-cols-6 bottom-0 bg-white w-screen p-2 border-t-[1px] justify-center items-center z-10'>
+    <div className='fixed grid grid-cols-5 bottom-0 bg-white w-screen p-2 border-t-[1px] justify-center items-center z-10'>
         <Link href="/dashboard" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center'>
             <RiDashboardFill className='h-[45px] w-[45px] '/>
