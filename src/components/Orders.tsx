@@ -65,13 +65,7 @@ const Orders = () => {
                     </h3>
                 </div>
                 </div>
-            ):[
-                <div>
-                <h1 className="text-xl font-semibold">
-                    Please choose some products to sell
-                </h1>
-            </div>
-            ]}
+            ): null}
             
             
         </div>
