@@ -792,7 +792,6 @@ export const appRouter = router({
     
     return deleteItem.success
   }),
-
   deleteNoti: privateProcedure.input(z.object({ id: z.string() })).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
@@ -836,7 +835,22 @@ export const appRouter = router({
 
     return {success: true}
   }),
+  getAllOthersMem: privateProcedure.query(async ({ctx}) => {   
+    const {userId, user} = ctx
 
+    const getAllOthers = await db.user.findMany({
+      select: {
+        username: true,
+      },
+      where: {
+        id: {
+          not: userId,
+        }
+      }
+    })
+
+    return getAllOthers
+  }),
 
   testApi : publicProcedure.query(async () => {
     const getProducts = await db.products.findMany({

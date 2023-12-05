@@ -1,12 +1,12 @@
 "use client"
-import { promise, z } from "zod"
-import { Button, buttonVariants } from "./ui/button"
+import { z } from "zod"
+import { Button } from "./ui/button"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { Input } from "./ui/input"
 import { trpc } from "@/app/_trpc/Client"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { useToast } from "./ui/use-toast"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Cloud, Loader2,  File } from "lucide-react"
@@ -14,10 +14,10 @@ import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
 import Dropzone from "react-dropzone"
 import { useUploadThing } from "@/lib/uploadthing"
 import { Progress } from "./ui/progress"
-import ThemesEditor from "./ThemesEditor"
 import BalanceEditor from "./BalanceEditor"
 import DemandesPay from "./DemandesPay"
 import { FaRegCopy } from "react-icons/fa"
+
 
 
 interface typeOb   {
@@ -36,7 +36,8 @@ interface typeOb   {
   linkedLink: string,
   
 }
-const Settings = (props: {userData: typeOb} ) => {
+type typeOthers = {username: string}[]
+const Settings = (props: {userData: typeOb, others: typeOthers}) => {
     
     document.title = `My-Rabit.com | Settings`
 
@@ -71,11 +72,16 @@ const Settings = (props: {userData: typeOb} ) => {
           })
         }})
 
-      const prevAv = props.userData.avatar
+        
       const formSchema = z.object({
         username: z.string().min(4, {
           message: "please enter a valide username contain plus than 4 caracters",
-        }),
+        }).refine(s => !s.includes(' '), 'Space between words is not allowed.')
+        .refine(s => {
+          const checkNewUesr = props.others.filter((user) => {return user.username == s})
+          if (checkNewUesr.length == 0) return true
+          if (checkNewUesr.length > 0) return false
+        }, 'Username is already used please choose another one.'),
         avatar: z.string(),
         youtube: z.string(),
         instagram: z.string(),

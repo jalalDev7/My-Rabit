@@ -4,7 +4,7 @@ import DashboardTopBar from "@/components/dashboardTopBar"
 import { db } from "@/db"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 
-import { redirect } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 
 
 const Page = async () => {
@@ -21,12 +21,25 @@ const Page = async () => {
 
   if (!dbUser) redirect('/auth-callback?origin=dashboard')
 
+  const getAllOthers = await db.user.findMany({
+    select: {
+      username: true,
+    },
+    where: {
+      id: {
+        not: user.id,
+      }
+    }
+  })
+  if (!getAllOthers) return notFound()
+  
+
   
   return (<>
     <div className="flex flex-row mb-20">
       <div className="w-full bg-zinc-100">
       <DashboardTopBar />
-      <Settings userData={dbUser} />
+      <Settings userData={dbUser} others={getAllOthers} />
       </div>
       <DashSideBar />
     </div>
