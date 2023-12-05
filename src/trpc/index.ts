@@ -35,17 +35,6 @@ export const appRouter = router({
           tiktokLink: "",
           facebookLink: ""
         },
-      }).then(async (res) => {
-        await db.notifications.create({
-          data: {
-            notiText: "Please setup your profile and change your username.",
-            notiCallToAction: "Settings",
-            notiLink: "/settings",
-            notiColor: "red",
-            userId: [res.id],
-
-          }
-        })
       })
     }
     return { success: true }
