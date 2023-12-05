@@ -26,40 +26,40 @@ const DashSideBar = async () => {
   return (
     
     <>
-    <div className='fixed grid grid-cols-5 bottom-0 bg-white w-screen p-2 border-t-[1px] justify-center items-center z-10'>
+    <div className='fixed grid grid-cols-5 bottom-0 bg-white w-screen p-2 border-t-[1px] justify-center items-center z-10 shadow-[rgba(0,0,10,0.5)_0px_0px_20px_0px]'>
         <Link href="/dashboard" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center'>
-            <RiDashboardFill className='h-[45px] w-[45px] '/>
+            <RiDashboardFill className='h-[35px] w-[35px] '/>
           </div>
         </Link>
         <Link href="/settings" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg  hover:shadow-xl hover:bg-zinc-200 justify-center'>
-            <RiSettings3Fill className='h-[45px] w-[45px] '/>
+            <RiSettings3Fill className='h-[35px] w-[35px] '/>
           </div>
         </Link>
         <Link href="/seller" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg  hover:shadow-xl hover:bg-zinc-200 justify-center '>
-            <AiOutlineShop className='h-[45px] w-[45px] '/>
+            <AiOutlineShop className='h-[35px] w-[35px] '/>
             
           </div>
         </Link>
         <Link href="/orders" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center '>
-            <LiaCashRegisterSolid className='h-[45px] w-[45px] '/>
+            <LiaCashRegisterSolid className='h-[35px] w-[35px] '/>
           </div>
         </Link>
         {dbUser?.userRank == 0 ? (
           <Link href="/admin" >
             <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center '>
-              <GrUserAdmin className='h-[45px] w-[45px] '/>
+              <GrUserAdmin className='h-[35px] w-[35px] '/>
             </div>
           </Link>
         ): null}
         <LogoutLink>
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg  hover:shadow-xl hover:bg-zinc-200 justify-center'>
-            <IoLogOut className='h-[45px] w-[45px] '/>
+            <IoLogOut className='h-[35px] w-[35px] '/>
           </div>
-          </LogoutLink>
+        </LogoutLink>
     </div>
     </>
   )
