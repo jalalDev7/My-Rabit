@@ -101,13 +101,7 @@ const  TestUi = (props: {username: typeOb}) => {
           </Link>
           
         })
-        ) : isLoading ? (
-        <div className='w-full mt-4 flex justify-center'>
-          <div className='flex flex-col items-center gap-2'>
-            <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
-          </div>
-        </div>
-    ):  []} 
+        ):  null} 
     </div>
 
     <div className='flex flex-row items-center justify-center mx-[10px]  p-[2px]'>

@@ -19,8 +19,8 @@ const SliderShow = (props: {userId: string, username: string}) => {
 
         return (
           <div key={index} className='bg-white/50 flex flex-col hover:shadow-xl rounded-xl border-black p-1 items-center justify-start border-2 w-full '>
-            <div className="text-lg font-semibold">
-              {item.productTitle.slice(0,15)}
+            <div className="text-md lg:text-lg 2xl:text-lg font-semibold">
+              {item.productTitle.slice(0,20)}
             </div>
 
             <div className='flex w-full items-center justify-center'>
