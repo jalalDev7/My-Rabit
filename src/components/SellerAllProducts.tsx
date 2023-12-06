@@ -86,7 +86,7 @@ const SellerAllProducts = () => {
                                         <div className="flex flex-row relative w-full ">
                                         <div className='flex flex-col  justify-between items-start w-full m-1'>
                                             <div className="flex flex-col w-full">
-                                                <div className="flex items-center justify-center border-2 border-zinc-200 rounded-lg  p-1">
+                                                <div className="flex items-center justify-center border-2 border-zinc-200 rounded-lg bg-gradient-to-t from-slate-300 to-slate-500 p-1">
                                                     <Image src={product.productImg[0]} className='h-[250px] w-[250px] rounded-lg'
                                                     height={250} width={250} alt={"product image"}  />
                                                 </div>
