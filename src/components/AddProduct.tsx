@@ -17,7 +17,7 @@ const AddProduct = () => {
     const {data: getCats, isLoading, isError} = trpc.getAllCats.useQuery()
     const [productTitle, setProductTitle] = useState("")
     const [productDesc, setProductDesc] = useState("")
-    const [productVar, setProductVar] = useState("")
+    const [productVar, setProductVar] = useState("S,M,L,XL")
     const [productCat, setProductCat] = useState("")
     const [productPrice, setProductPrice] = useState("")
     const [productCommision, setProductCommision] = useState(0)
