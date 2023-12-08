@@ -796,16 +796,10 @@ export const appRouter = router({
   deleteMem: publicProcedure.input(z.object({ id: z.string() })).mutation(async ({  input }) => {
     if (!input) throw new TRPCError({code: "NOT_FOUND"})
 
-    return await db.visitors.deleteMany({
-      where: {
-        userId: input.id,
-      },
-    }).then(async (res) => {
-      await db.link.deleteMany({
+    return  await db.link.deleteMany({
         where: {
           userId: input.id,
         },
-      })
     }).then(async (res) => {
       await db.userProducts.deleteMany({
         where: {
