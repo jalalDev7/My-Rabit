@@ -8,6 +8,7 @@ import NewCat from "./NewCat"
 import AdminOrders from "./AdminOrders"
 import AdminDemandePay from "./AdminDemandePay"
 import AdminThemes from "./AdminThemes"
+import AdminMem from "./AdminMem"
 
 
   
@@ -40,6 +41,11 @@ const AdminTools = () => {
       >
         Themes
       </button>
+      <button className="font-semibold text-lg bg-blue-200 p-2 rounded-lg border-blue-400 border-2"
+      onClick={() => (setUiChooser("members"))}
+      >
+        Members
+      </button>
     </div>
     {uiChooser === "products" ? (
       <>
@@ -54,6 +60,8 @@ const AdminTools = () => {
         <AdminDemandePay />
     ): uiChooser === "themes" ? (
         <AdminThemes />
+    ): uiChooser === "members" ? (
+        <AdminMem />
     ): []}
     
       

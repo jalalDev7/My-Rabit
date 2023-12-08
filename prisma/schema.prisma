@@ -37,7 +37,6 @@ model User {
   userState String @default("user")
 
   Link Link[]
-  Visitors Visitors[]
   userProducts userProducts[]
   orders orders[]
   transactions transactions[]
@@ -55,32 +54,7 @@ model Link {
   User   User?   @relation(fields: [userId], references: [id])
   userId String?
 
-  Visitors Visitors[]
-
   @@index([userId])
-}
-
-model Visitors {
-  id         String @id @unique @default(cuid())
-  linkType  String
-
-  ip String
-  country String
-  city String
-  region String
-  location String
-
-  createdAt  DateTime @default(now())
-
-  Link   Link?   @relation(fields: [linkId], references: [id])
-  linkId String?
-  
-  User   User?   @relation(fields: [userId], references: [id])
-  userId String?
-
-
-  @@index([userId])
-  @@index([linkId])
 }
 
 

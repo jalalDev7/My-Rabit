@@ -32,7 +32,7 @@ const  TestUi = (props: {username: typeOb}) => {
 
   
 
-  const {mutate: addNewVisitGo} = trpc.addNewVisit.useMutation({})
+  
   const {data: links, isLoading, isError} = trpc.getLinkById.useQuery({user: props.username.id})
   const theme = trpc.getThemeData.useQuery({themeNum: props.username.theme})
 
@@ -42,11 +42,8 @@ const  TestUi = (props: {username: typeOb}) => {
     </div>
   </div>)
   if (!theme.data) return notFound()
-  const themeBg = theme.data.themeBg
   
   function handleClick (reserveLink: string, urlToGo: string, getLinkId: string, getLinkUserId: string | null, event: React.MouseEvent<HTMLElement>) {
-    
-    addNewVisitGo({linkType: "LINK",linkId: getLinkId,userId: getLinkUserId})
     
       var request = new XMLHttpRequest();  
       request.open('GET', urlToGo, true);  
