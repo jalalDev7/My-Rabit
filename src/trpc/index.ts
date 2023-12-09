@@ -90,6 +90,9 @@ export const appRouter = router({
     const links = await db.link.findMany({
       where: {
         userId
+      },
+      include: {
+        Visitors: true
       }
     })
 
@@ -97,6 +100,21 @@ export const appRouter = router({
 
     
     return links
+  }),
+  getUserAnalitycs: privateProcedure.query(async ({ctx}) => {   
+    const {userId, user} = ctx
+     
+    const analytics = await db.visitors.findMany({
+      where: {
+        userId: userId,
+        linkType: "LINK"
+      },
+
+    })
+    
+    if (!analytics || analytics.length === 0) throw new TRPCError({code: "NOT_FOUND"})
+    
+    return analytics
   }),
   getLinkById: publicProcedure.input(z.object({user: z.string()})).query(async (opts) => {
     
@@ -125,6 +143,12 @@ export const appRouter = router({
 
     if (!link) throw new TRPCError({ code: 'NOT_FOUND' })
 
+    await db.visitors.deleteMany({
+      where: {
+        linkId: input.id,
+      },
+    })
+
     await db.link.delete({
       where: {
         id: input.id,
@@ -150,6 +174,36 @@ export const appRouter = router({
 
   return { success: true }
   }),
+  addNewVisit: publicProcedure.input(z.object({ linkType: z.string() ,linkId: z.string(),userId: z.string().nullable(),})).mutation(async ({input}) => {
+    async function getData() {
+      const res = await fetch('https://ipinfo.io/json')
+      // The return value is *not* serialized
+      // You can return Date, Map, Set, etc.
+     
+      if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+      }
+     
+      return res.json()
+    }
+    const data = await getData()
+    
+    await db.visitors.create({
+      data: {
+        linkType: input.linkType,
+        linkId: input.linkId,
+        ip: data.ip,
+        country: data.country,
+        city: data.city,
+        region: data.region,
+        location: data.loc,
+        userId: input.userId,
+      }
+    })
+
+return { success: true }
+}),
   editProfile: privateProcedure.input(z.object({username: z.string(),avatar: z.string(), youtube: z.string(), facebook: z.string(), instagram: z.string(), linked: z.string(), snapchat: z.string(), tiktok: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
     if (!userId) throw new TRPCError({code: "UNAUTHORIZED"})
@@ -801,6 +855,12 @@ export const appRouter = router({
           userId: input.id,
         },
     }).then(async (res) => {
+      await db.visitors.deleteMany({
+        where: {
+          userId: input.id,
+        },
+      })
+    }).then(async (res) => {
       await db.userProducts.deleteMany({
         where: {
           userId: input.id,
@@ -818,8 +878,7 @@ export const appRouter = router({
           userId: input.id,
         },
       })
-    })
-    .then(async (res) => {
+    }).then(async (res) => {
       await db.user.delete({
         where: {
           id: input.id,

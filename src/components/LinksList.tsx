@@ -14,7 +14,7 @@ const linksList = () => {
   const {mutate: deleteLink} = trpc.deleteLink.useMutation({
     onSuccess: () => {
       utils.getUserLinks.invalidate()
-      
+      utils.getUserAnalitycs.invalidate()
     },
   })
     
@@ -37,6 +37,7 @@ const linksList = () => {
                 <div className='flex flex-row items-center justify-center '>
                   <p className='flex flex-col border-r-[1px] border-zinc-300 text-sm font-bold pr-3 items-center justify-center'>
                     <AiFillEye className="h-[20px] w-[20px] text-green-700 " />
+                    {link.Visitors.length}
                   </p>
                   <p className='text-xl font-semibold content-stretch ml-3 sm:text-md '>
                   {link.linkTitle}
