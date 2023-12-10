@@ -850,40 +850,35 @@ return { success: true }
   deleteMem: publicProcedure.input(z.object({ id: z.string() })).mutation(async ({  input }) => {
     if (!input) throw new TRPCError({code: "NOT_FOUND"})
 
-    return  await db.link.deleteMany({
+    await db.link.deleteMany({
         where: {
           userId: input.id,
         },
-    }).then(async (res) => {
-      await db.visitors.deleteMany({
+    })
+    await db.visitors.deleteMany({
+        where: {
+          userId: input.id,
+        },
+    })
+    await db.userProducts.deleteMany({
+        where: {
+          userId: input.id,
+        },
+    })
+    await db.orders.deleteMany({
+        where: {
+          userId: input.id,
+        },
+    })
+    await db.transactions.deleteMany({
         where: {
           userId: input.id,
         },
       })
-    }).then(async (res) => {
-      await db.userProducts.deleteMany({
-        where: {
-          userId: input.id,
-        },
-      })
-    }).then(async (res) => {
-      await db.orders.deleteMany({
-        where: {
-          userId: input.id,
-        },
-      })
-    }).then(async (res) => {
-      await db.transactions.deleteMany({
-        where: {
-          userId: input.id,
-        },
-      })
-    }).then(async (res) => {
-      await db.user.delete({
+    await db.user.delete({
         where: {
           id: input.id,
         },
-      })
     })
     
   }),
