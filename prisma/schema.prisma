@@ -41,6 +41,7 @@ model User {
   orders orders[]
   transactions transactions[]
   Visitors Visitors[]
+  Prodcuts Products[]
 }
 
 model Link {
@@ -108,11 +109,15 @@ model Products {
   Category   Category?   @relation(fields: [productCatId], references: [id])
   productCatId String?
 
+  User   User?   @relation(fields: [author], references: [id])
+  author String?
+
   userProducts userProducts[]
   orders orders[]
   transactions transactions[]
 
   @@index([productCatId])
+  @@index([author])
 }
 
 model userProducts {

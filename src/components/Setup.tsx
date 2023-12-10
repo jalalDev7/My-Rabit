@@ -88,7 +88,7 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
         linked: z.string(),
         tiktok: z.string(),
       })
-      let prevUserName = "username"
+      let prevUserName = ""
       if (props.userData.username != props.userData.id) prevUserName = props.userData.username
       const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -139,9 +139,12 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
 
   return (
     <>
-    <div className='flex w-full h-full items-center justify-center '>
+    <div className='flex w-full h-full items-center justify-center bg-zinc-100 '>
         <div 
-        className='my-5 bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start w-fit lg:row-span-2 2xl:row-span-2'>
+        className='bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start w-fit lg:row-span-2 2xl:row-span-2'>
+          <h1 className="text-2xl font-bold mb-4">
+            Quick setup
+          </h1>
         <Form {...form} >
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={() => (form.reset)} className="space-y-4">
           <FormField

@@ -68,7 +68,6 @@ export const appRouter = router({
     
     return userData
   }),
- 
   getUserLinks: privateProcedure.query(async ({ctx}) => {   
     const {userId, user} = ctx
      
@@ -533,6 +532,37 @@ return { success: true }
     const { userId } = ctx
     if (!userId) throw new TRPCError({code: "UNAUTHORIZED"})
 
+    const getAUthor = await db.products.findFirst({
+      where: {
+        id: input.productId
+      },
+      select: {
+        author: true
+      }
+    })
+
+    if (getAUthor && getAUthor.author) {
+      await db.transactions.create({
+        data: {
+          transactionType: "BENEFIT",
+          transactionValue: 5,
+          userId: getAUthor.author,
+          productId: input.productId
+        }
+      })
+      await db.user.update({
+        where: {
+          id: getAUthor.author,
+        },
+        data: {
+          userBalance: {
+            increment: 5
+          }
+        },
+      })
+
+    }
+
       await db.transactions.create({
         data: {
           transactionType: "BENEFIT",
@@ -550,8 +580,8 @@ return { success: true }
             increment: input.addValue
           }
         },
-        
       })
+      
       if (!editBalance) throw new TRPCError({code: "BAD_REQUEST"})
   return editBalance
   }),
