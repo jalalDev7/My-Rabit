@@ -14,18 +14,37 @@ import Image from 'next/image'
 const AddProduct = () => {
 
     const utils = trpc.useContext()
+
     const {data: getCats, isLoading, isError} = trpc.getAllCats.useQuery()
+
     const [productTitle, setProductTitle] = useState("")
+
     const [productDesc, setProductDesc] = useState("")
+
     const [productVar, setProductVar] = useState("S,M,L,XL")
+
     const [productCat, setProductCat] = useState("")
+
     const [productPrice, setProductPrice] = useState("")
+
     const [productCommision, setProductCommision] = useState(0)
+
     const [productImg, setProductImg] = useState<string[]>([])
+
+    const [prodcutSrc, setProductSrc] = useState("")
+
     const [isOpen,setIsOpen] = useState<boolean>()
+
+    const [isOpen2,setIsOpen2] = useState<boolean>()
+
     const [isUploadng, setIsUploading] = useState<boolean>(true)
+
     const [uploadProgress, setUploadProgress] = useState<number>(0)
-    const { startUpload } = useUploadThing("productImage")
+
+    const uploadImg = useUploadThing("productImage").startUpload
+
+    const uploadZip = useUploadThing("productSrc").startUpload
+
     const [hiddenProduct , setHiddenProduct] = useState<boolean>(false)
 
     const {mutate: deletephoto} = trpc.deletePhoto.useMutation()
@@ -39,6 +58,7 @@ const AddProduct = () => {
             setProductImg([])
             setProductCat("")
             setHiddenProduct(false)
+            setProductSrc("")
             return toast({
                 title: "New product added",
                 description: "Thanks you",
@@ -91,7 +111,8 @@ const AddProduct = () => {
             productImg: productImg,
             productState: hiddenProduct,
             productPrice: productPrice,
-            productCommision: productCommision
+            productCommision: productCommision,
+            productSrc: prodcutSrc,
         })
 
     }
@@ -171,7 +192,7 @@ const AddProduct = () => {
                           setIsUploading(true)
                           const progressInterval = startSimilatedProgress()
 
-                          const res = await startUpload(acceptedFile)
+                          const res = await uploadImg(acceptedFile)
                           if(!res) {
                             
                               return toast({
@@ -274,6 +295,110 @@ const AddProduct = () => {
                       checked={hiddenProduct}
                       onCheckedChange={() => (setHiddenProduct(!hiddenProduct))}
                     /> Hidden product
+            </div>
+
+            <div className="flex flex-col w-full items-start justify-start border-zinc-200 border-2 rounded-lg p-2 ml-1">
+                <Dialog open={isOpen2} onOpenChange={(v) => {
+                          if(!v) {
+                              setIsOpen2(v)
+                          }
+                      }}>
+                        <DialogTrigger onClick={() => setIsOpen2(true)} asChild>
+                        <h3 className="text-md text-blue-500 cursor-pointer ml-2">
+                            Add product source file
+                        </h3>
+                        </DialogTrigger>
+                        <DialogContent>
+                        <Dropzone multiple={false} 
+
+                          onDrop={async (acceptedFile) => {
+                          setIsUploading(true)
+                          const progressInterval = startSimilatedProgress()
+
+                          const res = await uploadZip(acceptedFile)
+                          if(!res) {
+                            
+                              return toast({
+                                  title: 'Uploading error',
+                                  description: 'The type of file is not supported',
+                                  variant: 'destructive',
+                              })
+                          }
+
+                          const [fileResponse] = res
+
+                          const key = fileResponse?.key
+
+                          if (!key) {
+                            
+                              return toast({
+                                  title: 'File error',
+                                  description: 'Please choose another image',
+                                  variant: 'destructive',
+                              })
+                          }
+
+                          clearInterval(progressInterval)
+                          setUploadProgress(100)
+                          
+                            setProductSrc(`https://uploadthing-prod.s3.us-west-2.amazonaws.com/${fileResponse.key}`)
+                          toast({
+                            title: 'Uploading done',
+                            description: 'Youcan add more images',
+                            variant: 'success',
+                        })
+
+                          }}>
+                          {({getRootProps, getInputProps, acceptedFiles}) => (
+                              <div {...getRootProps()} className="border h-64 m-4 border-dashed border-gray-300 rounded-lg">
+                                  <div className="flex items-center justify-center h-full w-full">
+                                      <label htmlFor="dropezone-file" className="flex flex-col items-center justify-center w-full h-full rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                              <Cloud className="h-6 w-6 text-zinc-500 mb-2" />
+                                              <p className="mb-2 text-sm text-zinc-700">
+                                                  <span className="font-semibold">
+                                                      click to upload
+                                                  </span> {" "}
+                                                  or drag and drop
+                                              </p>
+                                              <p className="text-xs text-zinc-500">File up to (4mb)</p>
+                                          </div> 
+
+                                              {acceptedFiles && acceptedFiles[0] ? (
+                                                  <div className="max-w-xs mt-2 bg-white flex items-center rounded-md overflow-hidden outline outline-[1px] outline-zinc-200 divide-x divide-zinc-200">
+                                                      <div className="px-3 py-2 h-full grid place-items-center">
+                                                          <File className="h-4 w-4 text-blue-500" />
+                                                      </div>
+                                                      <div className="px-3 py-2 h-full text-sm truncate">
+                                                          {acceptedFiles[0].name}
+                                                      </div>
+                                                  </div>
+                                              ) : null}
+
+                                              {isUploadng ? (
+                                                  <div className="w-full mt-4 mx-w-xs mx-auto">
+                                                      <Progress value={uploadProgress} className="h-1 w-full bg-zinc-200" />
+                                                  </div>
+                                              ) : null}
+                                          
+                                          <input 
+                                          {...getInputProps()}
+                                          type="file" id="dropzone-file" className="hidden"/>
+                                      </label>
+                                  </div>
+                              </div>
+                          )}
+                          </Dropzone>
+                        </DialogContent>
+                      </Dialog>
+
+                <div className="grid lg:flex 2xl:flex">
+                {prodcutSrc ? (                 
+                    <h1 className="text-lg text-green-700 font-medium px-2">
+                        Done
+                    </h1>
+                ): null }
+                </div>  
             </div>
             <button 
             onClick={() => (addNewProduct())}

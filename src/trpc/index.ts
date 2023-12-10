@@ -249,7 +249,7 @@ return { success: true }
     
     return cats
   }),
-  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(),})).mutation(async ({ ctx, input }) => {
+  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(), productSrc: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
@@ -264,6 +264,8 @@ return { success: true }
         productState: input.productState,
         productPrice: input.productPrice,
         productCommision: input.productCommision,
+        productSrc: input.productSrc,
+        author: userId
 
       },
     })
@@ -307,6 +309,27 @@ return { success: true }
         productId: input.id,
       },
     })
+
+    const getProductFiles = await db.products.findFirst({
+      where: {
+        id: input.id,
+      },
+      select: {
+        productSrc: true,
+        productImg: true
+      }
+    })
+    if (getProductFiles && getProductFiles.productSrc) {
+      const getFilekey = getProductFiles.productSrc.replaceAll("https://uploadthing-prod.s3.us-west-2.amazonaws.com/", "")
+      const deleteItem = await utapi.deleteFiles(getFilekey)
+    }
+    if (getProductFiles && getProductFiles.productImg) {
+      getProductFiles.productImg.map(async (item) => {
+        const getFilekey = item.replaceAll("https://uploadthing-prod.s3.us-west-2.amazonaws.com/", "")
+        const deleteItem = await utapi.deleteFiles(getFilekey)
+      })
+      
+    }
 
     return await db.products.delete({
         where: {

@@ -105,6 +105,7 @@ model Products {
   productCatAdd String
   productPrice String @default("0.00")
   productCommision Int @default(0)
+  productSrc String?
 
   Category   Category?   @relation(fields: [productCatId], references: [id])
   productCatId String?

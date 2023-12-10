@@ -40,6 +40,18 @@ export const ourFileRouter = {
     .onUploadComplete(async ({ metadata, file }) => {
       
     }),
+    productSrc: f({"application/zip": { maxFileSize: "4MB" } })
+    .middleware(async ({ req }) => {
+      const { getUser } = getKindeServerSession()
+      const user = getUser()
+
+      if(!user || !user.id) throw new Error("unauthorized")
+
+      return {userId: user.id};
+    })
+    .onUploadComplete(async ({ metadata, file }) => {
+      
+    }),
 } satisfies FileRouter;
  
 export type OurFileRouter = typeof ourFileRouter;
