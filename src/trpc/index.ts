@@ -68,22 +68,7 @@ export const appRouter = router({
     
     return userData
   }),
-  getUserNoti: privateProcedure.query(async ({ctx}) => {
-
-    const {userId, user} = ctx
-    if (!user.id) throw new TRPCError({code: "UNAUTHORIZED"})
-
-    const userNoti = await db.notifications.findMany({
-      where: {
-        userId: {
-          has: userId,
-        }
-      }
-    })
-    if (!userNoti) throw new TRPCError({code: "UNAUTHORIZED"})
-    
-    return userNoti
-  }),
+ 
   getUserLinks: privateProcedure.query(async ({ctx}) => {   
     const {userId, user} = ctx
      
@@ -781,49 +766,6 @@ return { success: true }
     
     return deleteItem.success
   }),
-  deleteNoti: privateProcedure.input(z.object({ id: z.string() })).mutation(async ({ ctx, input }) => {
-    const { userId } = ctx
-
-    const getNoti = await db.notifications.findFirst({
-      where : {
-        AND: [
-          {
-            id: input.id,
-          },
-          {
-            userId: {
-              has: userId,
-            }
-          }
-        ]
-      }
-    })
-
-    if (!getNoti) throw new TRPCError({code: "NOT_FOUND"})
-
-    if (getNoti.userId.length == 1) {
-
-      await db.notifications.delete({
-        where: {
-          id: input.id,
-        }
-      })
-
-    } else {
-
-      const filtredUsers = getNoti.userId.filter((user) => user != userId)
-
-      await db.notifications.update({
-        where: { id: input.id },
-        data: {
-          userId: filtredUsers
-        }
-      })
-      
-    }
-
-    return {success: true}
-  }),
   getAllOthersMem: privateProcedure.query(async ({ctx}) => {   
     const {userId, user} = ctx
 
@@ -843,12 +785,17 @@ return { success: true }
   getAllMem: privateProcedure.query(async ({ctx}) => {   
     const {userId, user} = ctx
 
-    const getAllOthers = await db.user.findMany()
+    const getAllOthers = await db.user.findMany({
+      orderBy: {
+        createdAt: "desc"
+      }
+    })
 
     return getAllOthers
   }),
   deleteMem: publicProcedure.input(z.object({ id: z.string() })).mutation(async ({  input }) => {
     if (!input) throw new TRPCError({code: "NOT_FOUND"})
+    const userId = input.id
 
     await db.link.deleteMany({
         where: {
@@ -877,8 +824,9 @@ return { success: true }
       })
     await db.user.delete({
         where: {
-          id: input.id,
+          id: userId,
         },
+               
     })
     
   }),
