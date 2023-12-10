@@ -884,6 +884,27 @@ return { success: true }
     
   }),
 
+
+  getDesignerOrders: privateProcedure.query(async ({ctx}) => {   
+    const {userId, user} = ctx
+     
+    const designerOrders = await db.transactions.findMany({
+      where: {
+        transactionType: "BENEFIT",
+        userId,
+      },
+      orderBy: {
+        createdAt: "desc"
+      },
+      include: {
+        Products: true,
+      }
+    })
+
+    return designerOrders
+  }),
+
+
   testApi : publicProcedure.query(async () => {
     const getProducts = await db.products.findMany({
       include: {
