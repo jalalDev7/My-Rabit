@@ -4,6 +4,7 @@ import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { toast } from './ui/use-toast'
+import Link from 'next/link'
 
 
 const AdminOrders = () => {
@@ -89,6 +90,15 @@ const AdminOrders = () => {
                                     <h1 className='text-sm'>
                                         Ordred at: {format(new Date(order.createdAt), "MMM yyyy")}
                                     </h1>
+                                    {order.Products.productSrc ? (
+                                        <Link href={order.Products.productSrc}>
+                                            <h1 className='text-md font-semibold'>
+                                                Download design
+                                            </h1>
+                                        </Link>
+                                    ): null}
+                                    
+                                    
                                 </div>
                                 <div className='text-lg font-semibold'>
                                     {order.orderState}
