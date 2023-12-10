@@ -222,6 +222,8 @@ const AddProduct = () => {
                             description: 'Youcan add more images',
                             variant: 'success',
                         })
+                        setIsOpen(false)
+                        setUploadProgress(0)
 
                           }}>
                           {({getRootProps, getInputProps, acceptedFiles}) => (
@@ -337,9 +339,10 @@ const AddProduct = () => {
                             setProductSrc(`https://uploadthing-prod.s3.us-west-2.amazonaws.com/${fileResponse.key}`)
                           toast({
                             title: 'Uploading done',
-                            description: 'Youcan add more images',
                             variant: 'success',
                         })
+                        setIsOpen2(false)
+                        setUploadProgress(0)
 
                           }}>
                           {({getRootProps, getInputProps, acceptedFiles}) => (
@@ -386,10 +389,19 @@ const AddProduct = () => {
                       </Dialog>
 
                 <div className="grid lg:flex 2xl:flex">
-                {prodcutSrc ? (                 
-                    <h1 className="text-lg text-green-700 font-medium px-2">
-                        Done
-                    </h1>
+                {prodcutSrc ? (     
+                    <>
+                        <h1 className="text-lg text-green-700 font-medium px-2">
+                            Done
+                        </h1>
+                        <MdDelete 
+                        onClick={() => {
+                            deletephoto({imgName: prodcutSrc})
+                            setProductSrc("")
+                        }}
+                        className="h-[40px] w-[40px] cursor-pointer px-1 text-zinc-800 bg-red-400 border-red-700 border-2 rounded-md " />
+                    </>            
+                    
                 ): null }
                 </div>  
             </div>
