@@ -249,7 +249,7 @@ return { success: true }
     
     return cats
   }),
-  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(), productSrc: z.string()})).mutation(async ({ ctx, input }) => {
+  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productPrice: z.string(),productCommision: z.number(), productSrc: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
@@ -261,7 +261,7 @@ return { success: true }
         productCatId: input.productCatId,
         productImg: input.productImg,
         productCatAdd: "",
-        productState: input.productState,
+        productState: false,
         productPrice: input.productPrice,
         productCommision: input.productCommision,
         productSrc: input.productSrc,

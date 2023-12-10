@@ -8,6 +8,7 @@ import { notFound, redirect } from 'next/navigation'
 import {GrUserAdmin} from "react-icons/gr"
 import {AiOutlineShop} from "react-icons/ai"
 import {LiaCashRegisterSolid} from "react-icons/lia"
+import { MdDesignServices } from 'react-icons/md'
 
 
 const DashSideBar = async () => {
@@ -22,11 +23,13 @@ const DashSideBar = async () => {
       id: getUserInfo.id
     }
   })
-  
+  let gridNum = 5
+  if (dbUser && dbUser.userState == "designer") gridNum = 6
+  if (dbUser && dbUser.userRank == 0) gridNum = 6
   return (
     
     <>
-    <div className='fixed grid grid-cols-5 bottom-0 bg-white w-screen p-2 border-t-[1px] justify-center items-center z-10 shadow-[rgba(0,0,10,0.5)_0px_0px_20px_0px]'>
+    <div className={`fixed grid grid-cols-6 w-full bottom-0 bg-white  p-2 border-t-[1px] justify-center items-center z-10 shadow-[rgba(0,0,10,0.5)_0px_0px_20px_0px]`}>
         <Link href="/dashboard" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center'>
             <RiDashboardFill className='h-[35px] w-[35px] '/>
@@ -52,6 +55,13 @@ const DashSideBar = async () => {
           <Link href="/admin" >
             <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center '>
               <GrUserAdmin className='h-[35px] w-[35px] '/>
+            </div>
+          </Link>
+        ): null}
+        {dbUser?.userState == "designer" ? (
+          <Link href="/designer" >
+            <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center '>
+              <MdDesignServices className='h-[35px] w-[35px] '/>
             </div>
           </Link>
         ): null}

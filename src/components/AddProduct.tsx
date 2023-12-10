@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from "react"
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
 import Dropzone from "react-dropzone"
@@ -5,7 +6,6 @@ import { Cloud,  File } from "lucide-react"
 import { Progress } from "./ui/progress"
 import { useUploadThing } from "@/lib/uploadthing"
 import { toast } from "./ui/use-toast"
-import { Switch } from "./ui/switch"
 import {MdDelete} from "react-icons/md"
 import { trpc } from "@/app/_trpc/Client"
 import Image from 'next/image'
@@ -45,7 +45,7 @@ const AddProduct = () => {
 
     const uploadZip = useUploadThing("productSrc").startUpload
 
-    const [hiddenProduct , setHiddenProduct] = useState<boolean>(false)
+    
 
     const {mutate: deletephoto} = trpc.deletePhoto.useMutation()
 
@@ -57,7 +57,6 @@ const AddProduct = () => {
             setProductVar("")
             setProductImg([])
             setProductCat("")
-            setHiddenProduct(false)
             setProductSrc("")
             return toast({
                 title: "New product added",
@@ -109,7 +108,6 @@ const AddProduct = () => {
             productVar: productVar,
             productCatId: productCat,
             productImg: productImg,
-            productState: hiddenProduct,
             productPrice: productPrice,
             productCommision: productCommision,
             productSrc: prodcutSrc,
@@ -290,12 +288,7 @@ const AddProduct = () => {
                 ): [] }
                 </div>  
             </div>
-            <div className="flex w-full justify-start items-center text-md font-semibold">
-                <Switch className="m-1"
-                      checked={hiddenProduct}
-                      onCheckedChange={() => (setHiddenProduct(!hiddenProduct))}
-                    /> Hidden product
-            </div>
+            
 
             <div className="flex flex-col w-full items-start justify-start border-zinc-200 border-2 rounded-lg p-2 ml-1">
                 <Dialog open={isOpen2} onOpenChange={(v) => {
