@@ -111,7 +111,7 @@ const SellerChoosenProducts = () => {
             </div>
         ):[
             <div>
-                <Link href="/settings">
+                <Link href="/seller">
                     <h1 className="text-xl font-semibold">
                         Click here to choose some product to sell
                     </h1>  
