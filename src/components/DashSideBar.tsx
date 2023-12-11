@@ -26,6 +26,7 @@ const DashSideBar = async () => {
   let gridNum = "grid-cols-5"
   if (dbUser && dbUser.userState == "designer") gridNum = "grid-cols-6"
   if (dbUser && dbUser.userRank == 0) gridNum = "grid-cols-6"
+  if (dbUser && dbUser.userRank == 0 && dbUser.userState == "designer") gridNum = "grid-cols-7"
   return (
     
     <>

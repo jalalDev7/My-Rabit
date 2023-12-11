@@ -883,8 +883,6 @@ return { success: true }
     })
     
   }),
-
-
   getDesignerOrders: privateProcedure.query(async ({ctx}) => {   
     const {userId, user} = ctx
      
@@ -904,6 +902,21 @@ return { success: true }
     return designerOrders
   }),
 
+  editUserState: privateProcedure.input(z.object({userId: z.string(),newValue: z.string()})).mutation(async ({ ctx, input }) => {
+    const { userId } = ctx
+    if (!userId) throw new TRPCError({code: "UNAUTHORIZED"})
+
+    const edituserState = await db.user.update({
+        where: {
+          id: input.userId
+        },
+        data: {
+          userState: input.newValue,
+        }
+      })
+
+  return edituserState
+  }),
 
   testApi : publicProcedure.query(async () => {
     const getProducts = await db.products.findMany({

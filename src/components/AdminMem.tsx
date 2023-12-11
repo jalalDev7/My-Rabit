@@ -26,16 +26,32 @@ const AdminMem = () => {
               })
         }
         
-      })
+    })
+    const {mutate: editState} = trpc.editUserState.useMutation({
+        onSuccess: () => {
+            utils.getAllMem.invalidate()
+            return toast({
+                title: "State changed",
+                description: "Thanks you",
+                variant: "success",
+              })
+        },
+        onError: () => {
+            return toast({
+                title: "Somethings wrong",
+                description: "Please retry",
+                variant: "destructive",
+              })
+        }
+        
+    })
 
     const handleDelete = (userId: string) => {
         deleteMem({id: userId})
     }
-    const handleSeller = (userId: string) => {
-
-    }
-    const handleDesigner = (userId: string) => {
-
+    
+    const handleDesigner = (userId: string, newValue: string) => {
+        editState({userId: userId, newValue: newValue})
     }
 
   return (
@@ -66,11 +82,11 @@ const AdminMem = () => {
                         <MdDeleteSweep className="h-[35px] w-[35px] cursor-pointer "
                         onClick={() => (handleDelete(mem.id))}
                         />
-                        <MdAddShoppingCart className="h-[35px] w-[35px] cursor-pointer "
-                        onClick={() => (handleSeller(mem.id))}
-                        />
                         <MdOutlineDesignServices className="h-[35px] w-[35px] cursor-pointer "
-                        onClick={() => (handleDesigner(mem.id))}
+                        onClick={() => (handleDesigner(mem.id, "designer"))}
+                        />
+                        <MdOutlineDesignServices className="h-[35px] w-[35px] cursor-pointer text-red-400 "
+                        onClick={() => (handleDesigner(mem.id, "user"))}
                         />
                     </div>
                 </div>
