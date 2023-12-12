@@ -96,7 +96,7 @@ const ProductViewBuy = (props: {productPrice: string, productVar: string, produc
             <input type="text" className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' placeholder='Your adresse'
             onChange={(event) => {setClientAdress(event.currentTarget.value)}} />
         </div>
-        <div className='flex flex-row justify-between items-center w-full border-b-2 border-zinc-300'>
+        <div className='flex flex-row justify-between items-center w-full border-b-2 border-zinc-300 mt-4'>
           <div className='text-md font-semibold'>
             Price : {props.productPrice} Dhs
           </div>
@@ -104,7 +104,7 @@ const ProductViewBuy = (props: {productPrice: string, productVar: string, produc
             Delivery : 0.00 Dhs
           </div>
         </div>
-        <div className='flex w-full justify-end'>
+        <div className='flex w-full justify-end mb-4'>
           <div className='text-md font-semibold'>
             Total : {props.productPrice} Dhs
           </div>

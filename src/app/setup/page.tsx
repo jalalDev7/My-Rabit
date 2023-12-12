@@ -23,6 +23,8 @@ const page = async () => {
     const getAllOthers = await db.user.findMany({
       select: {
         username: true,
+        createdAt: false,
+        userRank: false,
       },
       where: {
         id: {

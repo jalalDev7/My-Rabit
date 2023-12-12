@@ -16,7 +16,6 @@ interface typeOb   {
   createdAt: Date,
   avatar: string,
   theme: number,
-  isSeller: string
   youtubeLink: string,
   facebookLink: string,
   instagramLink: string,

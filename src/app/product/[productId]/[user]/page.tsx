@@ -3,6 +3,7 @@ import ProductViewBuy from '@/components/ProductViewBuy'
 import ProductViewDetails from '@/components/ProductViewDetails'
 import ProductViewImg from '@/components/ProductViewImg'
 import { db } from '@/db'
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
@@ -31,6 +32,21 @@ const page = async ({params}: PageProps) => {
   })
 
   if (!product) notFound()
+
+  const {getUser} = getKindeServerSession()
+  const checkSess = getUser()
+
+  if (!checkSess) {
+
+    const checkProductSelect = await db.userProducts.findFirst({
+      where: {
+        productId: params.productId,
+        userId: user.id,
+      }
+    })
+
+    if (!checkProductSelect) notFound()
+  }
   
  
   return (<>

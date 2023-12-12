@@ -25,7 +25,6 @@ interface typeOb   {
     createdAt: Date,
     avatar: string,
     theme: number,
-    isSeller: string
     youtubeLink: string,
     facebookLink: string,
     instagramLink: string,
@@ -139,7 +138,7 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
 
   return (
     <>
-    <div className='flex w-full h-full items-center justify-center bg-zinc-100 '>
+    <div className='flex w-full h-full items-center justify-center bg-zinc-100 py-24 '>
         <div 
         className='bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start w-fit lg:row-span-2 2xl:row-span-2'>
           <h1 className="text-2xl font-bold mb-4">
@@ -174,7 +173,7 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
               <FormItem>
                 <FormLabel className="text-lg font-semibold p-2">Change your profile picture :</FormLabel>
                 <FormControl>
-                  <div className="flex flex-row w-full">
+                  <div className="flex flex-row h-full w-full">
                     <div className="flex w-fit border-r-2 border-zinc-200 p-2">
                     <Avatar className='h-[50px] w-[50px] items-center'>
                       <AvatarImage src={prevAvatar}/>
@@ -183,8 +182,8 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
                       </AvatarFallback>
                     </Avatar>
                     </div>
-                    <div className="flex flex-col justify-start items-start w-full ml-2">
-                      <Input placeholder="Put your link here" {...field} disabled={true}/>
+                    <div className="flex flex-col justify-start h-full items-center w-full ml-2">
+                      <Input placeholder="Put your link here" {...field} disabled={true} className="hidden"/>
                       <Dialog open={isOpen} onOpenChange={(v) => {
                           if(!v) {
                               setIsOpen(v)
