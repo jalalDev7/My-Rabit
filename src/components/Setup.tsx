@@ -78,7 +78,18 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
           const checkNewUesr = props.others.filter((user) => {return user.username == s})
           if (checkNewUesr.length == 0) return true
           if (checkNewUesr.length > 0) return false
-        }, 'Username is already used please choose another one.'),
+        }, 'Username is already used please choose another one.').refine(s => {
+          if (
+            s == "admin" || 
+            s == "dashboard" || 
+            s == "seller" || 
+            s == "designer" || 
+            s == "auth-callback" || 
+            s == "orders" || 
+            s == "product" || 
+            s == "settings" || 
+            s == "setup") return false
+        }, "This username is not allowed please choose another one."),
         avatar: z.string(),
         youtube: z.string(),
         instagram: z.string(),
