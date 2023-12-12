@@ -18,7 +18,6 @@ interface typeOb   {
   createdAt: Date,
   avatar: string,
   theme: number,
-  isSeller: string
   youtubeLink: string,
   facebookLink: string,
   instagramLink: string,
@@ -34,14 +33,15 @@ const  TestUi = (props: {username: typeOb}) => {
 
   const {mutate: addNewVisitGo} = trpc.addNewVisit.useMutation({})
   const {data: links, isLoading, isError} = trpc.getLinkById.useQuery({user: props.username.id})
-  const theme = trpc.getThemeData.useQuery({themeNum: props.username.theme})
+  
+  //const theme = trpc.getThemeData.useQuery({themeNum: props.username.theme})
 
-  if (theme.isLoading) return(<div className='w-full mt-24 flex justify-center'>
-    <div className='flex flex-col items-center gap-2'>
-      <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
-    </div>
-  </div>)
-  if (!theme.data) return notFound()
+  //if (theme.isLoading) return(<div className='w-full mt-24 flex justify-center'>
+   // <div className='flex flex-col items-center gap-2'>
+     // <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
+    //</div>
+ // </div>)
+  
   
   function handleClick (reserveLink: string, urlToGo: string, getLinkId: string, getLinkUserId: string | null, event: React.MouseEvent<HTMLElement>) {
     
