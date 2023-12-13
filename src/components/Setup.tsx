@@ -71,7 +71,7 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
     }})
 
     const formSchema = z.object({
-        username: z.string().min(4, {
+        username: z.string().max(15, "Over 15 letter is not allowed.").min(4, {
           message: "please enter a valide username contain plus than 4 caracters",
         }).refine(s => !s.includes(' '), 'Space between words is not allowed.')
         .refine(s => {

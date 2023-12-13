@@ -35,12 +35,14 @@ const dashboardTopBar =  () => {
       <div className="flex flex-col w-full justify-center ">
         <div className="flex flex-row w-full border-b-2 border-zinc-400  justify-between p-2 bg-white shadow-lg">
           <div className='flex flex-row gap-2 2xl:text-2xl lg:text-2xl text-md font-semibold w-full items-center'>
-            <Avatar className='h-[35px] w-[35px] items-center'>
+            <Link href="/settings">
+            <Avatar className='h-[35px] w-[35px] items-center cursor-pointer'>
               <AvatarImage src={user.avatar}/>
                 <AvatarFallback>
                   <Loader2 className='h-[35px] w-[35px] animate-spin '/>
                 </AvatarFallback>
              </Avatar>
+             </Link>
             <h1>
               Welcome {user.username != user.id ? user.username : null}
             </h1>
@@ -58,16 +60,12 @@ const dashboardTopBar =  () => {
             onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
             />
           </div>
-          <div className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
-            <Link href={`/${user.username}`}>
+          <Link href={`/${user.username}`} target='_blank' className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
               <GrFormView className="w-[15px] h-[15px] " alt="Copy link" />
-            </Link>
-          </div>
-          <div className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
-            <Link href="/settings">
+          </Link>
+          <Link href="/settings" className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
               <BiEditAlt className="w-[15px] h-[15px] " alt="Copy link" />
-            </Link>
-          </div>
+          </Link>
         </div>
       </div>
       </>
