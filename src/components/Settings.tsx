@@ -235,11 +235,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
                                   variant: 'destructive',
                               })
                           }
+                          setPrevAvatar(`https://uploadthing-prod.s3.us-west-2.amazonaws.com/${fileResponse.key}`)
                           deletephoto({imgName: prevAvatar})
                           clearInterval(progressInterval)
                           setUploadProgress(100)
-
-                          setPrevAvatar(`https://uploadthing-prod.s3.us-west-2.amazonaws.com/${fileResponse.key}`)
 
                           }}>
                           {({getRootProps, getInputProps, acceptedFiles}) => (
