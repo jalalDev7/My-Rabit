@@ -564,16 +564,13 @@ return { success: true }
       where: {
         id: input.productId
       },
-      select: {
-        author: true
-      }
     })
 
     if (getAUthor && getAUthor.author) {
       await db.transactions.create({
         data: {
           transactionType: "BENEFIT",
-          transactionValue: 5,
+          transactionValue: getAUthor.productAuthCommision,
           userId: getAUthor.author,
           productId: input.productId
         }
@@ -584,7 +581,7 @@ return { success: true }
         },
         data: {
           userBalance: {
-            increment: 5
+            increment: getAUthor.productAuthCommision
           }
         },
       })
