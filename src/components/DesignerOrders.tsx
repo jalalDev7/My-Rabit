@@ -31,7 +31,7 @@ const DesignerOrders = () => {
 
                 if (!order.Products) return null
                 return (
-                <div key={index} className='flex flex-col border-2 border-zinc-400 rounded-lg relative '>
+                <div key={index} className='flex flex-col border-2 border-zinc-400 bg-zinc-100 rounded-lg relative '>
                     <div className='flex p-2'>
                         <div className='flex rounded-lg w-full justify-center bg-gradient-to-t from-slate-300 to-slate-500'>
                             <Image src={order.Products.productImg[0]} height={150} width={150} alt={"Product image"} />
@@ -46,7 +46,7 @@ const DesignerOrders = () => {
                         </h1>
                         
                     </div>
-                    <div className='absolute top-0 left-0 bg-green-500 text-white px-4 py-1 shadow-md text-sm font-bold rounded-br-lg rounded-tl-lg'>
+                    <div className='absolute top-0 left-0 bg-green-500 text-white px-4 py-1 shadow-lg text-sm font-bold rounded-br-lg rounded-tl-md'>
                         Solde
                     </div>
                 </div>
