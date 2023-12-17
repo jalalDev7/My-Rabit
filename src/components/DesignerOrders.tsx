@@ -3,7 +3,7 @@ import { trpc } from '@/app/_trpc/Client'
 import { Loader2 } from 'lucide-react'
 import React from 'react'
 import {format} from "date-fns"
-import Link from 'next/link'
+import Image from 'next/image'
 
 const DesignerOrders = () => {
 
@@ -22,45 +22,47 @@ const DesignerOrders = () => {
         </span>
         
     </h1>
-    <div className='flex flex-col w-full items-start justify-center p-4'>
-        <div className='flex flex-col shadow-md border-2 border-zinc-300 justify-center items-start w-full'>
+    <div className='w-full p-4 pb-24'>
+        <div className='flex w-full shadow-md border-2 border-zinc-300 bg-white p-2 rounded-lg'>
+            <div className='grid grid-cols-2 lg:grid-cols-8 2xl:grid-cols-8 gap-2 items-start justify-center w-full'>
             {getUserOrders && getUserOrders.length > 0 ? (
 
                 getUserOrders.map((order, index) => {
-                    return (
-                        <div key={index} className={`flex flex-col w-full border-b-2 border-zinc-300 p-3 item-start justify-center bg-green-100`}>
-                            <div className='flex flex-col 2xl:flex-row lg:flex-row w-full 2xl:justify-between lg:justify-between items-center gap-2'>
-                                <div className='flex flex-col w-full'>
-                                    <h1 className='text-md font-semibold'>
-                                        Order id: {order.id}
-                                    </h1>
-                                    <h1 className='text-sm'>
-                                        Ordred at: {format(new Date(order.createdAt), "dd MMM yyyy")} | {" "}
-                                        <Link href={`/product/${order.productId}/${getUserInfo?.username}`} className='font-semibold underline '>
-                                            View product
-                                        </Link>
-                                    </h1>
-                                </div>
-                                <div className='text-lg font-semibold'>
-                                    Confirmed
-                                </div>
-                            </div>
+
+                if (!order.Products) return null
+                return (
+                <div key={index} className='flex flex-col border-2 border-zinc-400 rounded-lg relative '>
+                    <div className='flex p-2'>
+                        <div className='flex rounded-lg w-full justify-center bg-gradient-to-t from-slate-300 to-slate-500'>
+                            <Image src={order.Products.productImg[0]} height={150} width={150} alt={"Product image"} />
                         </div>
-                    )
+                    </div>
+                    <div className='flex flex-col items-start w-full px-2 py-1'>
+                        <h1 className='text-md'>
+                        <span className='font-bold'>Ordred at : </span>{format(new Date(order.createdAt), "dd MMM yyyy")}
+                        </h1>
+                        <h1 className='text-md'>
+                            <span className='font-bold'>Commision : </span>{order.Products.productAuthCommision} MAD
+                        </h1>
+                        
+                    </div>
+                    <div className='absolute top-0 left-0 bg-green-500 text-white px-4 py-1 shadow-md text-sm font-bold rounded-br-lg rounded-tl-lg'>
+                        Solde
+                    </div>
+                </div>
+                )
                 })
-                
-            ): isLoading ? (
-                <div className='mt-10 flex justify-center w-full items-center lg:col-span-3 2xl:col-span-4'>
-                <div className='flex flex-col items-center gap-2 w-full justify-center '>
-                    <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
-                    <h3 className='font-semibold text-xl'>
-                    Getting your orders from database...
-                    </h3>
-                </div>
-                </div>
-            ): null}
-            
-            
+                ): isLoading ? (
+                    <div className='mt-10 flex justify-center w-full items-center lg:col-span-3 2xl:col-span-4'>
+                    <div className='flex flex-col items-center gap-2 w-full justify-center '>
+                        <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
+                        <h3 className='font-semibold text-xl'>
+                        Getting your orders from database...
+                        </h3>
+                    </div>
+                    </div>
+                ): null}
+            </div>
         </div>
     </div>
     </>
