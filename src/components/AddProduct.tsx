@@ -9,9 +9,13 @@ import { toast } from "./ui/use-toast"
 import {MdDelete} from "react-icons/md"
 import { trpc } from "@/app/_trpc/Client"
 import Image from 'next/image'
+import { buttonVariants } from "./ui/button"
+import { cn } from "@/lib/utils"
 
 
 const AddProduct = () => {
+    
+    const [isOpen3,setIsOpen3] = useState<boolean>()
 
     const utils = trpc.useContext()
 
@@ -130,7 +134,18 @@ const AddProduct = () => {
     }, [productImg]);
 
   return (<>
-    
+
+        <Dialog open={isOpen3} onOpenChange={(v) => {
+            if(!v) {
+                setIsOpen3(v)
+            }
+        }}>
+        <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+            <div className={cn(buttonVariants({size: "lg"}), "bg-blue-600 text-lg py-4 cursor-pointer mt-10")}>
+                Add new product
+            </div>
+        </DialogTrigger>
+        <DialogContent>
         <h1 className='text-2xl mt-10 px-5 mb-2'>
             Add new product
         </h1>
@@ -411,6 +426,10 @@ const AddProduct = () => {
                 Add new product
             </button>
         </div>
+        </DialogContent>
+        </Dialog>
+
+        
     </>
   )
 }
