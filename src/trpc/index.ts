@@ -502,10 +502,14 @@ return { success: true }
      
     const userOrders = await db.orders.findMany({
       where: {
-        userId
+        userId,
+        orderState: "COMFIRMED"
       },
       orderBy: {
         createdAt: "desc"
+      },
+      include: {
+        Products: true
       }
     })
 

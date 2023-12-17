@@ -32,8 +32,8 @@ const dashboardTopBar =  () => {
   return (
     user ? (
       <>
-      <div className="flex flex-col w-full justify-center ">
-        <div className="flex flex-row w-full border-b-2 border-zinc-400  justify-between p-2 bg-white shadow-lg">
+      <div className="flex flex-col w-full justify-center gap-2 ">
+        <div className="flex flex-row w-full border-b-2 border-zinc-400 py-4 justify-between p-2 bg-white shadow-lg">
           <div className='flex flex-row gap-2 2xl:text-2xl lg:text-2xl text-md font-semibold w-full items-center'>
             <Link href="/settings">
             <Avatar className='h-[35px] w-[35px] items-center cursor-pointer'>

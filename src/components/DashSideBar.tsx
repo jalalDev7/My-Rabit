@@ -33,12 +33,12 @@ const DashSideBar = async () => {
     <div className={`fixed grid ${gridNum} w-full bottom-0 bg-white  p-2 border-t-[1px] justify-center items-center z-10 shadow-[rgba(0,0,10,0.5)_0px_0px_20px_0px]`}>
         <Link href="/dashboard" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg hover:shadow-xl hover:bg-zinc-200 justify-center'>
-            <RiDashboardFill className='h-[35px] w-[35px] '/>
+            <RiDashboardFill className='h-[35px] w-[35px]'/>
           </div>
         </Link>
         <Link href="/settings" >
           <div className='flex items-center 2xl:p-2 lg:p-2 p-1 text-balck rounded-lg  hover:shadow-xl hover:bg-zinc-200 justify-center'>
-            <RiSettings3Fill className='h-[35px] w-[35px] '/>
+            <RiSettings3Fill className='h-[35px] w-[35px]'/>
           </div>
         </Link>
         <Link href="/seller" >
