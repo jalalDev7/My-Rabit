@@ -159,7 +159,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
                   <Input  placeholder="username" {...field} width="301" />
                 </FormControl>
                 <FormLabel  className="flex flex-row gap-2 text-sm p-2">
-                  https://my-rabit.com/{form.getValues("username")}
+                  Your link : https://my-rabit.com/{form.getValues("username")}
                   <FaRegCopy className="w-[15px] h-[15px] cursor-pointer " alt="Copy link"
                   onClick={() => (navigator.clipboard.writeText(`https://my-rabit.com/${form.getValues("username")}`))}
                   />
