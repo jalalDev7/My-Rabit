@@ -71,7 +71,8 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           })
         }})
 
-        
+      const bannedUsernames = ['admin','orders','seller','designer','dashboard','settings','setup','product','auth-callback']
+      
       const formSchema = z.object({
         username: z.string().max(15, "Over 15 letter is not allowed.").min(4, {
           message: "please enter a valide username contain plus than 4 caracters",
@@ -80,18 +81,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           const checkNewUesr = props.others.filter((user) => {return user.username == s})
           if (checkNewUesr.length == 0) return true
           if (checkNewUesr.length > 0) return false
-        }, 'Username is already used please choose another one.').refine(s => {
-          if (
-            s == "admin" || 
-            s == "dashboard" || 
-            s == "seller" || 
-            s == "designer" || 
-            s == "auth-callback" || 
-            s == "orders" || 
-            s == "product" || 
-            s == "settings" || 
-            s == "setup") return false
-        }, "This username is not allowed please choose another one."),
+        }, 'Username is already used please choose another one.').refine(s => !bannedUsernames.includes(s), "This username is not allowed please choose another one."),
         avatar: z.string(),
         youtube: z.string(),
         instagram: z.string(),
