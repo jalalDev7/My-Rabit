@@ -83,7 +83,6 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           if (checkNewUesr.length == 0) return true
           if (checkNewUesr.length > 0) return false
         }, 'Username is already used please choose another one.').refine(s => !bannedUsernames.includes(s), "This username is not allowed please choose another one."),
-        userPhone: z.string(),
         avatar: z.string(),
         youtube: z.string(),
         instagram: z.string(),
@@ -91,6 +90,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
         snapchat: z.string(),
         linked: z.string(),
         tiktok: z.string(),
+        userPhone: z.string(),
       })
       let prevUserName = "username"
       if (props.userData.username != props.userData.id) prevUserName = props.userData.username
