@@ -920,15 +920,29 @@ return { success: true }
   return edituserState
   }),
 
-  testApi : publicProcedure.query(async () => {
-    const getProducts = await db.products.findMany({
+  getDesignerProduct: privateProcedure.query(async ({ctx}) => {   
+    const {userId, user} = ctx
+     
+    const designerProducts = await db.products.findMany({
+      where: {
+        author: userId,
+      },
+      orderBy: {
+        createdAt: "desc"
+      },
       include: {
-        orders: true
+        transactions: {
+          where: {
+            transactionType: "BENEFIT",
+          }
+        }
       }
     })
 
-    return getProducts
+    return designerProducts
   }),
+ 
+
 });
 
 
