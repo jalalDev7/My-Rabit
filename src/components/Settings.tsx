@@ -33,6 +33,7 @@ interface typeOb   {
   tiktokLink: string,
   snapchatLink: string,
   linkedLink: string,
+  userPhone: string,
   
 }
 type typeOthers = {username: string}[]
@@ -82,6 +83,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           if (checkNewUesr.length == 0) return true
           if (checkNewUesr.length > 0) return false
         }, 'Username is already used please choose another one.').refine(s => !bannedUsernames.includes(s), "This username is not allowed please choose another one."),
+        userPhone: z.string(),
         avatar: z.string(),
         youtube: z.string(),
         instagram: z.string(),
@@ -103,6 +105,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           snapchat: props.userData.snapchatLink,
           linked: props.userData.linkedLink,
           tiktok: props.userData.tiktokLink,
+          userPhone: props.userData.userPhone,
           },
       })
 
@@ -115,7 +118,8 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           instagram: form.getValues("instagram"),
           linked: form.getValues("linked"),
           snapchat: form.getValues("snapchat"),
-          tiktok: form.getValues("tiktok")
+          tiktok: form.getValues("tiktok"),
+          userPhone: form.getValues("userPhone")
         })
       }
       
@@ -281,6 +285,25 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
               </FormItem>
             )}
           />
+          
+          <hr className="w-full p-1"></hr>        
+          <FormField
+            control={form.control}
+            name="userPhone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-md font-semibold p-2">Your phone number :</FormLabel>
+                <FormControl>
+                  <Input placeholder="Number phone" {...field} width="301" />
+                </FormControl>
+                <FormLabel  className="flex flex-row gap-2 text-sm p-2">
+                  No one can see this information, For business enquiries only.                
+                </FormLabel>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
           <hr className="w-full p-1"></hr>
           <p className="text-2xl font-semibold p-2 ">
             Social media links :

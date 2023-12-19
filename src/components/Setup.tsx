@@ -31,6 +31,7 @@ interface typeOb   {
     tiktokLink: string,
     snapchatLink: string,
     linkedLink: string,
+    userPhone: string,
     
 }
 type typeOthers = {username: string}[]
@@ -86,6 +87,7 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
         snapchat: z.string(),
         linked: z.string(),
         tiktok: z.string(),
+        userPhone: z.string(),
       })
       let prevUserName = ""
       if (props.userData.username != props.userData.id) prevUserName = props.userData.username
@@ -100,6 +102,7 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
           snapchat: props.userData.snapchatLink,
           linked: props.userData.linkedLink,
           tiktok: props.userData.tiktokLink,
+          userPhone: props.userData.userPhone,
           },
       })
 
@@ -112,7 +115,8 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
           instagram: form.getValues("instagram"),
           linked: form.getValues("linked"),
           snapchat: form.getValues("snapchat"),
-          tiktok: form.getValues("tiktok")
+          tiktok: form.getValues("tiktok"),
+          userPhone: form.getValues("userPhone")
         })
       }
       
@@ -274,6 +278,23 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
                   </div>
                   
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <hr className="w-full p-1"></hr>        
+          <FormField
+            control={form.control}
+            name="userPhone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-md font-semibold p-2">Your phone number :</FormLabel>
+                <FormControl>
+                  <Input placeholder="Number phone" {...field} width="301" />
+                </FormControl>
+                <FormLabel  className="flex flex-row gap-2 text-sm p-2">
+                  No one can see this information, For business enquiries only.                
+                </FormLabel>
                 <FormMessage />
               </FormItem>
             )}
