@@ -84,11 +84,9 @@ const AdminOrders = () => {
                                     <Image src={order.Products.productImg[0]} height={150} width={150} alt={"Product image"} />
                                 </div>
                                 <div className='flex flex-col w-full'>
-                                    <h1 className='text-md font-semibold'>
-                                        Order id: {order.id}
-                                    </h1>
+                                    
                                     <h1 className='text-sm'>
-                                        Ordred at: {format(new Date(order.createdAt), "MMM yyyy")}
+                                        Ordred at: {format(new Date(order.createdAt), "dd MMM yyyy")}
                                     </h1>
                                     {order.Products.productSrc ? (
                                         <Link href={order.Products.productSrc}>
@@ -105,23 +103,23 @@ const AdminOrders = () => {
                                 </div>
                                 
                             </div>
-                            <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
+                            <div className='grid grid-cols-2 gap-2 border-t-2 border-zinc-300 p-1'>
                                 <div className='font-semibold flex w-fit items-center justify-center'>
                                     Name: {order.clientName}
                                 </div>
                                 <div className='font-semibold flex w-fit items-center justify-center'>
                                     Phone: {order.clientPhone}
                                 </div>
-                                <div className='font-semibold flex w-full items-center justify-center'>
+                                <div className='col-span-2 font-semibold flex w-full items-center justify-center'>
                                     Adress: {order.clientAdresse}
                                 </div>
                             </div>
-                            <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
-                                <div className='font-semibold flex w-fit items-center justify-center'>
-                                    Product var: {order.productVar}
+                            <div className='flex gap-2 border-t-2 border-zinc-300 p-1 w-full justify-between'>
+                                <div className='font-semibold flex w-full items-center justify-start'>
+                                    Choice : {order.productVar}
                                 </div>
                                 <div className='font-semibold flex w-full items-center justify-center'>
-                                    User: {order.userId}
+                                    User : <Link href={`/${order.User?.username}`}> {order.User?.username}</Link>
                                 </div>
                             </div>
                             

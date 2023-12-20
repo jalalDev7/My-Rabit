@@ -527,7 +527,8 @@ return { success: true }
         },
       },
       include : {
-        Products: true
+        Products: true,
+        User: true,
       },
       orderBy: {
         createdAt: "desc"
