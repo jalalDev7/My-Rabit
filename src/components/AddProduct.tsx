@@ -25,13 +25,9 @@ const AddProduct = () => {
 
     const [productDesc, setProductDesc] = useState("")
 
-    const [productVar, setProductVar] = useState("S,M,L,XL")
+    const [productVar, setProductVar] = useState("S,M,L,XL,XXL")
 
     const [productCat, setProductCat] = useState("")
-
-    const [productPrice, setProductPrice] = useState("")
-
-    const [productCommision, setProductCommision] = useState(0)
 
     const [productImg, setProductImg] = useState<string[]>([])
 
@@ -112,8 +108,6 @@ const AddProduct = () => {
             productVar: productVar,
             productCatId: productCat,
             productImg: productImg,
-            productPrice: productPrice,
-            productCommision: productCommision,
             productSrc: prodcutSrc,
         })
 
@@ -158,10 +152,10 @@ const AddProduct = () => {
             value={productDesc}
             onChange={(event) => (setProductDesc(event.currentTarget.value))}
             className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1 h-[200px] resize-none' placeholder='Product description' ></textarea>
-            <textarea 
+            <input type="text" 
             value={productVar}
             onChange={(event) => (setProductVar(event.currentTarget.value))}
-            className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1 h-[100px] resize-none' placeholder='Product variables, exemple: Small,Meduim,large,...' ></textarea>
+            className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' placeholder='Product variables, exemple: Small,Meduim,large,...' />
             <select 
             onChange={(event) => (setProductCat(event.currentTarget.value))}
             name="parentCat" className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1'>
@@ -177,24 +171,16 @@ const AddProduct = () => {
 
                 })): []}
             </select>
-            <div className="flex flex-row w-full justify-between items-center py-1">
-                <input
-                value={productPrice}
-                onChange={(event) => (setProductPrice(event.currentTarget.value))}
-                type="text" className='w-full border-zinc-200 border-2 rounded-lg p-2 mr-1' placeholder='Product price' />
-                <input
-                value={productCommision}
-                onChange={(event) => (setProductCommision(event.currentTarget.valueAsNumber))}
-                type="number" className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' placeholder='Product commision' />
-            </div>
+            
             <div className="flex flex-col w-full items-start justify-start border-zinc-200 border-2 rounded-lg p-2 ml-1">
+                
                 <Dialog open={isOpen} onOpenChange={(v) => {
                           if(!v) {
                               setIsOpen(v)
                           }
                       }}>
                         <DialogTrigger onClick={() => setIsOpen(true)} asChild>
-                        <h3 className="text-md text-blue-500 cursor-pointer ml-2">
+                        <h3 className="flex w-full items-center justify-center text-md text-blue-500 cursor-pointer ml-2">
                             Add product image
                         </h3>
                         </DialogTrigger>
@@ -282,15 +268,15 @@ const AddProduct = () => {
                           )}
                           </Dropzone>
                         </DialogContent>
-                      </Dialog>
+                </Dialog>
 
-                <div className="grid lg:flex 2xl:flex">
+                <div className="grid grid-cols-3 w-full items-center justify-center gap-2">
                 {productImg && productImg.length > 0 ? (
                     productImg.map((img, index) => {
                         return (
                             <>
-                            <div className="relative m-1" key={index}>
-                                <Image width={250} height={250} className=" h-[250px] w-[250px] rounded-lg " src={img} alt={"Product image"}/>
+                            <div className="relative w-full items-center justify-center" key={index}>
+                                <Image width={100} height={120} className="h-[120px] w-[100px] rounded-lg " src={img} alt={"Product image"}/>
                                 
                                 <MdDelete 
                                 onClick={() => (deleteImg(img))}
@@ -299,9 +285,7 @@ const AddProduct = () => {
                             
                             </>
                         )
-                        })
-                    
-
+                    })
                 ): [] }
                 </div>  
             </div>
@@ -314,7 +298,7 @@ const AddProduct = () => {
                           }
                       }}>
                         <DialogTrigger onClick={() => setIsOpen2(true)} asChild>
-                        <h3 className="text-md text-blue-500 cursor-pointer ml-2">
+                        <h3 className="flex w-full items-center justify-center text-md text-blue-500 cursor-pointer ml-2">
                             Add product source file
                         </h3>
                         </DialogTrigger>
@@ -401,33 +385,33 @@ const AddProduct = () => {
                           )}
                           </Dropzone>
                         </DialogContent>
-                      </Dialog>
+                    </Dialog>
 
-                <div className="grid lg:flex 2xl:flex">
-                {prodcutSrc ? (     
+                    <div className="flex flex-row gap-2 w-full items-center justify-center">
+                    {prodcutSrc ? (     
                     <>
                         <h1 className="text-lg text-green-700 font-medium px-2">
-                            Done
+                            File uploaded
                         </h1>
                         <MdDelete 
                         onClick={() => {
                             deletephoto({imgName: prodcutSrc})
                             setProductSrc("")
                         }}
-                        className="h-[40px] w-[40px] cursor-pointer px-1 text-zinc-800 bg-red-400 border-red-700 border-2 rounded-md " />
+                        className="h-[25px] w-[25px] cursor-pointer text-zinc-800 bg-red-400 border-red-700 border-2 rounded-md " />
                     </>            
                     
                 ): null }
                 </div>  
-            </div>
-            <button 
-            onClick={() => (addNewProduct())}
-            className='bg-black text-white font-semibold rounded-lg py-2 px-5 my-1'>
-                Add new product
-            </button>
-        </div>
-        </DialogContent>
-        </Dialog>
+                    </div>
+                    <button 
+                    onClick={() => (addNewProduct())}
+                    className='bg-black text-white font-semibold rounded-lg py-2 px-5 my-1'>
+                        Add new product
+                    </button>
+                </div>
+                </DialogContent>
+                </Dialog>
 
         
     </>

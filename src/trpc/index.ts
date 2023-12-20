@@ -250,7 +250,7 @@ return { success: true }
     
     return cats
   }),
-  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productPrice: z.string(),productCommision: z.number(), productSrc: z.string()})).mutation(async ({ ctx, input }) => {
+  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productSrc: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
@@ -263,8 +263,8 @@ return { success: true }
         productImg: input.productImg,
         productCatAdd: "",
         productState: false,
-        productPrice: input.productPrice,
-        productCommision: input.productCommision,
+        productPrice: "",
+        productCommision: 0,
         productSrc: input.productSrc,
         author: userId
 
@@ -920,7 +920,6 @@ return { success: true }
 
   return edituserState
   }),
-
   getDesignerProduct: privateProcedure.query(async ({ctx}) => {   
     const {userId, user} = ctx
      
