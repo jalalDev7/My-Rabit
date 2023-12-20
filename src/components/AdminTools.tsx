@@ -10,14 +10,16 @@ import AdminDemandePay from "./AdminDemandePay"
 import AdminThemes from "./AdminThemes"
 import AdminMem from "./AdminMem"
 import { useParams, useSearchParams } from 'next/navigation'
+import AdminProductEdit from './AdminProductEdit'
 
   
 const AdminTools = () => {
 
   const searchParams = useSearchParams()
   const mode = searchParams.get('mode')
+  const productId = searchParams.get('product')
 
-  const [uiChooser, setUiChooser] = useState("products")
+  
   window.document.title = `My-Rabit.com | Admin`
 
   return (<>
@@ -59,6 +61,8 @@ const AdminTools = () => {
         <AdminDemandePay />
       ): mode === "themes" ? (
         <AdminThemes />
+      ): mode === "edit" && productId  ? (
+          <AdminProductEdit productId={productId} />
       ): mode === "members" ? (
         <AdminMem />
       ): [
