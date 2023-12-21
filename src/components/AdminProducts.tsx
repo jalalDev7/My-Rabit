@@ -33,19 +33,7 @@ const AdminProducts = () => {
     
     const {data: getProducts, isLoading, isError} = trpc.getProductsByTitle.useQuery({query: searchQ})
 
-    const [productToEdit, setProductToEdit] = useState<productType>({
-        id: "No",
-        productTitle: "no",
-        productDesc: "string",
-        productVar: "string",
-        productCatId: "string",
-        productImg: ["string"],
-        productState: true,
-        productPrice: "string",
-        productCommision: 0,
-        productCatAdd: "string",
-    })
-
+    
     const handleQuery = (query: string) => {
         setSearchQ(query)
         utils.getProductsByTitle.invalidate()

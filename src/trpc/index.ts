@@ -437,7 +437,8 @@ return { success: true }
         id: input.query
       },
       include: {
-        Category: true
+        Category: true,
+        User: true
       }
     })
     

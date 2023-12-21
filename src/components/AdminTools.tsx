@@ -62,7 +62,7 @@ const AdminTools = () => {
       ): mode === "themes" ? (
         <AdminThemes />
       ): mode === "edit" && productId  ? (
-          <AdminProductEdit productId={productId} />
+        <AdminProductEdit productId={productId} />
       ): mode === "members" ? (
         <AdminMem />
       ): [
