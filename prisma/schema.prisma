@@ -15,6 +15,12 @@ enum OrderState {
   CANCELED
 }
 
+enum productState {
+  HIDDEN
+  PRIVATE
+  ACTIF
+}
+
 model User {
   id    String @id @unique
   email String @unique
@@ -98,7 +104,7 @@ model Products {
   productDesc String
   productImg String[]
   productVar String
-  productState Boolean @default(true)
+  productState productState @default(HIDDEN)
   productCatAdd String
   productPrice String @default("0.00")
   productCommision Int @default(0)
@@ -107,10 +113,10 @@ model Products {
   productAuthCommision Int @default(0)
 
   Category   Category?   @relation(fields: [productCatId], references: [id])
-  productCatId String?
+  productCatId String
 
   User   User?   @relation(fields: [author], references: [id])
-  author String?
+  author String
 
   userProducts userProducts[]
   orders orders[]

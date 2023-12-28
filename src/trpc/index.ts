@@ -262,7 +262,7 @@ return { success: true }
         productCatId: input.productCatId,
         productImg: input.productImg,
         productCatAdd: "",
-        productState: false,
+        productState: "HIDDEN",
         productPrice: "",
         productCommision: 0,
         productSrc: input.productSrc,
@@ -346,7 +346,7 @@ return { success: true }
       include: {
         Product: {
           where: {
-            productState: false,
+            productState: "ACTIF",
           },
           include: {
             orders: true
@@ -807,7 +807,6 @@ return { success: true }
         productDesc: input.productDesc,
         productVar: input.productVar,
         productImg: input.productImg,
-        productState: input.productState,
         productPrice: input.productPrice,
         productCommision: input.productCommision,
 
