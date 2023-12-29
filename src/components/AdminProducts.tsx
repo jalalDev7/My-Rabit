@@ -42,7 +42,7 @@ const AdminProducts = () => {
             variant: "success",
           })
         },
-      })
+    })
 
       
   return (

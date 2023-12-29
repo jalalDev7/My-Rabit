@@ -1,10 +1,11 @@
 import { trpc } from '@/app/_trpc/Client'
 import { Loader2 } from 'lucide-react'
-import React, { useEffect } from 'react'
+import React from 'react'
 import {  useState } from "react"
 import { format } from 'date-fns'
 import Image from 'next/image'
 import { toast } from './ui/use-toast'
+import { redirect } from "next/navigation"
 
 const AdminProductEdit = (params: {productId: string}) => {
 
@@ -102,6 +103,16 @@ const AdminProductEdit = (params: {productId: string}) => {
         })
 
     }
+
+    const {mutate: deleteProduct} = trpc.deleteProduct.useMutation({
+        onSuccess: () => {
+          toast({
+            title: "Product deleted",
+            description: "Thank you",
+            variant: "success",
+          })
+        },
+    })
 
     if (isLoading) {
         return (
@@ -209,7 +220,7 @@ const AdminProductEdit = (params: {productId: string}) => {
                             Save
                         </button>
                         <button 
-                        
+                        onClick={() => (deleteProduct({id: params.productId}))}
                         className='bg-red-500 text-white font-semibold rounded-lg py-2 px-5 my-1'>
                             Delete
                         </button>
