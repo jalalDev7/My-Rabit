@@ -35,15 +35,24 @@ const DesignerProducts = () => {
                             <Image src={product.productImg[0]} height={150} width={150} alt={"Product image"} />
                         </div>
                     </div>
-                    <div className='flex flex-col items-start w-full px-2 py-1'>
-                        <h1 className='text-md'>
-                        <span className='font-bold'>Created at : </span>{format(new Date(product.createdAt), "dd MMM yyyy")}
+                    <div className='flex flex-col items-center justify-center w-full px-2 py-1'>
+                        <h1 className='text-md font-bold'>
+                            Created at :
                         </h1>
                         <h1 className='text-md'>
-                            <span className='font-bold'>Commision : </span>{product.productAuthCommision} MAD
+                            {format(new Date(product.createdAt), "dd MMM yyyy")}
+                        </h1>
+                        <h1 className='text-md font-bold'>
+                            Commision : 
                         </h1>
                         <h1 className='text-md'>
-                            <span className='font-bold'>Total orders : </span>{product.transactions.length}
+                            {product.productAuthCommision} MAD
+                        </h1>
+                        <h1 className='text-md font-bold'>
+                            Total orders :
+                        </h1>
+                        <h1 className='text-md'>
+                            {product.transactions.length}
                         </h1>
                         
                     </div>
