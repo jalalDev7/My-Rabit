@@ -109,7 +109,15 @@ const SellerChoosenProducts = () => {
                     </h3>
                 </div>
             </div>
-        ): null }
+        ): [
+            <div className='flex justify-center w-full items-center lg:col-span-3 2xl:col-span-4'>
+                <div className='flex flex-col items-center gap-2 w-full justify-center '>
+                    <h3 className='font-semibold text-xl'>
+                        Please choose some products to sell.
+                    </h3>
+                </div>
+            </div>
+        ] }
         </div>
     </div>
     </>

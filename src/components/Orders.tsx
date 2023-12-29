@@ -58,15 +58,23 @@ const Orders = () => {
                 )
                 })
                 ): isLoading ? (
-                    <div className='mt-10 flex justify-center w-full items-center lg:col-span-3 2xl:col-span-4'>
+                    <div className='mt-10 flex justify-center w-full items-center col-span-2 lg:col-span-8 2xl:col-span-8'>
                     <div className='flex flex-col items-center gap-2 w-full justify-center '>
                         <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
                         <h3 className='font-semibold text-xl'>
-                        Getting your orders from database...
+                            Getting your orders from database...
                         </h3>
                     </div>
                     </div>
-                ): null}
+                ): [
+                    <div className='flex justify-center w-full items-center col-span-2 lg:col-span-8 2xl:col-span-8'>
+                        <div className='flex flex-col items-center gap-2 w-full justify-center '>
+                            <h3 className='font-semibold text-xl'>
+                                There is no orders right now
+                            </h3>
+                        </div>
+                    </div>
+                ]}
             </div>
         </div>
     </div>
