@@ -109,16 +109,7 @@ const SellerChoosenProducts = () => {
                     </h3>
                 </div>
             </div>
-        ):[
-            <div>
-                <Link href="/seller">
-                    <h1 className="text-xl font-semibold">
-                        Click here to choose some product to sell
-                    </h1>  
-                </Link>
-                
-            </div>
-        ] }
+        ): null }
         </div>
     </div>
     </>

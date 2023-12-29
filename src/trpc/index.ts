@@ -791,7 +791,7 @@ return { success: true }
     
     return themeData
   }),
-  editProduct: privateProcedure.input(z.object({productId: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productImg: z.array(z.string()),productState: z.boolean(),productPrice: z.string(),productCommision: z.number(),})).mutation(async ({ ctx, input }) => {
+  editProduct: privateProcedure.input(z.object({productId: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productPrice: z.string(),productCommision: z.number(),productAuthCommision: z.number(),productCat: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
@@ -803,10 +803,33 @@ return { success: true }
         productTitle: input.productTitle,
         productDesc: input.productDesc,
         productVar: input.productVar,
-        productImg: input.productImg,
         productPrice: input.productPrice,
         productCommision: input.productCommision,
+        productAuthCommision: input.productAuthCommision,
+        productCatId: input.productCat,
+      },
+    })
+  
 
+    return { success: true }
+  }),
+  editProductValidate: privateProcedure.input(z.object({productId: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productPrice: z.string(),productCommision: z.number(),productAuthCommision: z.number(),productCat: z.string()})).mutation(async ({ ctx, input }) => {
+    const { userId } = ctx
+
+    // create user in db
+    await db.products.update({
+      where: {
+        id: input.productId
+      },
+      data: {
+        productTitle: input.productTitle,
+        productDesc: input.productDesc,
+        productVar: input.productVar,
+        productPrice: input.productPrice,
+        productCommision: input.productCommision,
+        productAuthCommision: input.productAuthCommision,
+        productCatId: input.productCat,
+        productState: "ACTIF"
       },
     })
   
