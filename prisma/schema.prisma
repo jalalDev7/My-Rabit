@@ -105,7 +105,6 @@ model Products {
   productImg String[]
   productVar String
   productState productState @default(HIDDEN)
-  productCatAdd String
   productPrice String @default("0.00")
   productCommision Int @default(0)
   productSrc String

@@ -47,13 +47,13 @@ const DesignerProducts = () => {
                         </h1>
                         
                     </div>
-                    {product.productState ? (
+                    {product.productState == "ACTIF" ? (
                         <div className='absolute top-0 left-0 bg-green-500 text-white px-4 py-1 shadow-lg text-sm font-bold rounded-br-lg rounded-tl-md'>
                             Accepted
                         </div>
                     ): (
                         <div className='absolute top-0 left-0 bg-red-500 text-white px-4 py-1 shadow-lg text-sm font-bold rounded-br-lg rounded-tl-md'>
-                            Rejected
+                            Hidden
                         </div>
                     )}
                     

@@ -250,21 +250,18 @@ return { success: true }
     
     return cats
   }),
-  addNewProduct: privateProcedure.input(z.object({productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productCatId: z.string(),productImg: z.array(z.string()),productSrc: z.string()})).mutation(async ({ ctx, input }) => {
+  addNewProduct: privateProcedure.input(z.object({productImg: z.array(z.string()),productSrc: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
     await db.products.create({
       data: {
-        productTitle: input.productTitle,
-        productDesc: input.productDesc,
-        productVar: input.productVar,
-        productCatId: input.productCatId,
+        productTitle: "New product",
+        productDesc: "No desc",
+        productVar: "S,M,L,XL,XXL",
+        productCatId: "",
         productImg: input.productImg,
-        productCatAdd: "",
-        productState: "HIDDEN",
-        productPrice: "",
-        productCommision: 0,
+        productPrice: "Price",
         productSrc: input.productSrc,
         author: userId
 
