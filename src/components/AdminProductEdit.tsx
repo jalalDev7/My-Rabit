@@ -185,19 +185,19 @@ const AdminProductEdit = (params: {productId: string}) => {
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     <textarea onChange={(event) => setDesc(event.target.value)}
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1 h-40'>{getProduct.productDesc}</textarea>
-                    <input type="text" placeholder='Product price' onChange={(event) => (setPrice(event.target.value))} 
+                    <input type="text" placeholder={price} onChange={(event) => (setPrice(event.target.value))} 
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     <div className='flex flex-row items-center justify-between w-full gap-2'>
-                        <input type="number" placeholder='User commision' onChange={(event) => (setUserComm(event.target.valueAsNumber))} 
+                        <input type="number" placeholder={getProduct.productCommision.toString()} onChange={(event) => (setUserComm(event.target.valueAsNumber))} 
                         className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
-                        <input type="number" placeholder='Author commision' onChange={(event) => (setAuthComm(event.target.valueAsNumber))} 
+                        <input type="number" placeholder={getProduct.productAuthCommision.toString()} onChange={(event) => (setAuthComm(event.target.valueAsNumber))} 
                         className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     </div>
                     <select 
                     onChange={(event) => (setProductCat(event.currentTarget.value))}
                     name="parentCat" className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1'>
-                        <option value="">
-                            Please choose one category
+                        <option value={getProduct.Category?.id}>
+                            {getProduct.Category?.catTitle}
                         </option>
                         {getCats && getCats.length > 0 ? (
                         
