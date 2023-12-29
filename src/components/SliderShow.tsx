@@ -19,9 +19,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
 
         return (
           <div key={index} className='bg-white/50 flex flex-col hover:shadow-xl rounded-xl border-black p-1 items-center justify-start border-2 w-full '>
-            <div className="text-md lg:text-lg 2xl:text-lg font-semibold">
-              {item.productTitle.slice(0,20)}
-            </div>
+            
 
             <div className='flex w-full items-center justify-center'>
             <Image src={item.productImg[0]} height={180} width={180} alt={"product image"}
@@ -30,7 +28,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
 
             <div className='flex flex-row w-full justify-between items-center mt-1 mx-1 lg:px-4 2xl:px-4 px-1'>
 
-              <p className='text-lg font-bold 2xl:text-xl'>
+              <p className='text-lg font-bold 2xl:text-xl flex w-full items-center justify-center'>
                 {item.productPrice}  dhs
               </p>
               <Link href={`/product/${item.id}/${props.username}`}
