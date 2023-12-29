@@ -103,7 +103,7 @@ model Products {
   productTitle String
   productDesc String
   productImg String[]
-  productVar String
+  productVar String @default("S,M,L,XL,XXL")
   productState productState @default(HIDDEN)
   productPrice String @default("0.00")
   productCommision Int @default(0)
