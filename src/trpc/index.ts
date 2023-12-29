@@ -281,6 +281,9 @@ return { success: true }
           contains: input.query
         },
       },
+      orderBy: {
+        createdAt: "desc"
+      }
       
     })
     
