@@ -14,8 +14,8 @@ const {getUser} = getKindeServerSession()
 
   return (
     <>
-    <div className="flex flex-row pb-52 bg-zinc-100 h-screen">
-      <div className="w-full bg-zinc-100 pb-32">
+    <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">
+      <div className="w-full">
         <DashboardTopBar />
         <Orders />
       </div>

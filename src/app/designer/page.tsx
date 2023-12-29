@@ -24,10 +24,10 @@ const {getUser} = getKindeServerSession()
   if (dbUser.userState != "designer") redirect('/dashboard')
 
   return (
-    <div className="flex flex-row mb-20">
+    <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">
       <div className="w-full bg-zinc-100">
       <DashboardTopBar />
-      <div className="flex flex-col px-4 mb-10">
+      <div className="flex flex-col px-2 2xl:px-24 lg:px-36 pt-10">
         <AddProduct />
         <DesignerProducts />
         <DesignerOrders />

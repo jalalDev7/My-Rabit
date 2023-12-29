@@ -22,8 +22,8 @@ const Page = async () => {
 
   
   return (<>
-    <div className="flex flex-row mb-20">
-      <div className="w-full bg-zinc-100">
+    <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">
+      <div className="w-full">
         <DashboardTopBar />
         <Seller />
       </div>

@@ -24,7 +24,7 @@ const DesignerOrders = () => {
     </h1>
     <div className='w-full p-4 pb-24'>
         <div className='flex w-full shadow-md border-2 border-zinc-300 bg-white p-2 rounded-lg'>
-            <div className='grid grid-cols-2 lg:grid-cols-8 2xl:grid-cols-8 gap-2 items-start justify-center w-full'>
+            <div className='grid grid-cols-2 lg:grid-cols-6 2xl:grid-cols-6 gap-2 items-start justify-center w-full'>
             {getUserOrders && getUserOrders.length > 0 ? (
 
                 getUserOrders.map((order, index) => {
