@@ -189,8 +189,8 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
                       </AvatarFallback>
                     </Avatar>
                     </div>
-                    <div className="flex flex-col justify-start items-start w-full ml-2">
-                      <Input placeholder="Put your link here" {...field} disabled={true}/>
+                    <div className="flex flex-col justify-center items-start w-full ml-2">
+                      <Input placeholder="Put your link here" className="hidden" {...field}  disabled={true}/>
                       <Dialog open={isOpen} onOpenChange={(v) => {
                           if(!v) {
                               setIsOpen(v)
