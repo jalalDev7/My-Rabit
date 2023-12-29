@@ -38,13 +38,18 @@ const DesignerOrders = () => {
                         </div>
                     </div>
                     <div className='flex flex-col items-start w-full px-2 py-1'>
-                        <h1 className='text-md'>
-                        <span className='font-bold'>Ordred at : </span>{format(new Date(order.createdAt), "dd MMM yyyy")}
+                        <h1 className='text-md font-bold'>
+                            Orderd at :
                         </h1>
                         <h1 className='text-md'>
-                            <span className='font-bold'>Commision : </span>{order.Products.productAuthCommision} MAD
+                            {format(new Date(order.createdAt), "dd MMM yyyy")}
                         </h1>
-                        
+                        <h1 className='text-md font-bold'>
+                            Commision : 
+                        </h1>
+                        <h1 className='text-md'>
+                            {order.Products.productAuthCommision} MAD
+                        </h1>
                     </div>
                     <div className='absolute top-0 left-0 bg-green-500 text-white px-4 py-1 shadow-lg text-sm font-bold rounded-br-lg rounded-tl-md'>
                         Solde
