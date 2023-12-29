@@ -65,29 +65,35 @@ const AdminMem = () => {
             return (
                 <div key={mem.id} className='flex flex-row items-start justify-between w-full gap-2 p-2 border-b-2 border-zinc-400'>
                     <div className='flex flex-col items-start justify-start'>
-                        <h1 className='text-md font-semibold'>
-                            username : {mem.username}
+                        <h1 className='text-md'>
+                            <span className='font-semibold'>Username : </span> {mem.username}
                         </h1>
-                        <h1 className='text-md font-semibold'>
-                            Email : {mem.email}
+                        <h1 className='text-md'>
+                            <span className='font-semibold'>Email : </span> {mem.email}
                         </h1>
-                        <h1 className='text-md font-semibold'>
-                            Balance : {mem.userBalance} MAD
+                        <h1 className='text-md'>
+                            <span className='font-semibold'>Balance : </span> {mem.userBalance} MAD
                         </h1>
-                        <h1 className='text-md font-semibold'>
-                            User state : {mem.userState}
+                        <h1 className='text-md '>
+                            <span className='font-semibold'>User state : </span> {mem.userState}
+                        </h1>
+                        <h1 className='text-md '>
+                            <span className='font-semibold'>User phone : </span> {mem.userPhone}
                         </h1>
                     </div>
-                    <div className='grid grid-cols-2 items-center justify-center gap-2'>
-                        <MdDeleteSweep className="h-[35px] w-[35px] cursor-pointer "
-                        onClick={() => (handleDelete(mem.id))}
-                        />
-                        <MdOutlineDesignServices className="h-[35px] w-[35px] cursor-pointer "
-                        onClick={() => (handleDesigner(mem.id, "designer"))}
-                        />
-                        <MdOutlineDesignServices className="h-[35px] w-[35px] cursor-pointer text-red-400 "
-                        onClick={() => (handleDesigner(mem.id, "user"))}
-                        />
+                    <div className='flex flex-col items-center justify-center gap-2'>
+                        <button onClick={() => (handleDelete(mem.id))}
+                        className='flex w-full text-lg items-center text-white justify-center bg-red-500 border-2 border-red-700 rounded-lg px-2 font-semibold'>
+                            Delete
+                        </button>
+                        <button onClick={() => (handleDesigner(mem.id, "designer"))}
+                        className='flex w-full text-lg items-center text-white justify-center bg-blue-500 border-2 border-blue-700 rounded-lg px-2 font-semibold'>
+                            Designer
+                        </button>
+                        <button onClick={() => (handleDesigner(mem.id, "user"))}
+                        className='flex w-full text-lg items-center text-white justify-center bg-black border-2 border-black rounded-lg px-2 font-semibold'>
+                            User
+                        </button>
                     </div>
                 </div>
             )
