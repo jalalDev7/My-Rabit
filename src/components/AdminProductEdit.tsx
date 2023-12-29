@@ -137,8 +137,6 @@ const AdminProductEdit = (params: {productId: string}) => {
             </div>
         )
     }
-
-    
     
 
   return (<>
@@ -153,6 +151,14 @@ const AdminProductEdit = (params: {productId: string}) => {
                         </h1>
                         <h1 className='flex text-md font-semibold'>
                             created at : {format(new Date(getProduct.createdAt), "dd MMM yyyy")}
+                        </h1>
+                    </div>
+                    <div className='flex w-full justify-between'>
+                        <h1 className='flex text-md font-semibold'>
+                            User phone : {getProduct.User?.userPhone} 
+                        </h1>
+                        <h1 className='flex text-md font-semibold'>
+                            Product state : {getProduct.productState}
                         </h1>
                     </div>
                     <div className="grid grid-cols-3 w-full items-center justify-center gap-2">
@@ -181,7 +187,7 @@ const AdminProductEdit = (params: {productId: string}) => {
                     ]}
                     <input type="text" placeholder={getProduct.productTitle} onChange={(event) => (setTitle(event.target.value))} 
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
-                    <input type="text" value={vars} placeholder={getProduct.productVar} onChange={(event) => (setVars(event.target.value))} 
+                    <input type="text" placeholder={getProduct.productVar} onChange={(event) => (setVars(event.target.value))} 
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     <textarea onChange={(event) => setDesc(event.target.value)}
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1 h-40'>{getProduct.productDesc}</textarea>
