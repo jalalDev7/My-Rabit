@@ -22,6 +22,7 @@ const AddProduct = () => {
     const [isUploadng, setIsUploading] = useState<boolean>(true)
 
     const [uploadProgress, setUploadProgress] = useState<number>(0)
+    
     const [uploadProgressZip, setUploadProgressZip] = useState<number>(0)
 
     const uploadImg = useUploadThing("productImage").startUpload
