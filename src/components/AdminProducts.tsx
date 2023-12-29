@@ -2,13 +2,8 @@ import { trpc } from '@/app/_trpc/Client'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai'
 import { toast } from './ui/use-toast'
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
-import EditProduct from './EditProduct'
 import Image from 'next/image'
-import { format } from 'date-fns'
-import { redirect } from 'next/navigation'
 
 interface productType {
     id: string,
