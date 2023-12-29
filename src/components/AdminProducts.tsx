@@ -74,15 +74,19 @@ const AdminProducts = () => {
                                 Delete
                             </button>
                         </div>
-                        {product.productState ? (
+                        {product.productState == "ACTIF" ? (
                             <div className='absolute top-0 left-0 bg-green-500 text-white px-4 py-1 shadow-lg text-sm font-bold rounded-br-lg rounded-tl-md'>
                                 Accepted
                             </div>
-                        ): (
+                        ): product.productState == "HIDDEN" ? (
                             <div className='absolute top-0 left-0 bg-red-500 text-white px-4 py-1 shadow-lg text-sm font-bold rounded-br-lg rounded-tl-md'>
                                 Rejected
                             </div>
-                        )}
+                        ):product.productState == "PRIVATE" ? (
+                            <div className='absolute top-0 left-0 bg-blue-500 text-white px-4 py-1 shadow-lg text-sm font-bold rounded-br-lg rounded-tl-md'>
+                                Private
+                            </div>
+                        ): null }
                         
                     </div>
                     )
