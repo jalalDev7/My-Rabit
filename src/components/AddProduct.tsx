@@ -14,6 +14,8 @@ import { cn } from "@/lib/utils"
 
 
 const AddProduct = () => {
+
+    const utils = trpc.useContext()
     
     const [productImg, setProductImg] = useState<string[]>([])
 
@@ -39,7 +41,8 @@ const AddProduct = () => {
             setProductImg([])
             setProductSrc("")
             setUploadProgressZip(0)
-
+            utils.getDesignerProduct.invalidate()
+            utils.getProductsByTitle.invalidate()
             return toast({
                 title: "New product added",
                 description: "Thanks you",
