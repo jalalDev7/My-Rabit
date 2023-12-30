@@ -37,11 +37,10 @@ const Page = async () => {
   
   return (<>
     <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">
-      
       <DashSideBar />
-      <div className="w-full">
-      <DashboardTopBar />
-      <Settings userData={dbUser} others={getAllOthers} />
+      <div className="flex flex-col w-full 2xl:pl-[280px] lg:pl-[260px]">
+        <DashboardTopBar />
+        <Settings userData={dbUser} others={getAllOthers} />
       </div>
     </div>
 

@@ -31,51 +31,56 @@ const dashboardTopBar =  () => {
 
   return (
     user ? (
-      <>
-      <div className="flex flex-col w-full justify-center gap-2 ">
-        <div className="flex flex-row w-full border-b-2 border-zinc-400 py-4 justify-between p-2 bg-white shadow-lg">
-          <div className='flex flex-row gap-2 2xl:text-2xl lg:text-2xl text-md font-semibold w-full items-center'>
-            <Link href="/settings">
-            <Avatar className='h-[35px] w-[35px] items-center cursor-pointer'>
-              <AvatarImage src={user.avatar}/>
-                <AvatarFallback>
-                  <Loader2 className='h-[35px] w-[35px] animate-spin '/>
-                </AvatarFallback>
-             </Avatar>
-             </Link>
-            <h1>
-              Welcome {user.username != user.id ? user.username : null}
-            </h1>
-          </div>
-          
-          <h1 className="flex 2xl:text-2xl lg:text-2xl text-md font-semibold w-full items-center justify-end">
-            Balance: {user.userBalance} MAD
-          </h1>
-        </div>
 
-        <div className="flex flex-row gap-2 py-2 px-4">
-          <h3 className="2xl:text-2xl lg:text-2xl text-md font-semibold">Your link :</h3>
-          <div className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
-            <FaRegCopy className="w-[15px] h-[15px] " alt="Copy link"
-            onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
-            />
+      <div className="flex w-full">
+        <div className="flex flex-row w-full py-4 justify-between p-2">
+          <div className='flex flex-row w-full gap-4 2xl:text-2xl lg:text-2xl text-md font-semibold items-center'>
+            <Link href="/settings">
+              <Avatar className='h-[50px] w-[50px] items-center cursor-pointer'>
+                <AvatarImage src={user.avatar}/>
+                  <AvatarFallback>
+                    <Loader2 className='h-[50px] w-[50px] animate-spin '/>
+                  </AvatarFallback>
+              </Avatar>
+             </Link>
+             <div className='flex flex-col w-full h-full items-start justify-center'>
+              <h1 className="2xl:text-lg lg:text-lg text-md font-semibold w-full items-center justify-start">
+                Welcome {user.username != user.id ? user.username : null}
+              </h1>
+              <h1 className="2xl:text-lg lg:text-lg text-md font-semibold w-full items-center justify-start">
+                Balance: {user.userBalance} MAD
+              </h1>
+             </div>
           </div>
-          <Link href={`/${user.username}`} target='_blank' className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
-              <GrFormView className="w-[15px] h-[15px] " alt="Copy link" />
-          </Link>
-          <Link href="/settings" className="bg-zinc-300 flex w-fit items-center justify-between rounded-lg cursor-pointer hover:shadow-md px-2">
-              <BiEditAlt className="w-[15px] h-[15px] " alt="Copy link" />
-          </Link>
+
+          <div className="flex flex-row w-full justify-end items-center gap-2 py-2 px-4">
+            <h3 className="2xl:text-2xl lg:text-2xl text-md font-semibold">
+              Your link :
+            </h3>
+            <div 
+            onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
+            className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl cursor-pointer'>
+              <FaRegCopy alt="Copy link" className=' h-[15px] w-[15px] '/> 
+            </div>
+            <Link href={`/${user.username}`} target='_blank' 
+            className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+                <GrFormView className="w-[15px] h-[15px] " alt="Copy link" />
+            </Link>
+            <Link href="/settings" 
+            className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+                <BiEditAlt className="w-[15px] h-[15px] " alt="Copy link" />
+            </Link>
+          </div>
         </div>
       </div>
-      </>
+
     ): isLoading ? (
       <div className='w-full mt-24 flex justify-center'>
         <div className='flex flex-col items-center gap-2'>
           <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
         </div>
       </div>
-    ): []
+    ): null
     
   )
 }
