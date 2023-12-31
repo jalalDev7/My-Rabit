@@ -8,7 +8,7 @@ import { notFound, redirect } from 'next/navigation'
 import {GrUserAdmin} from "react-icons/gr"
 import {AiOutlineShop} from "react-icons/ai"
 import {LiaCashRegisterSolid} from "react-icons/lia"
-import { MdDesignServices } from 'react-icons/md'
+import { MdAdminPanelSettings, MdDesignServices } from 'react-icons/md'
 
 
 const DashSideBar = async () => {
@@ -35,52 +35,52 @@ const DashSideBar = async () => {
           <span>My<span className='text-blue-600'>-Rabit</span></span>
         </Link>
         <Link href="/dashboard" className='group flex w-full pl-4 py-2' >
-          <div className='flex flex-row w-full justify-center gap-4 items-center text-black group-hover:text-blue-600'>
-            <div className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
-              <RiDashboardFill className=' h-[25px] w-[25px] '/> 
+          <div className='flex flex-row w-full justify-center gap-4 items-center text-white'>
+            <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-xl'>
+              <RiDashboardFill className=' h-[25px] w-[25px]  '/> 
             </div>
-            <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl group-hover:text-blue-600'>
+            <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl text-black group-hover:text-blue-600'>
               Dashboard
             </h1>
           </div>
         </Link>
         <Link href="/settings" className='group flex w-full pl-4 py-2 ' >
-          <div className='flex flex-row w-full justify-center gap-4 items-center text-black group-hover:text-blue-600'>
-            <div className='flex justify-start items-center p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+          <div className='flex flex-row w-full justify-center gap-4 items-center text-white'>
+            <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-xl'>
               <RiSettings3Fill className=' h-[25px] w-[25px] '/> 
             </div>
-            <h1 className='flex w-full justify-start items-center font-semibold text-2xl group-hover:text-blue-600'>
+            <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl text-black group-hover:text-blue-600'>
               Settings
             </h1>
           </div>
         </Link>
         <Link href="/seller" className='group flex w-full pl-4 py-2'>
-          <div className='flex flex-row w-full justify-center gap-4 items-center text-black group-hover:text-blue-600'>
-            <div className='flex justify-start items-center  p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+          <div className='flex flex-row w-full justify-center gap-4 items-center text-white'>
+            <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-xl'>
               <AiOutlineShop className=' h-[25px] w-[25px] '/> 
             </div>
-            <h1 className='flex w-full justify-start items-center font-semibold text-2xl '>
-              Shop
+            <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl text-black group-hover:text-blue-600'>
+              Seller
             </h1>
           </div>
         </Link>
         <Link href="/orders" className='group flex w-full pl-4 py-2'>
-          <div className='flex flex-row w-full justify-center gap-4 items-center text-black group-hover:text-blue-600'>
-            <div className='flex justify-start items-center p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+          <div className='flex flex-row w-full justify-center gap-4 items-center text-white'>
+            <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-xl'>
               <LiaCashRegisterSolid className=' h-[25px] w-[25px] '/> 
             </div>
-            <h1 className='flex w-full justify-start items-center font-semibold text-2xl'>
+            <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl text-black group-hover:text-blue-600'>
               Orders
             </h1>
           </div>
         </Link>
         {dbUser?.userRank == 0 ? (
           <Link href="/admin" className='group flex w-full pl-4 py-2 '>
-            <div className='flex flex-row w-full justify-center gap-4 items-center text-black group-hover:text-blue-600'>
-              <div className='flex justify-start items-center p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
-                <GrUserAdmin className=' h-[25px] w-[25px] '/> 
+            <div className='flex flex-row w-full justify-center gap-4 items-center text-white'>
+              <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-xl'>
+                <MdAdminPanelSettings  className=' h-[25px] w-[25px] '/> 
               </div>
-              <h1 className='flex w-full justify-start items-center font-semibold text-2xl'>
+              <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl text-black group-hover:text-blue-600'>
                 Admin
             </h1>
             </div>
@@ -88,26 +88,29 @@ const DashSideBar = async () => {
         ): null}
         {dbUser?.userState == "designer" ? (
           <Link href="/designer" className='group flex w-full pl-4 py-2'>
-            <div className='flex flex-row w-full justify-center gap-4 items-center text-black group-hover:text-blue-600'>
-              <div className='flex justify-start items-center p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+            <div className='flex flex-row w-full justify-center gap-4 items-center text-white'>
+              <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-xl'>
                 <MdDesignServices className=' h-[25px] w-[25px] '/> 
               </div> 
-              <h1 className='flex w-full justify-start items-center font-semibold text-2xl'>
+              <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl text-black group-hover:text-blue-600'>
                 Workshop
             </h1>
             </div>
           </Link>
         ): null}
-        <LogoutLink className="group flex w-full h-full justify-end items-end pl-4 ">
-          <div className='flex flex-row w-full justify-center gap-4 items-center text-black group-hover:text-blue-600'>
-            <div className='flex justify-start items-center p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+        <div className='flex w-full h-full justify-end items-end pl-4 '>
+        <LogoutLink className="group flex w-full ">
+          <div className='flex flex-row w-full justify-center gap-4 items-center text-white'>
+            <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-xl'>
                 <IoLogOut className=' h-[25px] w-[25px] '/> 
               </div> 
-            <h1 className='flex w-full justify-start items-center font-semibold text-2xl'>
+            <h1 className='flex w-full h-full justify-start items-center font-semibold text-2xl text-black group-hover:text-blue-600'>
               Log out
             </h1>
           </div>
         </LogoutLink>
+        </div>
+        
     </div>
 
 

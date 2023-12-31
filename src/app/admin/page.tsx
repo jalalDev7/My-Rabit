@@ -24,7 +24,7 @@ const page = async () => {
     <>
       <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">
         <DashSideBar />
-        <div className="flex flex-col w-full 2xl:pl-[280px] lg:pl-[260px]">
+        <div className="flex flex-col w-full 2xl:ml-[250px] lg:ml-[250px]">
           <DashboardTopBar />
           <AdminTools />
         </div>
