@@ -13,21 +13,24 @@ const ProductViewImg = (props: {productImg: string[], username: string}) => {
  
   return (
 
-    <div className='flex flex-col w-full justify-start items-start gap-2'>
-        <div className='flex w-full justify-center items-center'>
+    <div className='flex flex-col w-full justify-start items-start'>
+        <div className='flex flex-col w-full justify-center items-center gap-2 '>
+          <div className="flex w-full bg-zinc-200 items-center justify-center">
             <Image src={bigOne} height={366} width={300} alt={"Product image"}
-            className="2xl:w-[456px] 2xl:h-[450px] lg:w-[456px] lg:h-[350px] w-[366px] h-[300px] "
+            className="2xl:w-[456px] 2xl:h-[450px] lg:w-[456px] lg:h-[350px] w-[366px] h-[300px]"
             />
-        </div>
-        <div className='flex flex-row w-full justify-center items-center gap-1'>
+          </div>
+          <div className='grid grid-cols-3 w-full justify-center items-center gap-2'>
           {productImg.map((img, indx) => {
             return (<Image key={indx} src={img} height={150} width={150} alt={"product image"} 
                     onClick={() => (setBigOne(img))}
-                    className="cursor-pointer 2xl:w-[150px] 2xl:h-[150px] lg:w-[150px] lg:h-[150px] w-[120px] h-[150px] "
+                    className="cursor-pointer w-full h-[150px] bg-zinc-200 "
             />)
           })}
             
+          </div>
         </div>
+        
         <div className='absolute left-2 top-4 z-0 hover:bg-zinc-200 rounded-full'>
             <Link href={`/${props.username}`}>
               <FaArrowLeft className="w-[25px] h-[25px]" />
