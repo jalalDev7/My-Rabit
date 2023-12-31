@@ -15,8 +15,9 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { Button } from '@/components/ui/button'
-import { HiOutlineShoppingCart } from "react-icons/hi";
+import { HiOutlineShoppingCart } from "react-icons/hi"
 import { BiLike } from 'react-icons/bi'
+import { IoMdShare } from "react-icons/io"
 
 const ProductViewBuy = (props: {productPrice: string, productVar: string, productId: string, user: string}) => {
 
@@ -76,9 +77,10 @@ const ProductViewBuy = (props: {productPrice: string, productVar: string, produc
   return (<>
 
 
-    <div className='flex flex-col w-full items-center justify-center'>
+    <div className='flex flex-col 2xl:flex-row lg:flex-row w-full gap-2 items-center justify-center 2xl:px-12 lg:px-12 px-4'>
+      <div className='flex  w-full'>
       <Drawer>
-        <DrawerTrigger className='flex w-full items-center justify-center'>
+        <DrawerTrigger className='flex w-full items-center justify-center '>
           <div className='group flex flex-row w-full bg-green-500 border-2 border-green-800 text-white  hover:bg-blue-700 hover:border-bule-800 font-bold rounded-lg  transition-all duration-500 ease-in-out'>
             <div className='flex items-center justify-center bg-green-800 h-20 w-20 p-4 rounded-md group-hover:bg-blue-500 group-hover:w-80 group-hover:p-4  transition-all duration-500 ease-in-out'>
               <HiOutlineShoppingCart className="w-full h-full" />
@@ -176,6 +178,34 @@ const ProductViewBuy = (props: {productPrice: string, productVar: string, produc
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+      </div>
+      <div className='flex w-full'>
+      <Drawer>
+        <DrawerTrigger className='flex w-full items-center justify-center'>
+          <div className='group flex flex-row w-full bg-white border-2 border-zinc-500 text-zinc-900  hover:bg-black hover:border-black hover:text-white font-bold rounded-lg  transition-all duration-500 ease-in-out'>
+            <div className='flex items-center justify-center bg-zinc-200 h-20 w-20 p-4 rounded-md group-hover:bg-zinc-400 group-hover:w-80 group-hover:p-4 group-hover:text-white transition-all duration-500 ease-in-out'>
+              <IoMdShare  className="w-full h-full" />
+            </div>
+            <div className='flex w-full items-center justify-center text-3xl'>
+              Share
+            </div>
+          </div>
+        </DrawerTrigger>
+        <DrawerContent className='flex w-full items-center justify-center'>
+          <DrawerHeader>
+            <DrawerTitle>We are ready to serve you better.</DrawerTitle>
+            <DrawerDescription>We are sure it will not be the last time.</DrawerDescription>
+          </DrawerHeader>
+            Soon
+          <DrawerFooter className='flex w-full lg:w-[600px] 2xl:w-[600px]'>
+            <DrawerClose>
+              <Button variant="outline">Close</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+      </div>
+      
     </div>
     
     </>)

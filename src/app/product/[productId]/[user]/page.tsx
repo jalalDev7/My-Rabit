@@ -56,7 +56,7 @@ const page = async ({params}: PageProps) => {
         <div className='2xl:row-span-2 lg:row-span-2'>
           <ProductViewImg productImg={product.productImg} username={params.user}/>
         </div>
-        <div className='flex flex-col items-start justify-start w-full 2xl:col-span-2 lg:col-span-2 mt-0 2xl:px-2 lg:px-2 px-2 '>
+        <div className='flex flex-col items-start justify-start w-full 2xl:col-span-2 lg:col-span-2 2xl:px-2 lg:px-2 px-2 '>
             <ProductViewDetails productDesc={product.productDesc} productTitle={product.productTitle} productPrice={product.productPrice}/>
             <ProductViewBuy productPrice={product.productPrice} productVar={product.productVar} productId={product.id} user={user.id} />
         </div>
