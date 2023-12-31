@@ -615,6 +615,7 @@ return { success: true }
   }),
   demandePay: privateProcedure.input(z.object({userId: z.string(),value: z.number()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
+    
     if (!userId) throw new TRPCError({code: "UNAUTHORIZED"})
 
     await db.transactions.findFirst({
@@ -625,7 +626,7 @@ return { success: true }
         },
       }
     }).then((res) => {
-      if (res) throw new TRPCError({code: "UNAUTHORIZED"})
+      if (res) throw new TRPCError({code: "TOO_MANY_REQUESTS"})
     })
     
     const demandePay = await db.transactions.create({

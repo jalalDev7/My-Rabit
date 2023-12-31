@@ -148,7 +148,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
     <h1 className='text-2xl mt-5 px-5'>
         Settings
     </h1>
-    <div className='grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 w-full gap-4 p-4 items-start justify-start '>
+    <div className='flex flex-col lg:flex-row 2xl:flex-row w-full gap-4 p-4 items-start justify-start '>
         <div 
         className='bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start w-full lg:row-span-2 2xl:row-span-2'>
         <Form {...form} >
@@ -394,12 +394,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           </div>                
           
         </form>
-      </Form>
+        </Form>
         </div>
-        <div className='flex w-full lg:w-full bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start '>
+        <div className='flex flex-col w-full bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start '>
             <BalanceEditor  />
-        </div>
-        <div className='flex w-full lg:w-full bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start '>
             <DemandesPay  />
         </div>
 

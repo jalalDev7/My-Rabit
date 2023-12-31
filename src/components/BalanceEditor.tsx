@@ -22,12 +22,19 @@ const BalanceEditor = () => {
                 variant: "success",
               })
         },
-        onError: () => {
+        onError: (error) => {
+            if (error.data?.code == "TOO_MANY_REQUESTS" ) {
+                return toast({
+                    title: "Sorry, you have a previous withdrawal request",
+                    description: "If we have not contacted you within two days, please contact customer service",
+                    variant: "destructive",
+                })
+            }
             return toast({
                 title: "Somethings wrong",
                 description: "Check your Balance",
                 variant: "destructive",
-              })
+            })
         }
         
       })
@@ -36,7 +43,7 @@ const BalanceEditor = () => {
         if (!user || !demandeValue || demandeValue > user.userBalance || demandeValue < 200 ) {
             return toast({
                 title: "Demande rejected",
-                description: "Check your Balance",
+                description: "You must have at least 200 MAD.",
                 variant: "destructive",
             })
         }
