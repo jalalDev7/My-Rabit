@@ -1,4 +1,5 @@
 import DashSideBar from "@/components/DashSideBar"
+import Footer from "@/components/Footer"
 import Settings from "@/components/Settings"
 import DashboardTopBar from "@/components/dashboardTopBar"
 import { db } from "@/db"
@@ -37,11 +38,12 @@ const Page = async () => {
 
   
   return (<>
-    <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">
+    <div className="flex flex-row bg-zinc-100 min-h-screen pb-24 lg:pb-8 2xl:pb-8">
       <DashSideBar />
       <div className="flex flex-col w-full 2xl:ml-[250px] lg:ml-[250px]">
         <DashboardTopBar />
         <Settings userData={dbUser} others={getAllOthers} />
+        <Footer />
       </div>
     </div>
 
