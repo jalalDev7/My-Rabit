@@ -32,12 +32,12 @@ const ProductViewDetails = (props: {productDesc: string, productTitle: string, p
         </div>
       </div>
       <div className='flex py-12 w-full items-center justify-center'>
-        <Carousel className='w-[75%] lg:w-[90%] 2xl:w-[90%]'>
+        <Carousel className='w-[70%] lg:w-[90%] 2xl:w-[90%]'>
           <CarouselContent className='w-full'>
             <CarouselItem className='w-full '>
               <div className='flex flex-col w-full '>
                 <div className='flex flex-col w-full gap-4 h-[250px] py-10 text-white bg-gradient-to-r from-cyan-500 to-blue-500 items-center justify-center'>
-                  <h1 className=' text-2xl font-semibold'>
+                  <h1 className=' text-lg lg:text-2xl 2xl:text-2xl font-semibold'>
                     Why you should by from us ?
                   </h1>
                   <FaRegFaceGrinStars className=" w-32 h-32 " />
