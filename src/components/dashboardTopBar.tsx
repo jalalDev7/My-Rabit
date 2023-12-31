@@ -43,11 +43,11 @@ const dashboardTopBar =  () => {
                   </AvatarFallback>
               </Avatar>
              </Link>
-             <div className='flex flex-col w-full h-full items-start justify-center'>
-              <h1 className="2xl:text-lg lg:text-lg text-md font-semibold w-full items-center justify-start">
+             <div className='flex flex-col w-full h-full'>
+              <h1 className="2xl:text-lg lg:text-lg text-sm font-semibold w-full items-center justify-start">
                 Welcome {user.username != user.id ? user.username : null}
               </h1>
-              <h1 className="2xl:text-lg lg:text-lg text-md font-semibold w-full items-center justify-start">
+              <h1 className="2xl:text-lg lg:text-lg text-sm font-semibold w-full items-center justify-start">
                 Balance: {user.userBalance} MAD
               </h1>
              </div>
