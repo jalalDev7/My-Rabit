@@ -1,5 +1,5 @@
 
-
+import parse from 'html-react-parser';
 const ProductViewDetails = (props: {productDesc: string, productTitle: string, productPrice: string}) => {
 
 
@@ -13,7 +13,7 @@ const ProductViewDetails = (props: {productDesc: string, productTitle: string, p
         Price : {props.productPrice}dhs
       </div>
       <div className='flex py-5 w-full text-lg '>
-        {props.productDesc}
+        {parse(props.productDesc)}
       </div>
       
     </div>

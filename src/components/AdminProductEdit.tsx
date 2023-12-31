@@ -5,7 +5,8 @@ import {  useState } from "react"
 import { format } from 'date-fns'
 import Image from 'next/image'
 import { toast } from './ui/use-toast'
-import { redirect } from "next/navigation"
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const AdminProductEdit = (params: {productId: string}) => {
 
@@ -189,10 +190,15 @@ const AdminProductEdit = (params: {productId: string}) => {
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     <input type="text" placeholder={getProduct.productVar} onChange={(event) => (setVars(event.target.value))} 
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
-                    <textarea onChange={(event) => setDesc(event.target.value)}
-                    className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1 h-40'>{getProduct.productDesc}</textarea>
+                    <div className='w-full my-1 h-[400px]'>
+                        <CKEditor editor={ClassicEditor} data={getProduct.productDesc}
+                        onChange={(event, editor) => {
+                            const data = editor.getData()
+                            setDesc(data)
+                        }} />
+                    </div>
                     <input type="text" placeholder={getProduct.productPrice} onChange={(event) => (setPrice(event.target.value))} 
-                    className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
+                    className='w-full border-zinc-200 border-2 rounded-lg p-2 mb-1 mt-8' />
                     <div className='flex flex-row items-center justify-between w-full gap-2'>
                         <input type="number" placeholder={getProduct.productCommision.toString()} onChange={(event) => (setUserComm(event.target.valueAsNumber))} 
                         className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
