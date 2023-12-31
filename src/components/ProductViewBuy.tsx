@@ -15,7 +15,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { Button } from '@/components/ui/button'
-import { useRef } from 'react'
+import { HiOutlineShoppingCart } from "react-icons/hi";
 import { BiLike } from 'react-icons/bi'
 
 const ProductViewBuy = (props: {productPrice: string, productVar: string, productId: string, user: string}) => {
@@ -78,10 +78,15 @@ const ProductViewBuy = (props: {productPrice: string, productVar: string, produc
 
     <div className='flex flex-col w-full items-center justify-center'>
       <Drawer>
-        <DrawerTrigger
-        className='flex w-full items-center justify-center text-2xl bg-green-500 border-2 border-green-600 text-white  hover:bg-black hover:border-black font-bold rounded-lg py-2 px-5 my-1 transition-all duration-500 ease-in-out'
-        >
-          Buy now
+        <DrawerTrigger className='flex w-full items-center justify-center'>
+          <div className='group flex flex-row w-full bg-green-500 border-2 border-green-800 text-white  hover:bg-blue-700 hover:border-bule-800 font-bold rounded-lg  transition-all duration-500 ease-in-out'>
+            <div className='flex items-center justify-center bg-green-800 h-20 w-20 p-4 rounded-md group-hover:bg-blue-500 group-hover:w-80 group-hover:p-4  transition-all duration-500 ease-in-out'>
+              <HiOutlineShoppingCart className="w-full h-full" />
+            </div>
+            <div className='flex w-full items-center justify-center text-3xl'>
+              SHOP NOW
+            </div>
+          </div>
         </DrawerTrigger>
         <DrawerContent className='flex w-full items-center justify-center'>
           <DrawerHeader>

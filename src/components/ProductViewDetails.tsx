@@ -1,6 +1,7 @@
 "use client"
+import ReactStars from 'react-rating-star-with-type'
 import parse from 'html-react-parser'
-import ReactStars from "react-rating-stars-component"
+
 const ProductViewDetails = (props: {productDesc: string, productTitle: string, productPrice: string}) => {
 
 
@@ -15,15 +16,13 @@ const ProductViewDetails = (props: {productDesc: string, productTitle: string, p
           {props.productPrice} MAD
         </h1>
         <div className='flex flex-row gap-2'>
-          <ReactStars
-            size={30}
-            count={5}
-            value={4.5}
-            isHalf={true}
-            activeColor="#ffd700"
+          <ReactStars 
+          isEdit={true}
+          value={4.5}  
+          activeColors={[ "#FFCE00", "#9177FF","#8568FC",]} 
           />
         </div>
-        <div className='flex text-md text-zinc-700 '>
+        <div className='flex text-sm font-semibold text-zinc-700 '>
           Review
         </div>
       </div>
