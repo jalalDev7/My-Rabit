@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import ProductTopBar from '@/components/ProductTopBar'
 import ProductViewBuy from '@/components/ProductViewBuy'
 import ProductViewDetails from '@/components/ProductViewDetails'
@@ -59,6 +60,9 @@ const page = async ({params}: PageProps) => {
             <ProductViewDetails productDesc={product.productDesc} productTitle={product.productTitle} productPrice={product.productPrice}/>
             <ProductViewBuy productPrice={product.productPrice} productVar={product.productVar} productId={product.id} user={user.id} />
         </div>
+    </div>
+    <div className='flex w-full lg:px-52 2xl:px-52 py-8'>
+      <Footer />
     </div>
     </>
   )
