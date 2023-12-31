@@ -18,7 +18,7 @@ const BalanceEditor = () => {
 
             return toast({
                 title: "Demande accepted",
-                description: "We will contact you soon",
+                description: "We will contact you soon. Make sure that you have already write your phone number in your profile.",
                 variant: "success",
               })
         },
