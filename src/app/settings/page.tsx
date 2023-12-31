@@ -20,6 +20,7 @@ const Page = async () => {
   })
 
   if (!dbUser) redirect('/auth-callback?origin=dashboard')
+  if (dbUser.username == dbUser.id) redirect('/setup')
 
   const getAllOthers = await db.user.findMany({
     select: {

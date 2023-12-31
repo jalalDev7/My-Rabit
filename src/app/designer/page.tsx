@@ -8,7 +8,8 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { notFound, redirect } from "next/navigation"
 
 const page = async () => {
-const {getUser} = getKindeServerSession()
+  
+  const {getUser} = getKindeServerSession()
   const user = getUser()
   
   if (!user || !user.id) redirect('/auth-callback?origin=dashboard')
@@ -20,7 +21,7 @@ const {getUser} = getKindeServerSession()
   })
 
   if (!dbUser) redirect('/auth-callback?origin=dashboard')
-
+  if (dbUser.username == dbUser.id) redirect('/setup')
   if (dbUser.userState != "designer") redirect('/dashboard')
 
   return (

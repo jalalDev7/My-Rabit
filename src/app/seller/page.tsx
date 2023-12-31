@@ -19,7 +19,7 @@ const Page = async () => {
   })
 
   if (!dbUser) redirect('/auth-callback?origin=dashboard')
-
+  if (dbUser.username == dbUser.id) redirect('/setup')
   
   return (<>
     <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">

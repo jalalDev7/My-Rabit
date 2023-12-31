@@ -142,9 +142,9 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
 
   return (
     <>
-    <div className='flex w-full h-full items-center justify-center bg-zinc-100 py-24 '>
+    <div className='flex w-full  items-center justify-center px-4 '>
         <div 
-        className='bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start w-fit lg:row-span-2 2xl:row-span-2'>
+        className='flex flex-col w-fit bg-white rounded-lg p-5 border-zinc-200 border-[1px] justify-start items-start shadow-xl'>
           <h1 className="text-2xl font-bold mb-4">
             Quick setup
           </h1>
@@ -194,7 +194,7 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
                           }
                       }}>
                         <DialogTrigger onClick={() => setIsOpen(true)} asChild>
-                        <h3 className="text-md text-blue-500 cursor-pointer ml-2">
+                          <h3 className=" text-md text-blue-500 cursor-pointer ml-2">
                             click here to change your avatar
                           </h3>
                         </DialogTrigger>

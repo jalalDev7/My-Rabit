@@ -18,7 +18,8 @@ const page = async () => {
       id: user.id
     }
   })
-  if (!dbUser || dbUser.userRank > 0) return notFound()
+  if (!dbUser || dbUser.userRank > 0) return redirect('/')
+  if (dbUser.username == dbUser.id) redirect('/setup')
   return (
     <>
       <div className="flex flex-row bg-zinc-100 min-h-screen pb-24">
