@@ -25,7 +25,7 @@ const AdminTools = () => {
   return (<>
     <div className="flex flex-row p-4 w-full">
       <div className="flex flex-row w-full bg-white border-zinc-300 border-2 rounded-lg p-2 ">
-        <ul className='flex flex-row gap-2 w-full items-center justify-center'>
+        <ul className='flex flex-row gap-1 2xl:gap-4 lg:gap-4 w-full items-center justify-center'>
           <Link href="admin">
             <li className='flex w-full cursor-pointer text-sm lg:text-lg 2xl:text-lg font-semibold items-center justify-center hover:bg-zinc-200 rounded-lg p-2'>
               Products
