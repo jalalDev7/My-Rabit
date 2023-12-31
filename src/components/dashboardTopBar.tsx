@@ -33,7 +33,7 @@ const dashboardTopBar =  () => {
     user ? (
 
       <div className="flex w-full">
-        <div className="flex flex-row w-full py-4 justify-between p-2">
+        <div className="grid grid-cols-2 w-full py-4 p-2">
           <div className='flex flex-row w-full gap-4 2xl:text-2xl lg:text-2xl text-md font-semibold items-center'>
             <Link href="/settings">
               <Avatar className='h-[50px] w-[50px] items-center cursor-pointer'>
@@ -53,23 +53,26 @@ const dashboardTopBar =  () => {
              </div>
           </div>
 
-          <div className="flex flex-row w-full justify-end items-center gap-2 py-2 px-4">
+          <div className="flex flex-col lg:flex-row 2xl:flex-row justify-end items-end gap-2">
             <h3 className="2xl:text-2xl lg:text-2xl text-md font-semibold">
               Your link :
             </h3>
-            <div 
-            onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
-            className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl cursor-pointer'>
-              <FaRegCopy alt="Copy link" className=' h-[15px] w-[15px] '/> 
+            <div className='flex gap-2'>
+              <div 
+              onClick={() => (handleCopy(`https://my-rabit.com/${user.username}`))}
+              className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl cursor-pointer'>
+                <FaRegCopy alt="Copy link" className=' h-[15px] w-[15px] '/> 
+              </div>
+              <Link href={`/${user.username}`} target='_blank' 
+              className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+                  <GrFormView className="w-[15px] h-[15px] " alt="Copy link" />
+              </Link>
+              <Link href="/settings" 
+              className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
+                  <BiEditAlt className="w-[15px] h-[15px] " alt="Copy link" />
+              </Link>
             </div>
-            <Link href={`/${user.username}`} target='_blank' 
-            className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
-                <GrFormView className="w-[15px] h-[15px] " alt="Copy link" />
-            </Link>
-            <Link href="/settings" 
-            className='flex justify-start p-2 bg-white border-2 border-zinc-500 rounded-lg shadow-xl'>
-                <BiEditAlt className="w-[15px] h-[15px] " alt="Copy link" />
-            </Link>
+            
           </div>
         </div>
       </div>

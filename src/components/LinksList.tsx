@@ -20,7 +20,7 @@ const linksList = () => {
     
   return (
     <>
-    <div className='flex flex-col lg:flex-row 2xl:flex-row gap-2 justify-between w-full items-start px-4 mt-4'>
+    <div className='flex flex-row gap-2 justify-between w-full items-start px-4 mt-4'>
       <h1 className='text-2xl'>
           Your links
       </h1>
