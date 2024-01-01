@@ -61,7 +61,7 @@ const page = async ({params}: PageProps) => {
             <ProductViewBuy productPrice={product.productPrice} productVar={product.productVar} productId={product.id} user={user.id} />
         </div>
     </div>
-    <div className='flex w-full lg:px-52 2xl:px-52 py-8'>
+    <div className='flex w-full lg:px-32 2xl:px-32 py-8'>
       <Footer />
     </div>
     </>

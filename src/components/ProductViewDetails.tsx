@@ -1,9 +1,10 @@
 "use client"
 import ReactStars from 'react-rating-star-with-type'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel'
-import { FaRegFaceGrinStars } from "react-icons/fa6";
+import { FaRegFaceGrinStars } from "react-icons/fa6"
 import Image from 'next/image'
-import { FaShippingFast } from 'react-icons/fa';
+import { FaShippingFast } from 'react-icons/fa'
+import { LuHeartHandshake } from "react-icons/lu"
 
 
 const ProductViewDetails = (props: {productDesc: string, productTitle: string, productPrice: string}) => {
@@ -85,6 +86,21 @@ const ProductViewDetails = (props: {productDesc: string, productTitle: string, p
                   </h1>
                   <h1 className='text-md'>
                   Dont care about anything we gonna ship your product to your home very fast for free. Just enjoy.
+                  </h1>
+                </div>
+              </div>
+            </CarouselItem>
+            <CarouselItem className='w-full '>
+              <div className='flex flex-col w-full '>
+                <div className='flex flex-col w-full gap-4 h-[250px] py-10 text-white bg-gradient-to-r from-lime-400 to-lime-500 items-center justify-center'>
+                  <LuHeartHandshake   className=" w-32 h-32 " />
+                </div>
+                <div className='flex flex-col w-full px-4 border-b border-r border-l border-zinc-400 gap-4 py-4'>
+                  <h1 className='text-lg font-semibold'>
+                    4. Support your favorite Artist, Content creator, etc...
+                  </h1>
+                  <h1 className='text-md'>
+                  This is the best way to support others, you enjoy our product and at the same time you thanks your favorite Artist, Content creators, etc...
                   </h1>
                 </div>
               </div>
