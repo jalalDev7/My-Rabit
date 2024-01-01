@@ -66,11 +66,11 @@ const AdminProducts = () => {
                         </div>
                         <div className='flex flex-row items-start justify-between w-full py-1 px-2 gap-1'>
                             <Link href={`/admin?mode=edit&product=${product.id}`}
-                            className='flex w-full text-lg text-white items-center justify-center bg-blue-500 border-2 border-blue-700 rounded-lg px-2 font-semibold'>
+                            className='flex w-full text-sm lg:text-lg 2xl:text-lg text-white items-center justify-center bg-blue-500 border-2 border-blue-700 rounded-lg px-2 font-semibold'>
                                 Edit
                             </Link>
                             <button onClick={() => (deleteProduct({id: product.id}))}
-                            className='flex w-full text-lg items-center text-white justify-center bg-red-500 border-2 border-red-700 rounded-lg px-2 font-semibold'>
+                            className='flex w-full text-sm lg:text-lg 2xl:text-lg items-center text-white justify-center bg-red-500 border-2 border-red-700 rounded-lg px-2 font-semibold'>
                                 Delete
                             </button>
                         </div>
