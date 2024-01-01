@@ -20,7 +20,7 @@ const ProductViewImg = (props: {productImg: string[], username: string}) => {
             className="2xl:w-[450px] 2xl:h-[450px] lg:w-[450px] lg:h-[450px] w-[300px] h-[300px]"
             />
             <Image src={"/super-sale.png"} height={90} width={90} alt={"Super sale"}
-            className="absolute top-2 left-2 drop-shadow-xl w-[90px] h-[90px]" 
+            className="absolute top-1 left-1 drop-shadow-xl w-[90px] h-[90px]" 
             />
           </div>
           <div className='grid grid-cols-3 w-full justify-center items-center gap-2'>
