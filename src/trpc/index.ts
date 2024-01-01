@@ -867,6 +867,9 @@ return { success: true }
     const {userId, user} = ctx
 
     const getAllOthers = await db.user.findMany({
+      include: {
+        Prodcuts: true
+      },
       orderBy: {
         createdAt: "desc"
       }

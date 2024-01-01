@@ -7,6 +7,7 @@ import { GrOverview } from "react-icons/gr"
 import { toast } from "./ui/use-toast"
 import { Loader2 } from "lucide-react"
 import Image from 'next/image'
+import { FaEye } from "react-icons/fa6"
 
 
 
@@ -112,8 +113,8 @@ const SellerAllProducts = () => {
                                                     {product.orders.length}
                                                 </div>
                                                 <div className='flex flex-row items-center '>
-                                                    <Link href={`/product/${product.id}/${getUser?.username}`}>
-                                                        <GrOverview className=" text-4xl bg-zinc-200 hover:bg-zinc-300 rounded-lg p-1 m-1 " />
+                                                    <Link href={`/product/${product.id}/${getUser?.username}`} target="_blank">
+                                                        <FaEye  className=" text-4xl bg-zinc-200 hover:bg-zinc-300 rounded-lg p-1 m-1 " />
                                                     </Link>
                                                         <MdAddTask className=" text-4xl bg-blue-200 hover:bg-blue-300 rounded-lg p-1 m-1 cursor-pointer " 
                                                         onClick={() => (addUserProduct(product.id))}

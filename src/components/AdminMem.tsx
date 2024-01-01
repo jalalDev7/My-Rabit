@@ -2,6 +2,9 @@ import { trpc } from '@/app/_trpc/Client'
 import React from 'react'
 import { MdAddShoppingCart, MdDeleteSweep, MdOutlineDesignServices } from 'react-icons/md'
 import { toast } from './ui/use-toast'
+import Link from 'next/link'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { Loader2 } from 'lucide-react'
 
 const AdminMem = () => {
 
@@ -59,23 +62,42 @@ const AdminMem = () => {
     <h1 className='text-2xl mt-10 px-5 mb-2'>
         All members
     </h1>
-    <div className='flex flex-col w-full items-start justify-start gap-2 bg-white rounded-lg border-2 border-zinc-400'>
+    <div className='grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3 p-2 w-full items-start justify-start gap-2 bg-white rounded-lg border-2 border-zinc-400'>
     {members && members.length > 0 ? (
         members.map((mem) => {
             return (
-                <div key={mem.id} className='flex flex-row items-start justify-between w-full gap-2 p-2 border-b-2 border-zinc-400'>
-                    <div className='flex flex-col items-start justify-start'>
-                        <h1 className='text-md'>
-                            <span className='font-semibold'>Username : </span> {mem.username}
-                        </h1>
+                <div key={mem.id} className='flex flex-row items-start justify-between w-full gap-2 p-2 bg-zinc-100 border border-zinc-400 rounded-lg'>
+                    <div className='flex flex-col w-full items-start justify-start'>
+                        <div className='flex flex-row w-full gap-2 items-center'>
+                            <Link href="/settings">
+                            <Avatar className='h-[50px] w-[50px] items-center cursor-pointer'>
+                                <AvatarImage src={mem.avatar}/>
+                                <AvatarFallback>
+                                    <Loader2 className='h-[50px] w-[50px] animate-spin '/>
+                                </AvatarFallback>
+                            </Avatar>
+                            </Link>
+                            <Link href="/settings">
+                                <h1 className='text-lg font-semibold'>
+                                    {mem.username}
+                                </h1>
+                                <h1 className='text-md'>
+                                    <span className='font-semibold'>Balance : </span> {mem.userBalance} MAD
+                                </h1>
+                            </Link>
+                            
+                        </div>
+                        <div className='flex flex-row w-full gap-2'>
+                            <h1 className='text-md '>
+                                <span className='font-semibold'>User state : </span> {mem.userState}
+                            </h1>
+                            <h1 className='text-md '>
+                                <span className='font-semibold'>Total products : </span> {mem.Prodcuts.length}
+                            </h1>
+                        </div>
+                        
                         <h1 className='text-md'>
                             <span className='font-semibold'>Email : </span> {mem.email}
-                        </h1>
-                        <h1 className='text-md'>
-                            <span className='font-semibold'>Balance : </span> {mem.userBalance} MAD
-                        </h1>
-                        <h1 className='text-md '>
-                            <span className='font-semibold'>User state : </span> {mem.userState}
                         </h1>
                         <h1 className='text-md '>
                             <span className='font-semibold'>User phone : </span> {mem.userPhone}
