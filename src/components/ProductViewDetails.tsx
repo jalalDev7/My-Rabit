@@ -1,6 +1,5 @@
 "use client"
 import ReactStars from 'react-rating-star-with-type'
-import parse from 'html-react-parser'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel'
 import { FaRegFaceGrinStars } from "react-icons/fa6";
 import Image from 'next/image'
@@ -32,7 +31,7 @@ const ProductViewDetails = (props: {productDesc: string, productTitle: string, p
         </div>
       </div>
       <div className='flex py-12 w-full items-center justify-center'>
-        <Carousel className='w-[70%] lg:w-[90%] 2xl:w-[90%]'>
+        <Carousel className='w-[90%] lg:w-[90%] 2xl:w-[90%]' >
           <CarouselContent className='w-full'>
             <CarouselItem className='w-full '>
               <div className='flex flex-col w-full '>
@@ -92,8 +91,8 @@ const ProductViewDetails = (props: {productDesc: string, productTitle: string, p
             </CarouselItem>
 
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className='mx-[60px] ' />
+          <CarouselNext className='mx-[80px]' />
         </Carousel>
       </div>
       
