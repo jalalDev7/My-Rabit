@@ -2,8 +2,6 @@ import { trpc } from "@/app/_trpc/Client"
 import Link from "next/link"
 import {  AiOutlineShoppingCart } from "react-icons/ai"
 import { MdAddTask } from "react-icons/md"
-import {CiBookmarkRemove} from "react-icons/ci"
-import { GrOverview } from "react-icons/gr"
 import { toast } from "./ui/use-toast"
 import { Loader2 } from "lucide-react"
 import Image from 'next/image'
