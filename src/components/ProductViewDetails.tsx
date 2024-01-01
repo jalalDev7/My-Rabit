@@ -30,8 +30,8 @@ const ProductViewDetails = (props: {productDesc: string, productTitle: string, p
           Review
         </div>
       </div>
-      <div className='flex py-12 w-full items-center justify-center'>
-        <Carousel className='w-[90%] lg:w-[90%] 2xl:w-[90%]' >
+      <div className='flex py-6 w-full items-center justify-center'>
+        <Carousel className='w-[90%] lg:w-[90%] 2xl:w-[95%]' >
           <CarouselContent className='w-full'>
             <CarouselItem className='w-full '>
               <div className='flex flex-col w-full '>

@@ -52,11 +52,11 @@ const page = async ({params}: PageProps) => {
  
   return (<>
     <ProductTopBar user={user} />
-    <div className='grid lg:grid-cols-3 2xl:grid-cols-3 w-full lg:mx-52 2xl:mx-52 max-w-screen-2xl  items-start justify-center gap-2'>
-        <div className='2xl:row-span-2 lg:row-span-2'>
+    <div className='flex flex-col lg:flex-row 2xl:flex-row w-full lg:px-32 2xl:px-32 items-center justify-center'>
+        <div className='flex w-full lg:w-[650px] 2xl:w-[650px]'>
           <ProductViewImg productImg={product.productImg} username={params.user}/>
         </div>
-        <div className='flex flex-col items-start justify-start w-full 2xl:col-span-2 lg:col-span-2 2xl:px-2 lg:px-2 px-2 '>
+        <div className='flex flex-col items-start justify-start w-full 2xl:px-2 lg:px-2 px-2 '>
             <ProductViewDetails productDesc={product.productDesc} productTitle={product.productTitle} productPrice={product.productPrice}/>
             <ProductViewBuy productPrice={product.productPrice} productVar={product.productVar} productId={product.id} user={user.id} />
         </div>

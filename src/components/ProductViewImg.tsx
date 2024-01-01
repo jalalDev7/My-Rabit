@@ -17,7 +17,7 @@ const ProductViewImg = (props: {productImg: string[], username: string}) => {
         <div className='flex flex-col w-full justify-center items-center gap-2 '>
           <div className="flex w-full bg-zinc-200 items-center justify-center relative">
             <Image src={bigOne} height={366} width={300} alt={"Product image"}
-            className="2xl:w-[456px] 2xl:h-[450px] lg:w-[456px] lg:h-[350px] w-[366px] h-[300px]"
+            className="2xl:w-[450px] 2xl:h-[450px] lg:w-[450px] lg:h-[450px] w-[300px] h-[300px]"
             />
             <Image src={"/super-sale.png"} height={120} width={120} alt={"Super sale"}
             className="absolute top-2 left-2 drop-shadow-xl" 
