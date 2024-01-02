@@ -41,7 +41,7 @@ export default function Home() {
               Our <span className='text-blue-600'>platform</span> offers a package of free services to help you create your own online space.
             </h1>
             <h1 className='text-lg'>
-            With us, you can create a free page with your own name that includes all your social media links as well as any other links you have, and that's not all.
+            With us, you can create a free page with your own name that includes all your social media links as well as any other links you have, and thats not all.
             </h1>
             <RegisterLink className={buttonVariants({
               size: 'lg',
