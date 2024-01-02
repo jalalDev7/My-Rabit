@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
     <NavBar/>
-    <MaxWidthWrapper className='mb-12 mt-12 sm:mt-40 flex flex-col items-center justify-center'>
+    <MaxWidthWrapper className='mb-12 mt-12 sm:mt-40 flex flex-col items-center justify-center '>
       <h1 className='max-w4xl text-5xl font-bold md:text-6xl lg:text-7xl'>
         Get more <span className='text-blue-600'>Money</span> from your links.
       </h1>
@@ -34,20 +34,31 @@ export default function Home() {
             style={{clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'}} 
             className='relative left-[calc(50%-11rem)] aspect-[1115/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]' />
         </div>
-        <div>
-          <div className='mx-auto max-w-6xl px-6 lg:px-8'>
-            <div className='mt-16 flow-root sm:mt-24'>
-              <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
-                <Image 
-                src='/dashboard-preview.jpg' 
+        
+        <div className='flex flex-col lg:flex-row 2xl:flex-row  w-full lg:py-24 2xl:py-24 py-4 lg:px-32 2xl:px-32 px-2 gap-14 items-center justify-center'>
+          <div className='flex flex-col lg:w-[60%] 2xl:w-[60%]  w-full items-start justify-start gap-4'>
+            <h1 className='text-4xl font-bold text-black '>
+              Our <span className='text-blue-600'>platform</span> offers a package of free services to help you create your own online space.
+            </h1>
+            <h1 className='text-lg'>
+            With us, you can create a free page with your own name that includes all your social media links as well as any other links you have, and that's not all.
+            </h1>
+            <RegisterLink className={buttonVariants({
+              size: 'lg',
+              className: "mt-5",
+            })}>
+              Create your own pge<ArrowRight className='ml-2 h-5 w-5 ' />
+            </RegisterLink>
+          </div>
+          <div className='flex w-full lg:w-[40%] 2xl:w-[40%]'>
+            <Image 
+                src='/show-1.png' 
                 alt='Product preview' 
-                width={1364} 
-                height={866}
+                width={650} 
+                height={650}
                 quality={100}
-                className='rounded-md p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10 bg-white'
+                className='rounded-md  shadow-2xl ring-1 ring-gray-900/10 bg-white'
                  />
-              </div>
-            </div>
           </div>
         </div>
 
@@ -59,7 +70,7 @@ export default function Home() {
       </div>
     </div>
 
-    <div className='mx-auto mt-32 max-w-5xl sm:mt-56'>
+    <div className='mx-auto mt-16 max-w-5xl sm:mt-56'>
       <div className='mb-12 px-6 lg:px-8'>
         <div className='mx-auto max-w-2xl sm:text-center'>
           <h2 className='mt-2 font-bold text-gray-900 sm:text-5xl '>
@@ -112,7 +123,22 @@ export default function Home() {
           </div>
         </li>
       </ol>
-           
+      <div>
+          <div className='mx-auto max-w-6xl px-6 lg:px-8'>
+            <div className='mt-16 flow-root sm:mt-24'>
+              <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
+                <Image 
+                src='/dashboard-preview.jpg' 
+                alt='Product preview' 
+                width={1364} 
+                height={866}
+                quality={100}
+                className='rounded-md p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10 bg-white'
+                 />
+              </div>
+            </div>
+          </div>
+        </div>     
     </div>
     <div className='flex w-full lg:px-96 2xl:px-96 py-8 '>
       <Footer />
