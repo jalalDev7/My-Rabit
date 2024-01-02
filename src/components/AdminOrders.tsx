@@ -124,15 +124,15 @@ const AdminOrders = () => {
                             </div>
                             
                             {order.orderState != "COMFIRMED" && order.orderState != "CANCELED" ? (
-                            <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
-                                <button className='text-md font-semibold bg-blue-400 py-1 px-2 border-2 border-blue-700 m-1'
+                            <div className='flex gap-2 border-t-2 border-zinc-300 p-1 items-center justify-center'>
+                                <button className='text-sm lg:text-md 2xl:text-md font-semibold bg-blue-400 p-1 rounded-lg border-2 border-blue-700 '
                                 onClick={() => {
                                     editOrderState({orderId: order.id, newState: "PENDING"})
                                 }}
                                 >
                                     PENDING
                                 </button>
-                                    <button className='text-md font-semibold bg-green-400 py-1 px-2 border-2 border-green-700 m-1'
+                                    <button className='text-sm lg:text-md 2xl:text-md font-semibold bg-green-400 p-1 rounded-lg border-2 border-green-700'
                                     onClick={() => {
                                         editBalance({userId: order.userId, addValue: commission, productId: order.productId})
                                         editOrderState({orderId: order.id, newState: "COMFIRMED"})
@@ -141,7 +141,7 @@ const AdminOrders = () => {
                                         COMFIRMED
                                     </button>
                                 
-                                <button className='text-md font-semibold bg-red-400 py-1 px-2 border-2 border-red-700 m-1'
+                                <button className='text-sm lg:text-md 2xl:text-md font-semibold bg-red-400 p-1 rounded-lg border-2 border-red-700'
                                 onClick={() => {
                                     editOrderState({orderId: order.id, newState: "CANCELED"})
                                 }}
