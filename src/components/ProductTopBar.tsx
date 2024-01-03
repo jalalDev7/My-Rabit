@@ -15,6 +15,7 @@ interface typeOb   {
   username: string,
   createdAt: Date,
   avatar: string,
+  userDesc: string,
   theme: number,
   youtubeLink: string,
   facebookLink: string,
@@ -35,7 +36,10 @@ const productTopBar = (props: {user: typeOb}) => {
             <AvatarFallback><Loader2 className='h-[50px] w-[50px] animate-spin '/></AvatarFallback>
           </Avatar>
           <h1 className='text-2xl font-bold mt-2'>
-            @{props.user.username}
+            {props.user.username}
+          </h1>
+          <h1 className='text-lg font-semibold '>
+            {props.user.userDesc}
           </h1>
           <div className='flex flex-row gap-2 w-full items-center justify-center'>
             {props.user.youtubeLink ? (

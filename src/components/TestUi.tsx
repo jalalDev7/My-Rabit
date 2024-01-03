@@ -17,6 +17,7 @@ interface typeOb   {
   username: string,
   createdAt: Date,
   avatar: string,
+  userDesc: string,
   theme: number,
   youtubeLink: string,
   facebookLink: string,
@@ -62,8 +63,8 @@ const  TestUi = (props: {username: typeOb}) => {
     
   return (
   <>
-    
-    <div className={`flex items-center justify-end w-full h-full relative`}>
+    <div className='flex w-full items-center justify-center'>
+    <div className={`flex items-center justify-end w-full h-full relative `}>
       <div className='fixed w-screen h-screen rounded-full blur-2xl z-0 opacity-75 '>
         <Image src={props.username.avatar} className='absolute h-full w-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-0' 
         height={1} width={1} alt={"product image"}/>
@@ -109,7 +110,7 @@ const  TestUi = (props: {username: typeOb}) => {
     </div>
       
     </div>
-    
+    </div>
     </>
   )
 }
