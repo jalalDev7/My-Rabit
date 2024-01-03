@@ -69,7 +69,7 @@ const AdminMem = () => {
                 <div key={mem.id} className='flex flex-row items-start justify-between w-full gap-2 p-2 bg-zinc-100 border border-zinc-400 rounded-lg'>
                     <div className='flex flex-col w-full items-start justify-start'>
                         <div className='flex flex-row w-full gap-2 items-center'>
-                            <Link href="/settings">
+                            <Link href={`/${mem.username}`}>
                             <Avatar className='h-[50px] w-[50px] items-center cursor-pointer'>
                                 <AvatarImage src={mem.avatar}/>
                                 <AvatarFallback>
