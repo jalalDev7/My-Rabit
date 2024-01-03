@@ -89,14 +89,14 @@ const AdminOrders = () => {
                             </div>
                             <div className='flex gap-2 border-t-2 border-zinc-300 mt-1'>
                             {demande.transactionType == "DEMANDE" ? (<>
-                                <button className='text-md font-semibold bg-green-400 py-1 px-2 border-2 border-green-700 m-1'
+                                <button className='text-sm lg:text-md 2xl:text-md bg-green-400 py-1 px-2 border-2 border-green-700 m-1'
                                 onClick={() => {
                                     editBalance({userId: demande.userId, value: demande.transactionValue, transactionId: demande.id})
                                 }}
                                 >
                                     COMFIRMED
                                 </button>
-                                <button className='text-md text-white font-semibold bg-red-400 py-1 px-2 border-2 border-red-700 m-1'
+                                <button className='text-sm lg:text-md 2xl:text-md text-white font-semibold bg-red-400 py-1 px-2 border-2 border-red-700 m-1'
                                 onClick={() => {
                                     editDemande({newValue: "CANCELED", transactionId: demande.id})
                                 }}
