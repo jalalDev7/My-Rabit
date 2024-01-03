@@ -49,7 +49,7 @@ const NewCat = () => {
     }
 
   return (<>
-    
+        <div className='flex flex-col w-full'>
         <h1 className='text-2xl mt-10 px-5 mb-2'>
              Add new category
         </h1>
@@ -81,6 +81,8 @@ const NewCat = () => {
                 Add new category
             </button>
         </div>
+        </div>
+        
     </>
   )
 }

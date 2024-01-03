@@ -149,10 +149,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
 
   return (
       <>
-    <h1 className='text-2xl mt-5 px-5'>
+    <h1 className='text-2xl font-semibold mt-5 p-4 lg:px-8 2xl:px-8'>
         Settings
     </h1>
-    <div className='flex flex-col lg:flex-row 2xl:flex-row w-full gap-4 p-4 items-start justify-start '>
+    <div className='flex flex-col lg:flex-row 2xl:flex-row w-full gap-8 p-4 lg:px-8 2xl:px-8 items-start justify-start '>
         <div 
         className='bg-white rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-start items-start w-full lg:row-span-2 2xl:row-span-2'>
         <Form {...form} >

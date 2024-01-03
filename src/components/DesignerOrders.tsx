@@ -37,7 +37,7 @@ const DesignerOrders = () => {
                             <Image src={order.Products.productImg[0]} height={150} width={150} alt={"Product image"} />
                         </div>
                     </div>
-                    <div className='flex flex-col items-start w-full px-2 py-1'>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 items-start w-full px-2 py-1'>
                         <h1 className='text-md font-bold'>
                             Orderd at :
                         </h1>

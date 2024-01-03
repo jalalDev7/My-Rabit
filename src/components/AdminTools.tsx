@@ -68,7 +68,7 @@ const AdminTools = () => {
       ): [
         <>
         <AddProduct />
-        <div className='flex flex-col lg:flex-row 2xl:flex-row'>
+        <div className='flex flex-col lg:flex-row 2xl:flex-row gap-4'>
           <NewCat />
           <DeleteCat />
         </div>

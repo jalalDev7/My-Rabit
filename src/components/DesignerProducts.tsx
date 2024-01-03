@@ -35,7 +35,7 @@ const DesignerProducts = () => {
                             <Image src={product.productImg[0]} height={150} width={150} alt={"Product image"} />
                         </div>
                     </div>
-                    <div className='flex flex-col items-center justify-center w-full px-2 py-1'>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 items-center justify-center w-full px-2 py-1'>
                         <h1 className='text-md font-bold'>
                             Created at :
                         </h1>
