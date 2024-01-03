@@ -35,12 +35,12 @@ export default function Home() {
             className='relative 2xl:left-[calc(70%-30rem)] 2xl:w-[72.1875rem] lg:left-[calc(70%-30rem)] lg:w-[72.1875rem] left-[calc(50%-11rem)] aspect-[1115/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 ' />
         </div>
         
-        <div className='flex flex-col lg:flex-row 2xl:flex-row  w-full lg:py-24 2xl:py-24 py-4 lg:px-32 2xl:px-32 px-2 gap-14 items-center justify-center'>
-          <div className='flex flex-col lg:w-[60%] 2xl:w-[60%]  w-full items-start justify-start gap-4'>
-            <h1 className='text-4xl font-bold text-black '>
+        <div className='flex flex-col lg:flex-row 2xl:flex-row w-full gap-16 items-center justify-center'>
+          <div className='flex flex-col lg:pl-16 2xl:pl-16 px-2 w-full items-start justify-start gap-4'>
+            <h1 className='lg:text-4xl 2xk:text-4xl text-2xl font-bold text-black '>
               Our <span className='text-blue-600'>platform</span> offers a package of free services to help you create your own online space.
             </h1>
-            <h1 className='text-lg'>
+            <h1 className='text-md lg:text-lg 2xl:text-lg'>
             With us, you can create a free page with your own name that includes all your social media links as well as any other links you have, and thats not all.
             </h1>
             <RegisterLink className={buttonVariants({
@@ -50,12 +50,12 @@ export default function Home() {
               Create your own pge<ArrowRight className='ml-2 h-5 w-5 ' />
             </RegisterLink>
           </div>
-          <div className='flex w-full lg:w-[40%] 2xl:w-[40%]'>
+          <div className='flex w-full justify-end '>
             <Image 
                 src='/show-1.png' 
                 alt='Product preview' 
-                width={650} 
-                height={650}
+                width={750} 
+                height={750}
                 quality={100}
                 className='rounded-md '
                  />
