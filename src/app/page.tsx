@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <>
+    <div className='bg-zinc-200'>
     <NavBar/>
     <MaxWidthWrapper className='mt-24 mb-24 lg:mt-24 2xl:mt-24 lg:mb-8 2xl:mb-8 flex flex-col items-center justify-center '>
       <h1 className='text-5xl font-bold md:text-6xl lg:text-7xl'>
@@ -127,6 +128,8 @@ export default function Home() {
     <div className='flex w-full lg:px-96 2xl:px-96 py-8 '>
       <Footer />
     </div>
+    </div>
+    
 
     </>
   )
