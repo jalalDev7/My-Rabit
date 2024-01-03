@@ -26,6 +26,7 @@ interface typeOb   {
   username: string,
   createdAt: Date,
   avatar: string,
+  userDesc: string,
   theme: number,
   youtubeLink: string,
   facebookLink: string,
@@ -84,6 +85,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
           if (checkNewUesr.length > 0) return false
         }, 'Username is already used please choose another one.').refine(s => !bannedUsernames.includes(s), "This username is not allowed please choose another one."),
         avatar: z.string(),
+        userDesc: z.string(),
         youtube: z.string(),
         instagram: z.string(),
         facebook: z.string(),
@@ -99,6 +101,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
         defaultValues: {
           username: prevUserName,
           avatar: prevAvatar,
+          userDesc: props.userData.userDesc,
           youtube: props.userData.youtubeLink,
           instagram: props.userData.instagramLink,
           facebook: props.userData.facebookLink,
@@ -113,6 +116,7 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
         editProfile({
           username: form.getValues("username"),
           avatar: prevAvatar,
+          userDesc: form.getValues("userDesc"),
           youtube: form.getValues("youtube"),
           facebook: form.getValues("facebook"),
           instagram: form.getValues("instagram"),
@@ -280,6 +284,21 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
                     </div>
                   </div>
                   
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <hr className="w-full p-1"></hr>        
+          <FormField
+            control={form.control}
+            name="userDesc"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-md font-semibold p-2">Your description :</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your description" {...field} width="301" />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -188,7 +188,7 @@ export const appRouter = router({
 
 return { success: true }
 }),
-  editProfile: privateProcedure.input(z.object({username: z.string(),avatar: z.string(), youtube: z.string(), facebook: z.string(), instagram: z.string(), linked: z.string(), snapchat: z.string(), tiktok: z.string(), userPhone: z.string()})).mutation(async ({ ctx, input }) => {
+  editProfile: privateProcedure.input(z.object({username: z.string(),avatar: z.string(),userDesc: z.string(), youtube: z.string(), facebook: z.string(), instagram: z.string(), linked: z.string(), snapchat: z.string(), tiktok: z.string(), userPhone: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
     if (!userId) throw new TRPCError({code: "UNAUTHORIZED"})
     // edit user in db
@@ -199,6 +199,7 @@ return { success: true }
       data: {
         username: input.username,
         avatar: input.avatar,
+        userDesc: input.userDesc,
         youtubeLink: input.youtube,
         instagramLink: input.instagram,
         facebookLink: input.facebook,

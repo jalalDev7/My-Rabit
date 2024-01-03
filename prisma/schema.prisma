@@ -27,6 +27,7 @@ model User {
   username String @unique
   createdAt  DateTime @default(now())
   avatar String @default("/avatar.jpg")
+  userDesc String @default("")
   theme Int @default(1)
   userRank Int @default(1)
   userBalance Int @default(0)
