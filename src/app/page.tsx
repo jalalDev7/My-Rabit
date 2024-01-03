@@ -13,7 +13,7 @@ export default function Home() {
     <>
     <div className='bg-zinc-200'>
     <NavBar/>
-    <MaxWidthWrapper className='mt-24 mb-24 px-8 lg:mt-24 2xl:mt-24 lg:mb-8 2xl:mb-8 flex flex-col items-center justify-center '>
+    <MaxWidthWrapper className='mt-24 mb-24 px-6 lg:mt-24 2xl:mt-24 lg:mb-8 2xl:mb-8 flex flex-col items-center justify-center '>
       <h1 className='text-5xl font-bold lg:text-7xl 2xl:text-7xl'>
         Get more <span className='text-blue-600'>Money</span> from your links.
       </h1>
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
         
         <div className='flex flex-col lg:flex-row 2xl:flex-row w-full gap-16 items-center justify-center'>
-          <div className='flex flex-col lg:pl-16 2xl:pl-16 px-8 w-full items-start justify-start gap-4'>
+          <div className='flex flex-col lg:pl-16 2xl:pl-16 px-6 w-full items-start justify-start gap-4'>
             <h1 className='lg:text-4xl 2xk:text-4xl text-2xl font-bold text-black '>
               Our <span className='text-blue-600'>platform</span> offers a package of free services to help you create your own online space.
             </h1>
