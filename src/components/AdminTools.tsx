@@ -68,8 +68,11 @@ const AdminTools = () => {
       ): [
         <>
         <AddProduct />
-        <NewCat />
-        <DeleteCat />
+        <div className='flex flex-col lg:flex-row 2xl:flex-row'>
+          <NewCat />
+          <DeleteCat />
+        </div>
+        
         <AdminProducts />
         </>
       ]}
