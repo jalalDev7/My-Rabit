@@ -9,6 +9,7 @@ import {FaRegCopy} from "react-icons/fa"
 import { toast } from './ui/use-toast'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { MdOpenInNew } from 'react-icons/md'
+import { Skeleton } from "@/components/ui/skeleton"
 
 const dashboardTopBar =  () => {
 
@@ -77,9 +78,37 @@ const dashboardTopBar =  () => {
       </div>
 
     ): isLoading ? (
-      <div className='w-full mt-24 flex justify-center'>
-        <div className='flex flex-col items-center gap-2'>
-          <Loader2 className='h-8 w-8 animate-spin text-zinc-800' />
+      <div className="flex w-full bg-white border border-zinc-200">
+        <div className="flex flex-row justify-between w-full py-4 p-2">
+          <div className='flex flex-row  gap-4 2xl:text-2xl lg:text-2xl text-md font-semibold items-center'>
+              <Skeleton className='h-[50px] w-[50px] items-center cursor-pointer rounded-full' />
+             <div className='flex flex-col w-full h-full items-center justify-center'>
+              <h1 className="2xl:text-lg lg:text-lg text-sm font-semibold w-full">
+                <Skeleton className='h-4  w-24 items-center cursor-pointer' />
+              </h1>
+              <h1 className="2xl:text-lg lg:text-lg text-sm font-semibold w-full">
+                <Skeleton className='h-4  w-24 items-center cursor-pointer' />
+              </h1>
+             </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row 2xl:flex-row items-center gap-2">
+            <h3 className="2xl:text-2xl lg:text-2xl text-md font-semibold flex">
+              <Skeleton className='h-4  w-8 items-center cursor-pointer' />
+            </h3>
+            <div className='flex gap-2'>
+              <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white shadow-xl cursor-pointer'>
+                <Skeleton className=' h-[15px] w-[15px] '/> 
+              </div>
+              <div className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg shadow-xl'>
+                <Skeleton className=' h-[15px] w-[15px] '/> 
+              </div>
+              <div
+              className='flex justify-start p-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg shadow-xl'>
+                  <Skeleton className=' h-[15px] w-[15px] '/> 
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     ): null
