@@ -10,7 +10,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
 
   return (
     <>
-    <div className='grid 2xl:grid-cols-6 lg:grid-cols-4 grid-cols-2 w-full items-center justify-center gap-2 my-2 lg:px-32 2xl:px-52'>
+    <div className='grid 2xl:grid-cols-4 lg:grid-cols-4 grid-cols-2 w-full items-center justify-center gap-2 my-2 lg:px-44 2xl:px-96'>
       {getUserProducts && getUserProducts.length > 0 ? (
       
       getUserProducts.map((item, index) => {
@@ -18,7 +18,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
       
 
         return (
-          <div key={index} className='bg-white/50 flex flex-col hover:shadow-xl rounded-xl border-black p-1 items-center justify-start border-2 w-full '>
+          <div key={index} className='bg-white/25 flex flex-col hover:shadow-xl rounded-xl border-black p-1 items-center justify-start border-2 w-full '>
             
             <Link href={`/product/${item.id}/${props.username}`}>
             <div className='flex w-full items-center justify-center'>

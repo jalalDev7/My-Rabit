@@ -38,7 +38,7 @@ const productTopBar = (props: {user: typeOb}) => {
           <h1 className='text-2xl font-bold mt-2'>
             {props.user.username}
           </h1>
-          <h1 className='text-lg font-semibold '>
+          <h1 className='text-md lg:text-lg 2xl:text-lg font-semibold '>
             {props.user.userDesc}
           </h1>
           <div className='flex flex-row gap-2 w-full items-center justify-center'>

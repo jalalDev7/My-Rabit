@@ -3,11 +3,9 @@
 
 import {isMobile} from 'react-device-detect'
 import SliderShow from './SliderShow';
-import { Loader2 } from 'lucide-react';
 import { trpc } from '@/app/_trpc/Client';
 import Link from 'next/link';
 import { FaArrowRight} from 'react-icons/fa';
-import { notFound } from 'next/navigation';
 import ProductTopBar from './ProductTopBar';
 import Image from 'next/image'
 
@@ -76,7 +74,7 @@ const  TestUi = (props: {username: typeOb}) => {
 
         <ProductTopBar user={props.username} />
         
-        <div className='grid lg:px-32 2xl:px-52 lg:grid-cols-2 2xl:grid-cols-2 w-full transition-all duration-700 ease-in-out'>
+        <div className='grid lg:px-48 2xl:px-96 lg:grid-cols-2 2xl:grid-cols-2 w-full transition-all duration-700 ease-in-out'>
         {links && links?.length !== 0  ? (
         links.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((link) => {
           
