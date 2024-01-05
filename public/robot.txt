@@ -1,0 +1,17 @@
+//robots.txt
+
+# Block all crawlers for /accounts
+User-agent: *
+Disallow: /settings
+Disallow: /admin
+Disallow: /auth-callback
+Disallow: /dashboard
+Disallow: /designer
+Disallow: /orders
+Disallow: /seller
+Disallow: /setup
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Allow: /product/
