@@ -87,7 +87,7 @@ const SellerAllProducts = () => {
                                                 </div>
                                                 <div className="p-2 flex flex-col w-full justify-between items-start">
                                                     <h1 className="text-md lg:text-lg 2xl:text-lg font-bold items-start px-2 truncate">
-                                                        {product.productTitle}
+                                                        {product.productTitle.slice(0,45)}...
                                                     </h1> 
                                                     <div className="flex flex-row justify-between items-center w-full">
                                                         <h3 className="flex items-center justify-start w-full text-md font-semibold py-1 border-r-2 border-zinc-200 ml-4">
