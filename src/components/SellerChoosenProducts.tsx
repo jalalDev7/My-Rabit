@@ -83,7 +83,7 @@ const SellerChoosenProducts = () => {
                                         {item.orders.length}
                                     </div>
                                     <div className='flex flex-row items-center '>
-                                        <Link href={`/product/${item.id}/${getUser?.username}`} target="_blank">
+                                        <Link href={`/product/${item.productLinkTitle}/${getUser?.username}`} target="_blank">
                                             <FaEye  className=" text-4xl bg-zinc-200 hover:bg-zinc-300 rounded-lg p-1 m-1 " />
                                         </Link>
 

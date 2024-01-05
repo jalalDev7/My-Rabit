@@ -111,7 +111,7 @@ const SellerAllProducts = () => {
                                                     {product.orders.length}
                                                 </div>
                                                 <div className='flex flex-row items-center '>
-                                                    <Link href={`/product/${product.id}/${getUser?.username}`} target="_blank">
+                                                    <Link href={`/product/${product.productLinkTitle}/${getUser?.username}`} target="_blank">
                                                         <FaEye  className=" text-4xl bg-zinc-200 hover:bg-zinc-300 rounded-lg p-1 m-1 " />
                                                     </Link>
                                                         <MdAddTask className=" text-4xl bg-blue-200 hover:bg-blue-300 rounded-lg p-1 m-1 cursor-pointer " 

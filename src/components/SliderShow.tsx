@@ -20,7 +20,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
         return (
           <div key={index} className='bg-white/25 flex flex-col hover:shadow-xl rounded-xl border-black p-1 items-center justify-start border-2 w-full '>
             
-            <Link href={`/product/${item.id}/${props.username}`}>
+            <Link href={`/product/${item.productLinkTitle}/${props.username}`}>
             <div className='flex w-full items-center justify-center'>
             <Image src={item.productImg[0]} height={180} width={180} alt={"product image"}
             className='lg:w-[150px] lg:h-[150px] 2xl:w-[200px] 2xl:h-[200px] w-[180px] h-[180px] transition-all duration-700 ease-in-out rounded-lg ' />
@@ -31,7 +31,7 @@ const SliderShow = (props: {userId: string, username: string}) => {
               <p className='text-lg font-bold 2xl:text-xl flex w-full items-center justify-center'>
                 {item.productPrice}  dhs
               </p>
-              <Link href={`/product/${item.id}/${props.username}`}
+              <Link href={`/product/${item.productLinkTitle}/${props.username}`}
               className={`text-white bg-black rounded-lg text-sm font-semibold px-6 py-2`}> 
                   Buy
               </Link>

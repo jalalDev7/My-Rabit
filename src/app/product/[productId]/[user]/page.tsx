@@ -28,7 +28,7 @@ const page = async ({params}: PageProps) => {
   
   const product = await db.products.findFirst({
     where: {
-        id: params.productId,
+        productLinkTitle: params.productId,
     }
   })
 
@@ -41,7 +41,7 @@ const page = async ({params}: PageProps) => {
 
     const checkProductSelect = await db.userProducts.findFirst({
       where: {
-        productId: params.productId,
+        productId: product.id,
         userId: user.id,
       }
     })
