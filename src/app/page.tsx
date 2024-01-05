@@ -171,7 +171,7 @@ export default function Home() {
                 Make your own short link.
               </h1>
               <p className=''>
-                All your social media accounts and your personal links in one page
+                Get more traffic from link in bio, by collecting all your links in one page.
               </p>
             </div>
         </div>
@@ -189,7 +189,7 @@ export default function Home() {
                 Make it easy to share
               </h1>
               <p className=''>
-                Get more traffic from link in bio, by collecting all your links in one page.
+                All your social media accounts and your personal links in one page.
               </p>
             </div>
         </div>
