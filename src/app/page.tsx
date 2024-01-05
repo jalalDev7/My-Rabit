@@ -213,7 +213,7 @@ export default function Home() {
       </div>
     </div>
 
-    <div className='flex w-full mt-32 lg:px-12 2xl:px-12 py-8 '>
+    <div className='flex w-full mt-32 lg:px-44 2xl:px-44 py-8 '>
       <Footer />
     </div>
     </div>
