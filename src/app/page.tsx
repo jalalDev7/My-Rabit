@@ -9,8 +9,7 @@ import { FaInstagram, FaMoneyBillWave, FaTiktok } from "react-icons/fa6"
 import { FiYoutube } from 'react-icons/fi';
 import { PiSnapchatLogoBold } from 'react-icons/pi';
 import { CiLinkedin } from "react-icons/ci";
-import { GrMoney } from "react-icons/gr";
-import { TbMoneybag } from 'react-icons/tb';
+import { BsCashCoin } from "react-icons/bs";
 
 
 export default function Home() {
@@ -162,7 +161,7 @@ export default function Home() {
       </h1>
       <div className='grid grid-cols-1 2xl:grid-cols-3 lg:grid-cols-3 w-full gap-6'>
         <div className='flex flex-col bg-white rounded-3xl shadow-xl'>
-            <div className='flex w-full h-32 rounded-t-3xl items-center justify-center bg-gradient-to-r from-indigo-500 to-blue-500'>
+            <div className='flex w-full h-32 rounded-t-3xl items-center justify-center bg-gradient-to-r from-fuchsia-600 to-purple-600'>
               <div className='flex rounded-3xl text-lg font-semibold bg-white px-6 py-2'>
                 my-rabit.com/you
               </div>
@@ -195,11 +194,11 @@ export default function Home() {
             </div>
         </div>
         <div className='flex flex-col bg-white rounded-3xl shadow-xl'>
-            <div className='flex w-full h-32 rounded-t-3xl items-center justify-center bg-gradient-to-r from-indigo-500 to-blue-500'>
-              <div className='flex flex-row justify-end items-end '>
-                <TbMoneybag className="w-12 h-12 text-white" />
-                <TbMoneybag className="w-16 h-16 text-white" />
-                <TbMoneybag className="w-12 h-12 text-white" />
+            <div className='flex w-full h-32 rounded-t-3xl items-center justify-center bg-gradient-to-r from-amber-500 to-pink-500'>
+              <div className='flex flex-row justify-end items-end gap-2 '>
+                <BsCashCoin  className="w-12 h-12 text-white" />
+                <BsCashCoin  className="w-16 h-16 text-white" />
+                <BsCashCoin  className="w-12 h-12 text-white" />
               </div>
             </div>
             <div className='flex flex-col w-full gap-2 p-4 h-36'>
