@@ -40,7 +40,7 @@ export default function Home() {
         </div>
         
         <div className='flex flex-col lg:flex-row 2xl:flex-row w-full gap-16 items-center justify-center'>
-          <div className='flex flex-col lg:pl-20 2xl:pl-20 px-4 w-full items-start justify-start gap-4'>
+          <div className='flex flex-col lg:pl-56 2xl:pl-56 px-4 w-full items-start justify-start gap-4'>
             <h1 className='lg:text-4xl 2xk:text-4xl text-2xl font-bold text-black '>
               Our <span className='text-blue-600'>platform</span> offers a package of free services to help you create your own online space.
             </h1>
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
 
 
-        <div className='flex flex-col lg:flex-row-reverse 2xl:flex-row-reverse w-full items-center justify-center 2xl:px-20 lg:px-20 mt-16 2xl:mt-24 lg:mt-24 gap-16'>
+        <div className='flex flex-col lg:flex-row-reverse 2xl:flex-row-reverse w-full items-center justify-center 2xl:px-36 lg:px-36 mt-16 2xl:mt-24 lg:mt-24 gap-16'>
           <div className='flex flex-col w-full items-start justify-start gap-4 px-4'>
             <h1 className='lg:text-4xl 2xk:text-4xl text-2xl font-bold text-black '>
               <span className='text-blue-600'>Create</span> and customize your page in minutes
@@ -129,7 +129,7 @@ export default function Home() {
     </div>
 
     <div className='flex flex-col lg:flex-row 2xl:flex-row w-full gap-16 2xl:gap-2 lg:gap-2 items-center justify-center'>
-        <div className='flex flex-col lg:pl-20 2xl:pl-20 px-4 w-full items-start justify-start gap-4'>
+        <div className='flex flex-col lg:pl-65 2xl:pl-56 px-4 w-full items-start justify-start gap-4'>
           <h1 className='lg:text-4xl 2xk:text-4xl text-2xl font-bold text-black '>
             Now we talk about <span className='text-blue-600'>Business</span>, how you can earn money from My-rabit.com ?
           </h1>
@@ -155,7 +155,7 @@ export default function Home() {
         </div>
     </div>
 
-    <div className='flex flex-col w-full items-center justify-center px-4 2xl:px-20 lg:px-20 gap-16 my-24 lg:my-44 2xl:my-44'>
+    <div className='flex flex-col w-full items-center justify-center px-4 2xl:px-52 lg:px-52 gap-24 my-24 lg:my-44 2xl:my-44'>
       <h1 className='text-3xl lg:text-5xl 2xl:text-5xl font-bold'>
         The best choice for <span className='text-blue-600'>link</span> in bio.
       </h1>
