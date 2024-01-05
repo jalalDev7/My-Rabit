@@ -796,7 +796,7 @@ return { success: true }
     
     return themeData
   }),
-  editProduct: privateProcedure.input(z.object({productId: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productPrice: z.string(),productCommision: z.number(),productAuthCommision: z.number(),productCat: z.string()})).mutation(async ({ ctx, input }) => {
+  editProduct: privateProcedure.input(z.object({productId: z.string(),productLinkTitle: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productPrice: z.string(),productCommision: z.number(),productAuthCommision: z.number(),productCat: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
@@ -805,6 +805,7 @@ return { success: true }
         id: input.productId
       },
       data: {
+        productLinkTitle: input.productLinkTitle,
         productTitle: input.productTitle,
         productDesc: input.productDesc,
         productVar: input.productVar,
@@ -818,7 +819,7 @@ return { success: true }
 
     return { success: true }
   }),
-  editProductValidate: privateProcedure.input(z.object({productId: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productPrice: z.string(),productCommision: z.number(),productAuthCommision: z.number(),productCat: z.string()})).mutation(async ({ ctx, input }) => {
+  editProductValidate: privateProcedure.input(z.object({productId: z.string(),productLinkTitle: z.string(),productTitle: z.string(),productDesc: z.string(),productVar: z.string(),productPrice: z.string(),productCommision: z.number(),productAuthCommision: z.number(),productCat: z.string()})).mutation(async ({ ctx, input }) => {
     const { userId } = ctx
 
     // create user in db
@@ -827,6 +828,7 @@ return { success: true }
         id: input.productId
       },
       data: {
+        productLinkTitle: input.productLinkTitle,
         productTitle: input.productTitle,
         productDesc: input.productDesc,
         productVar: input.productVar,

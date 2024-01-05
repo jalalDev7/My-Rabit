@@ -12,7 +12,7 @@ const AdminProductEdit = (params: {productId: string}) => {
 
 
     const [title, setTitle] = useState("")
-    const [linktitle, setLinkTitle] = useState("")
+    const [linkTitle, setLinkTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [vars, setVars] = useState("S,M,L,XL,XXL")
     const [price, setPrice] = useState("")
@@ -63,7 +63,7 @@ const AdminProductEdit = (params: {productId: string}) => {
     })
 
     const saveChangesValidate = () => {
-        if (!title || !desc || !price || !userComm || !authorComm || !productCat || !vars) {
+        if (!title || !desc || !price || !userComm || !authorComm || !productCat || !vars || !linkTitle) {
             return toast({
                 title: 'Please check all fields',
                 description: 'Some fields is empty',
@@ -72,6 +72,7 @@ const AdminProductEdit = (params: {productId: string}) => {
         } 
         
         editProductValidate({
+            productLinkTitle: linkTitle,
             productId: params.productId,
             productTitle: title,
             productDesc: desc,
@@ -85,7 +86,7 @@ const AdminProductEdit = (params: {productId: string}) => {
     }
     
     const saveChanges = () => {
-        if (!title || !desc || !price || !userComm || !authorComm || !productCat || !vars) {
+        if (!title || !desc || !price || !userComm || !authorComm || !productCat || !vars || !linkTitle) {
             return toast({
                 title: 'Please check all fields',
                 description: 'Some fields is empty',
@@ -94,6 +95,7 @@ const AdminProductEdit = (params: {productId: string}) => {
         } 
         
         editProduct({
+            productLinkTitle: linkTitle,
             productId: params.productId,
             productTitle: title,
             productDesc: desc,
@@ -191,7 +193,7 @@ const AdminProductEdit = (params: {productId: string}) => {
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     <input type="text" placeholder={getProduct.productVar} onChange={(event) => (setVars(event.target.value))} 
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
-                    <input type="text" placeholder={getProduct.productLinkTitle} onChange={(event) => (setTitle(event.target.value))} 
+                    <input type="text" placeholder={getProduct.productLinkTitle} onChange={(event) => (setLinkTitle(event.target.value))} 
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     <h1>{getProduct.productLinkTitle}</h1>
                     <div className='w-full my-1 h-[400px]'>
