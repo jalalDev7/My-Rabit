@@ -101,6 +101,7 @@ model Category {
 
 model Products {
   id String @id @unique @default(cuid())
+  productLinkTitle String @unique @default(cuid())
   productTitle String
   productDesc String
   productImg String[]

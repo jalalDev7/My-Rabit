@@ -12,6 +12,7 @@ const AdminProductEdit = (params: {productId: string}) => {
 
 
     const [title, setTitle] = useState("")
+    const [linktitle, setLinkTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [vars, setVars] = useState("S,M,L,XL,XXL")
     const [price, setPrice] = useState("")
@@ -190,6 +191,9 @@ const AdminProductEdit = (params: {productId: string}) => {
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
                     <input type="text" placeholder={getProduct.productVar} onChange={(event) => (setVars(event.target.value))} 
                     className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
+                    <input type="text" placeholder={getProduct.productLinkTitle} onChange={(event) => (setTitle(event.target.value))} 
+                    className='w-full border-zinc-200 border-2 rounded-lg p-2 my-1' />
+                    <h1>{getProduct.productLinkTitle}</h1>
                     <div className='w-full my-1 h-[400px]'>
                         <CKEditor editor={ClassicEditor} data={getProduct.productDesc}
                         onChange={(event, editor) => {
