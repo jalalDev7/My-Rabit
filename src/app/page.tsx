@@ -19,10 +19,10 @@ export default function Home() {
     <div className='bg-zinc-200'>
     <NavBar/>
     <MaxWidthWrapper className='mt-24 mb-24 px-6 lg:mt-24 2xl:mt-24 lg:mb-8 2xl:mb-8 flex flex-col items-center justify-center '>
-      <h1 className='text-5xl font-bold lg:text-7xl 2xl:text-7xl'>
+      <h1 className='text-5xl font-bold lg:text-7xl 2xl:text-7xl text-center'>
         Get more <span className='text-blue-600'>Money</span> from your links.
       </h1>
-      <p className='mt-5  text-zinc-700 sm:text-lg'>
+      <p className='mt-5  text-zinc-700 sm:text-lg text-center'>
         With My-Rabit you can earn more money from your traffic
       </p>
       <RegisterLink className={buttonVariants({
@@ -46,7 +46,7 @@ export default function Home() {
               Our <span className='text-blue-600'>platform</span> offers a package of free services to help you create your own online space.
             </h1>
             <h1 className='text-md lg:text-lg 2xl:text-lg'>
-            With us, you can create a free page with your own name that includes all your social media links as well as any other links you have, and thats not all.
+              With us, you can create a free page with your own name that includes all your social media links as well as any other links you have, and thats not all.
             </h1>
             <RegisterLink className={buttonVariants({
               className: "mt-5 text-2xl",
@@ -120,10 +120,10 @@ export default function Home() {
     
 
     <div className='flex flex-col w-full items-center justify-center gap-4 my-24 lg:my-44 2xl:my-44'>
-      <h1 className='text-3xl lg:text-5xl 2xl:text-5xl font-bold'>
+      <h1 className='text-3xl lg:text-5xl 2xl:text-5xl font-bold text-center'>
         Start earning easy <span className='text-blue-600'>money</span> now
       </h1>
-      <h2 className='text-lg'>
+      <h2 className='text-lg text-center'>
         Turn your personal link to an online store
       </h2>
     </div>
@@ -155,7 +155,7 @@ export default function Home() {
     </div>
 
     <div className='flex flex-col w-full items-center justify-center px-4 2xl:px-52 lg:px-52 gap-24 my-24 lg:my-44 2xl:my-44'>
-      <h1 className='text-3xl lg:text-5xl 2xl:text-5xl font-bold'>
+      <h1 className='text-3xl lg:text-5xl 2xl:text-5xl font-bold text-center'>
         The best choice for <span className='text-blue-600'>link</span> in bio.
       </h1>
       <div className='grid grid-cols-1 2xl:grid-cols-3 lg:grid-cols-3 w-full gap-6'>
