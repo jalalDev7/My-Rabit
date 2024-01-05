@@ -77,7 +77,7 @@ const AdminMem = () => {
                                 </AvatarFallback>
                             </Avatar>
                             </Link>
-                            <Link href="/settings">
+                            <Link href={`/${mem.username}`} target='_blank'>
                                 <h1 className='text-lg font-semibold'>
                                     {mem.username}
                                 </h1>
