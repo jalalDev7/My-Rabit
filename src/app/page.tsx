@@ -5,11 +5,12 @@ import Image from 'next/image';
 import NavBar from '@/components/NavBar';
 import { RegisterLink } from '@kinde-oss/kinde-auth-nextjs/server';
 import Footer from '@/components/Footer';
-import { FaInstagram, FaMoneyBillWave, FaTiktok } from "react-icons/fa6"
+import { FaInstagram } from "react-icons/fa6"
 import { FiYoutube } from 'react-icons/fi';
 import { PiSnapchatLogoBold } from 'react-icons/pi';
 import { CiLinkedin } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
+import { TbBrandTiktok } from "react-icons/tb";
 
 
 export default function Home() {
@@ -95,7 +96,7 @@ export default function Home() {
                 </h1>
               </div>
               <div className='flex flex-row w-full items-center gap-6 rounded-3xl py-2 px-8 bg-gradient-to-r from-fuchsia-600 to-purple-600'>
-                <FaTiktok  className="w-12 h-12 text-white" />
+                <TbBrandTiktok  className="w-12 h-12 text-white" />
                 <h1 className='text-3xl font-bold text-white'>
                   Tiktok
                 </h1>
