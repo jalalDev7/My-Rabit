@@ -59,7 +59,6 @@ export default function Home() {
                 alt='Product preview' 
                 width={750} 
                 height={750}
-                quality={100}
                 className='rounded-md '
                  />
           </div>
@@ -149,7 +148,6 @@ export default function Home() {
                 alt='Product preview' 
                 width={450} 
                 height={450}
-                quality={100}
                 className='rounded-3xl shadow-2xl '
                  />
         </div>
