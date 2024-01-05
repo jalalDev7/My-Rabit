@@ -55,7 +55,7 @@ const SellerAllProducts = () => {
     <h1 className='text-xl mt-5 px-5'>
         All other products
     </h1>
-    <div className='flex flex-col w-full items-start justify-start gap-4 p-4'>
+    <div className='flex flex-col w-full items-start justify-start gap-4 p-2 lg:p-4 2xl:p-4'>
         {allShowenProducts && allShowenProducts.length > 0 ? (           
             
             allShowenProducts.map((item) => {

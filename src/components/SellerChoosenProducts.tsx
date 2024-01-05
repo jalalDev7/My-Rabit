@@ -46,7 +46,7 @@ const SellerChoosenProducts = () => {
     <h1 className='text-xl mt-5 px-5'>
         Choosen Products
     </h1>
-    <div className='flex flex-col w-full bg-white border-zinc-200 border-2 shadow-lg rounded-lg p-4 mx-4'>
+    <div className='flex flex-col w-full bg-white border-zinc-200 border-2 shadow-lg rounded-lg p-2 lg:p-4 2xl:p-4 mx-4'>
     <div className='grid grid-col-1 lg:grid-cols-3 2xl:grid-cols-4 w-full  justify-center items-center gap-4'>
     {getUserProducts && getUserProducts.length > 0 ? (
         getUserProducts.map((item) => {
