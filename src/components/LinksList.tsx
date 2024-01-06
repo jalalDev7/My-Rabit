@@ -1,3 +1,4 @@
+"use client"
 import { trpc } from '@/app/_trpc/Client'
 import Link from 'next/link'
 import React, { useState } from 'react'
