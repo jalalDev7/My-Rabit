@@ -10,13 +10,12 @@ import { PiSnapchatLogoBold } from 'react-icons/pi'
 import { CiLinkedin } from 'react-icons/ci'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import LinkEditor from './LinkEditor'
-import { buttonVariants } from './ui/button'
-import { cn } from '@/lib/utils'
 import { BsCashCoin } from 'react-icons/bs'
 
 const linksList = () => {
   
-  const [isOpen,setIsOpen] = useState<boolean>()
+  const [isOpen2,setIsOpen2] = useState<boolean>()
+
   const utils = trpc.useContext()
   const {data: links, isLoading} = trpc.getUserLinks.useQuery(undefined, {retry:false})
     
@@ -96,12 +95,12 @@ const linksList = () => {
                 You can change your social media links in settings.
               </h1>
               <div className='flex w-full p-2 items-end justify-end text-lg font-semibold text-blue-500'>
-              <Dialog open={isOpen} onOpenChange={(v) => {
+              <Dialog open={isOpen2} onOpenChange={(v) => {
                 if(!v) {
-                    setIsOpen(v)
+                    setIsOpen2(v)
                   }
                 }}>
-                <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+                <DialogTrigger onClick={() => setIsOpen2(true)} asChild>
                   <h1 className='cursor-pointer'>Add your link</h1>
                 </DialogTrigger>
                 <DialogContent>
@@ -209,12 +208,12 @@ const linksList = () => {
                 You can change your social media links in settings.
               </h1>
               <div className='flex w-full p-2 items-end justify-end text-lg font-semibold text-blue-500'>
-              <Dialog open={isOpen} onOpenChange={(v) => {
+              <Dialog open={isOpen2} onOpenChange={(v) => {
                 if(!v) {
-                    setIsOpen(v)
+                    setIsOpen2(v)
                   }
                 }}>
-                <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+                <DialogTrigger onClick={() => setIsOpen2(true)} asChild>
                   <h1 className='cursor-pointer'>Add your link</h1>
                 </DialogTrigger>
                 <DialogContent>
