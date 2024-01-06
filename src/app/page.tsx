@@ -193,21 +193,21 @@ export default function Home() {
             </div>
         </div>
         <div className='flex flex-col bg-white rounded-3xl shadow-xl'>
-            <div className='flex w-full h-32 rounded-t-3xl items-center justify-center bg-gradient-to-r from-amber-500 to-pink-500'>
-              <div className='flex flex-row justify-end items-end gap-2 '>
-                <BsCashCoin  className="w-12 h-12 text-white" />
-                <BsCashCoin  className="w-16 h-16 text-white" />
-                <BsCashCoin  className="w-12 h-12 text-white" />
-              </div>
+          <div className='flex w-full h-32 rounded-t-3xl items-center justify-center bg-gradient-to-r from-amber-500 to-pink-500'>
+            <div className='flex flex-row justify-end items-end gap-2 '>
+              <BsCashCoin  className="w-12 h-12 text-white" />
+              <BsCashCoin  className="w-16 h-16 text-white" />
+              <BsCashCoin  className="w-12 h-12 text-white" />
             </div>
-            <div className='flex flex-col w-full gap-2 p-4 h-36'>
-              <h1 className='text-lg font-semibold'>
-                Get more money from internet
-              </h1>
-              <p className=''>
-                This is the easiest way to earn money, its your chance ta make more money now.
-              </p>
-            </div>
+          </div>
+          <div className='flex flex-col w-full gap-2 p-4 h-36'>
+            <h1 className='text-lg font-semibold'>
+              Get more money from internet
+            </h1>
+            <p className=''>
+              This is the easiest way to earn money, its your chance ta make more money now.
+            </p>
+          </div>
         </div>
       </div>
     </div>
