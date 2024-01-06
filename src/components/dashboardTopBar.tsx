@@ -39,7 +39,7 @@ const dashboardTopBar =  () => {
               <Avatar className='h-[50px] w-[50px] items-center cursor-pointer'>
                 <AvatarImage src={user.avatar}/>
                   <AvatarFallback>
-                    <Loader2 className='h-[50px] w-[50px] animate-spin '/>
+                    <Skeleton className='h-[50px] w-[50px] items-center cursor-pointer' />
                   </AvatarFallback>
               </Avatar>
              </Link>
