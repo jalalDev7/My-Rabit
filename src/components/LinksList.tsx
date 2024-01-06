@@ -1,7 +1,7 @@
 "use client"
 import { trpc } from '@/app/_trpc/Client'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {AiOutlineDelete,  AiFillEye} from "react-icons/ai"
 import UploadButton from './UploadButton'
 import { Skeleton } from "@/components/ui/skeleton"
