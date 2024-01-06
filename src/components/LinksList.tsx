@@ -15,7 +15,7 @@ import { BsCashCoin } from 'react-icons/bs'
 
 const linksList = () => {
   
-  const [isOpen2,setIsOpen2] = useState<boolean>()
+  const [isOpen2,setIsOpen2] = useState<boolean>(false)
 
   const utils = trpc.useContext()
   const {data: links, isLoading} = trpc.getUserLinks.useQuery(undefined, {retry:false})
