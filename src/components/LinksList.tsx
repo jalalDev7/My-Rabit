@@ -56,40 +56,40 @@ const linksList = () => {
         <div  className='flex bg-zinc-50 rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-between items-center  '>
           <div className='flex flex-row items-center justify-center '>
             <p className='flex flex-col border-r-[1px] border-zinc-300 text-sm font-bold pr-3 items-center justify-center'>
-              <Skeleton className='h-[20px] w-[20px] items-center cursor-pointer rounded-full' />
+              <Skeleton className='h-[40px] w-[40px] items-center cursor-pointer rounded-lg bg-zinc-200' />
             </p>
             <p className='text-xl font-semibold content-stretch ml-3 sm:text-md '>
-            <Skeleton className='h-[40px] w-[200px] items-center cursor-pointer rounded-full' />
+            <Skeleton className='h-[40px] w-[200px] items-center cursor-pointer rounded-lg bg-zinc-200' />
             </p>
           </div>
           <div className='flex flex-row items-center justify-center'>
-            <Skeleton className='h-[20px] w-[20px] items-center cursor-pointer rounded-full' />
+            <Skeleton className='h-[40px] w-[40px] items-center cursor-pointer rounded-lg bg-zinc-200' />
           </div>
         </div>
         <div  className='hidden lg:flex 2xl:flex bg-zinc-50 rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-between items-center  '>
           <div className='flex flex-row items-center justify-center '>
             <p className='flex flex-col border-r-[1px] border-zinc-300 text-sm font-bold pr-3 items-center justify-center'>
-              <Skeleton className='h-[20px] w-[00px] items-center cursor-pointer rounded-full' />
+              <Skeleton className='h-[40px] w-[40px] items-center cursor-pointer rounded-full bg-zinc-200' />
             </p>
             <p className='text-xl font-semibold content-stretch ml-3 sm:text-md '>
-              <Skeleton className='h-[40px] w-[200px] items-center cursor-pointer rounded-full' />
+              <Skeleton className='h-[40px] w-[200px] items-center cursor-pointer rounded-lg bg-zinc-200' />
             </p>
           </div>
           <div className='flex flex-row items-center justify-center'>
-            <Skeleton className='h-[20px] w-[20px] items-center cursor-pointer rounded-full' />
+            <Skeleton className='h-[40px] w-[40px] items-center cursor-pointer rounded-lg bg-zinc-200' />
           </div>
         </div>
         <div  className='hidden lg:flex 2xl:flex bg-zinc-50 rounded-lg shadow-md p-5 border-zinc-200 border-[1px] justify-between items-center  '>
           <div className='flex flex-row items-center justify-center '>
             <p className='flex flex-col border-r-[1px] border-zinc-300 text-sm font-bold pr-3 items-center justify-center'>
-              <Skeleton className='h-[20px] w-[20px] items-center cursor-pointer rounded-full' />
+              <Skeleton className='h-[40px] w-[40px] items-center cursor-pointer rounded-full bg-zinc-200' />
             </p>
             <p className='text-xl font-semibold content-stretch ml-3 sm:text-md '>
-              <Skeleton className='h-[40px] w-[200px] items-center cursor-pointer rounded-full' />
+              <Skeleton className='h-[40px] w-[200px] items-center cursor-pointer rounded-lg bg-zinc-200' />
             </p>
           </div>
           <div className='flex flex-row items-center justify-center'>
-            <Skeleton className='h-[20px] w-[20px] items-center cursor-pointer rounded-full' />
+            <Skeleton className='h-[40px] w-[40px] items-center cursor-pointer rounded-lg bg-zinc-200' />
           </div>
         </div>
       </div> 
