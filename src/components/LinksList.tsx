@@ -1,7 +1,6 @@
 "use client"
 import { trpc } from '@/app/_trpc/Client'
 import Link from 'next/link'
-import { useState } from 'react'
 import {AiOutlineDelete,  AiFillEye} from "react-icons/ai"
 import UploadButton from './UploadButton'
 import { Skeleton } from "@/components/ui/skeleton"
@@ -9,8 +8,6 @@ import { FaInstagram } from 'react-icons/fa6'
 import { FiYoutube } from 'react-icons/fi'
 import { PiSnapchatLogoBold } from 'react-icons/pi'
 import { CiLinkedin } from 'react-icons/ci'
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
-import LinkEditor from './LinkEditor'
 import { BsCashCoin } from 'react-icons/bs'
 
 const linksList = () => {
