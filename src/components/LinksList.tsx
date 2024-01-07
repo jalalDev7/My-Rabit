@@ -15,7 +15,6 @@ import { BsCashCoin } from 'react-icons/bs'
 
 const linksList = () => {
   
-  const [isOpen2,setIsOpen2] = useState<boolean>(false)
 
   const utils = trpc.useContext()
   const {data: links, isLoading} = trpc.getUserLinks.useQuery(undefined, {retry:false})
@@ -93,22 +92,9 @@ const linksList = () => {
             </div>
             <div className='flex flex-col w-full gap-2 p-4 h-36 justify-between'>
               <h1 className='text-lg font-semibold'>
-                You can change your social media links in settings.
+                You can also add some other links, by clicking add new link.
               </h1>
-              <div className='flex w-full p-2 items-end justify-end text-lg font-semibold text-blue-500'>
-              <Dialog open={isOpen2} onOpenChange={(v) => {
-                if(!v) {
-                    setIsOpen2(v)
-                  }
-                }}>
-                <DialogTrigger onClick={() => setIsOpen2(true)} asChild>
-                  <h1 className='cursor-pointer'>Add your link</h1>
-                </DialogTrigger>
-                <DialogContent>
-                  <LinkEditor />
-                </DialogContent>
-              </Dialog>
-              </div>
+              
             </div>
         </div>
         <div className='flex flex-col bg-white rounded-lg shadow-xl'>
@@ -206,22 +192,9 @@ const linksList = () => {
             </div>
             <div className='flex flex-col w-full gap-2 p-4 h-36 justify-between'>
               <h1 className='text-lg font-semibold'>
-                You can change your social media links in settings.
+                You can also add some other links, by clicking add new link.
               </h1>
-              <div className='flex w-full p-2 items-end justify-end text-lg font-semibold text-blue-500'>
-              <Dialog open={isOpen2} onOpenChange={(v) => {
-                if(!v) {
-                    setIsOpen2(v)
-                  }
-                }}>
-                <DialogTrigger onClick={() => setIsOpen2(true)} asChild>
-                  <h1 className='cursor-pointer'>Add your link</h1>
-                </DialogTrigger>
-                <DialogContent>
-                  <LinkEditor />
-                </DialogContent>
-              </Dialog>
-              </div>
+              
             </div>
         </div>
         <div className='flex flex-col bg-white rounded-lg shadow-xl'>
