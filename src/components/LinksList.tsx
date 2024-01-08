@@ -13,10 +13,13 @@ import { BiLink } from 'react-icons/bi'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import LinkEditor from './LinkEditor'
 import { useState } from 'react'
+import { buttonVariants } from './ui/button'
+import { cn } from '@/lib/utils'
 
 const LinksList = () => {
   
   const [IsOpen, SetIsOpen] = useState(false)
+  const [isOpen,setIsOpen] = useState<boolean>()
   const utils = trpc.useContext()
   const {data: links, isLoading} = trpc.getUserLinks.useQuery(undefined, {retry:false})
     
@@ -34,7 +37,20 @@ const LinksList = () => {
           Your links
       </h1>
       <div>
-        <UploadButton />
+      <Dialog open={isOpen} onOpenChange={(v) => {
+            if(!v) {
+                setIsOpen(v)
+            }
+        }}>
+        <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+            <div className={cn(buttonVariants({size: "lg"}), "bg-blue-600 text-lg py-4 cursor-pointer")}>
+                Add new link
+            </div>
+        </DialogTrigger>
+        <DialogContent>
+            <LinkEditor />
+        </DialogContent>
+        </Dialog>
       </div>
     </div>
     {links && links.length > 0 ? (
