@@ -16,7 +16,7 @@ import { useState } from 'react'
 
 const linksList = () => {
   
-  const [isOpen,setIsOpen] = useState<boolean>()
+  const [isOpen,setIsOpen] = useState(false)
   const utils = trpc.useContext()
   const {data: links, isLoading} = trpc.getUserLinks.useQuery(undefined, {retry:false})
     
