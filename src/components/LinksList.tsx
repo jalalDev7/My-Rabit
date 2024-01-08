@@ -59,62 +59,6 @@ const linksList = () => {
         )
       })}
       </div>
-      <div className='grid lg:grid-cols-3 2xl:grid-cols-3 gap-4 px-4 py-8'>
-        <div className='flex flex-col bg-white rounded-lg shadow-lg'>
-            <div className='flex w-full h-24 rounded-t-lg items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500'>
-              <div className='flex flex-row gap-2 '>
-                <FaInstagram className="w-12 h-12 text-white" />
-                <FiYoutube  className="w-12 h-12 text-white" />
-                <PiSnapchatLogoBold   className="w-12 h-12 text-white" />
-                <CiLinkedin className="w-12 h-12 text-white" />
-              </div>
-            </div>
-            <div className='flex flex-col w-full gap-2 p-4 h-24 justify-between'>
-              <h1 className='text-lg font-semibold'>
-                You can change your social media links in settings.
-              </h1>
-              <div className='flex w-full p-2 items-end justify-end text-lg font-semibold text-blue-500'>
-                <Link href={"/settings"}>
-                  Settings
-                </Link>
-              </div>
-            </div>
-        </div>
-        <div className='flex flex-col bg-white rounded-lg shadow-lg'>
-            <div className='flex w-full h-24 rounded-t-lg items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500'>
-              <div className='flex flex-row gap-2 '>
-                <div className='flex flex-row gap-2 rounded-lg text-lg font-semibold bg-white px-6 py-2'>
-                  <BiLink className="w-8 h-8" />your-website.com
-                </div>
-              </div>
-            </div>
-            <div className='flex flex-col w-full gap-2 p-4 h-24 justify-between'>
-              <h1 className='text-lg font-semibold'>
-                You can also add some other links, by clicking add new link.
-              </h1>
-              
-            </div>
-        </div>
-        <div className='flex flex-col bg-white rounded-lg shadow-xl'>
-          <div className='flex w-full h-24 rounded-t-lg items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500'>
-            <div className='flex flex-row justify-end items-end gap-2 '>
-              <BsCashCoin  className="w-12 h-12 text-white" />
-              <BsCashCoin  className="w-16 h-16 text-white" />
-              <BsCashCoin  className="w-12 h-12 text-white" />
-            </div>
-          </div>
-          <div className='flex flex-col w-full gap-2 p-4 h-24 justify-between'>
-              <h1 className='text-lg font-semibold'>
-                You can choose any product from our store.
-              </h1>
-              <div className='flex w-full p-2 items-end justify-end text-lg font-semibold text-blue-500'>
-                <Link href={"/seller"}>
-                  Seller panel
-                </Link>
-              </div>
-            </div>
-        </div>
-      </div>
     </div>
     ) : isLoading ? (
       <div className='grid lg:grid-cols-2 2xl:grid-cols-3 gap-4 p-4'>
@@ -158,8 +102,8 @@ const linksList = () => {
           </div>
         </div>
       </div> 
-    ) : [
-      <div className='grid lg:grid-cols-3 2xl:grid-cols-3 gap-4 px-4 py-8'>
+    ) : null}
+    <div className='grid lg:grid-cols-3 2xl:grid-cols-3 gap-4 px-4 py-8'>
         <div className='flex flex-col bg-white rounded-lg shadow-lg'>
             <div className='flex w-full h-24 rounded-t-lg items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500'>
               <div className='flex flex-row gap-2 '>
@@ -169,7 +113,7 @@ const linksList = () => {
                 <CiLinkedin className="w-12 h-12 text-white" />
               </div>
             </div>
-            <div className='flex flex-col w-full gap-2 p-4 h-24 justify-between'>
+            <div className='flex flex-col w-full gap-2 p-4 h-32 justify-between'>
               <h1 className='text-lg font-semibold'>
                 You can change your social media links in settings.
               </h1>
@@ -188,7 +132,7 @@ const linksList = () => {
                 </div>
               </div>
             </div>
-            <div className='flex flex-col w-full gap-2 p-4 h-36 justify-between'>
+            <div className='flex flex-col w-full gap-2 p-4 h-32 justify-between'>
               <h1 className='text-lg font-semibold'>
                 You can also add some other links, by clicking add new link.
               </h1>
@@ -203,7 +147,7 @@ const linksList = () => {
               <BsCashCoin  className="w-12 h-12 text-white" />
             </div>
           </div>
-          <div className='flex flex-col w-full gap-2 p-4 h-36 justify-between'>
+          <div className='flex flex-col w-full gap-2 p-4 h-32 justify-between'>
               <h1 className='text-lg font-semibold'>
                 You can choose any product from our store.
               </h1>
@@ -214,8 +158,7 @@ const linksList = () => {
               </div>
             </div>
         </div>
-      </div>
-    ]} 
+      </div> 
      </>           
   )
 }
