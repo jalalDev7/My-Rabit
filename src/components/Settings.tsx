@@ -17,7 +17,12 @@ import { Progress } from "./ui/progress"
 import BalanceEditor from "./BalanceEditor"
 import DemandesPay from "./DemandesPay"
 import { FaRegCopy } from "react-icons/fa"
-
+import { FiYoutube } from "react-icons/fi"
+import { FaFacebookSquare } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa6"
+import { CiLinkedin } from "react-icons/ci"
+import { PiSnapchatLogoBold } from "react-icons/pi"
+import { TbBrandTiktok } from "react-icons/tb"
 
 
 interface typeOb   {
@@ -159,50 +164,28 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={() => (form.reset)} className="space-y-4">
           <FormField
             control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-lg font-semibold p-2">Customize your user name :</FormLabel>
-                <FormControl>
-                  <Input  placeholder="username" {...field} width="301" />
-                </FormControl>
-                <FormLabel  className="flex flex-row gap-2 text-sm p-2">
-                  Your link : https://my-rabit.com/{form.getValues("username")}
-                  <FaRegCopy className="w-[15px] h-[15px] cursor-pointer " alt="Copy link"
-                  onClick={() => (navigator.clipboard.writeText(`https://my-rabit.com/${form.getValues("username")}`))}
-                  />
-                </FormLabel>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <hr className="w-full p-1"></hr>
-          <FormField
-            control={form.control}
             name="avatar"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-lg font-semibold p-2">Change your profile picture :</FormLabel>
+              <FormItem className="flex flex-col p-2 w-full">
+                <div className="flex flex-row w-full items-center justify-center">
+                  <Avatar className='h-[150px] w-[150px] items-center'>
+                    <AvatarImage src={prevAvatar}/>
+                    <AvatarFallback>
+                      <Loader2 className='h-[100px] w-[100px] animate-spin '/>
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
                 <FormControl>
-                  <div className="flex flex-row w-full">
-                    <div className="flex w-fit border-r-2 border-zinc-200 p-2">
-                    <Avatar className='h-[50px] w-[50px] items-center'>
-                      <AvatarImage src={prevAvatar}/>
-                      <AvatarFallback>
-                        <Loader2 className='h-[50px] w-[50px] animate-spin '/>
-                      </AvatarFallback>
-                    </Avatar>
-                    </div>
-                    <div className="flex flex-col justify-center items-start w-full ml-2">
-                      <Input placeholder="Put your link here" className="hidden" {...field}  disabled={true}/>
-                      <Dialog open={isOpen} onOpenChange={(v) => {
+                  <div className="flex flex-col justify-center items-start w-full">
+                    <Input placeholder="Put your link here" className="hidden" {...field}  disabled={true}/>
+                    <Dialog open={isOpen} onOpenChange={(v) => {
                           if(!v) {
                               setIsOpen(v)
                           }
                       }}>
                         <DialogTrigger onClick={() => setIsOpen(true)} asChild>
-                        <h3 className="text-md text-blue-500 cursor-pointer ml-2">
-                            click here to change your avatar
+                          <h3 className="flex w-full items-center justify-center text-lg font-semibold text-blue-500 cursor-pointer">
+                            Click here to change your avatar
                           </h3>
                         </DialogTrigger>
                         <DialogContent>
@@ -280,16 +263,32 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
                           )}
                           </Dropzone>
                         </DialogContent>
-                      </Dialog>
-                    </div>
+                    </Dialog>
                   </div>
-                  
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg font-semibold p-2">Customize your user name :</FormLabel>
+                <FormControl>
+                  <Input  placeholder="username" {...field} width="301" />
+                </FormControl>
+                <FormLabel  className="flex flex-row gap-2 text-sm p-2">
+                  Your link : https://my-rabit.com/{form.getValues("username")}
+                  <FaRegCopy className="w-[15px] h-[15px] cursor-pointer " alt="Copy link"
+                  onClick={() => (navigator.clipboard.writeText(`https://my-rabit.com/${form.getValues("username")}`))}
+                  />
+                </FormLabel>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <hr className="w-full p-1"></hr>        
           <FormField
             control={form.control}
@@ -332,8 +331,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
             control={form.control}
             name="youtube"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-md font-semibold p-2">Your youtube link :</FormLabel>
+              <FormItem className="flex flex-row gap-2 w-full items-start justify-start">
+                <FormLabel className="flex h-full p-2">
+                <FiYoutube className="w-10 h-10" />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Youtube link" {...field} width="301" />
                 </FormControl>
@@ -345,8 +346,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
             control={form.control}
             name="facebook"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-md font-semibold p-2">Your facebook link :</FormLabel>
+              <FormItem className="flex flex-row gap-2 w-full items-start justify-start">
+                <FormLabel className="flex h-full p-2">
+                <FaFacebookSquare  className="w-10 h-10" />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Facebook link" {...field} width="301" />
                 </FormControl>
@@ -358,8 +361,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
             control={form.control}
             name="instagram"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-md font-semibold p-2">Your instagram link :</FormLabel>
+              <FormItem className="flex flex-row gap-2 w-full items-start justify-start">
+                <FormLabel className="flex h-full p-2">
+                <FaInstagram  className="w-10 h-10" />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Instagram link" {...field} width="301" />
                 </FormControl>
@@ -371,8 +376,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
             control={form.control}
             name="linked"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-md font-semibold p-2">Your LinkedIn link :</FormLabel>
+              <FormItem className="flex flex-row gap-2 w-full items-start justify-start">
+                <FormLabel className="flex h-full p-2">
+                <CiLinkedin className="w-10 h-10" />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="LinkedIn link" {...field} width="301" />
                 </FormControl>
@@ -384,8 +391,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
             control={form.control}
             name="snapchat"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-md font-semibold p-2">Your snapchat link :</FormLabel>
+              <FormItem className="flex flex-row gap-2 w-full items-start justify-start">
+                <FormLabel className="flex h-full p-2">
+                <PiSnapchatLogoBold className="w-10 h-10" />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Snapchat link" {...field} width="301" />
                 </FormControl>
@@ -397,8 +406,10 @@ const Settings = (props: {userData: typeOb, others: typeOthers}) => {
             control={form.control}
             name="tiktok"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-md font-semibold p-2">Your tiktok link :</FormLabel>
+              <FormItem className="flex flex-row gap-2 w-full items-start justify-start">
+                <FormLabel className="flex h-full p-2">
+                <TbBrandTiktok className="w-10 h-10" />
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Tiktok link" {...field} width="301" />
                 </FormControl>
