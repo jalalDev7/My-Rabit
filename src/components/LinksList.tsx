@@ -9,6 +9,7 @@ import { FiYoutube } from 'react-icons/fi'
 import { PiSnapchatLogoBold } from 'react-icons/pi'
 import { CiLinkedin } from 'react-icons/ci'
 import { BsCashCoin } from 'react-icons/bs'
+import { BiLink } from 'react-icons/bi'
 
 const linksList = () => {
   
@@ -82,8 +83,8 @@ const linksList = () => {
         <div className='flex flex-col bg-white rounded-lg shadow-lg'>
             <div className='flex w-full h-24 rounded-t-lg items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500'>
               <div className='flex flex-row gap-2 '>
-                <div className='flex rounded-lg text-lg font-semibold bg-white px-6 py-2'>
-                  your-website.com
+                <div className='flex flex-row gap-2 rounded-lg text-lg font-semibold bg-white px-6 py-2'>
+                  <BiLink className="w-8 h-8" />your-website.com
                 </div>
               </div>
             </div>
@@ -182,12 +183,12 @@ const linksList = () => {
         <div className='flex flex-col bg-white rounded-lg shadow-lg'>
             <div className='flex w-full h-24 rounded-t-lg items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500'>
               <div className='flex flex-row gap-2 '>
-                <div className='flex rounded-lg text-lg font-semibold bg-white px-6 py-2'>
-                  your-website.com
+                <div className='flex flex-row gap-2 rounded-lg text-lg font-semibold bg-white px-6 py-2'>
+                  <BiLink className="w-8 h-8" />your-website.com
                 </div>
               </div>
             </div>
-            <div className='flex flex-col w-full gap-2 p-4 h-24 justify-between'>
+            <div className='flex flex-col w-full gap-2 p-4 h-36 justify-between'>
               <h1 className='text-lg font-semibold'>
                 You can also add some other links, by clicking add new link.
               </h1>
@@ -202,7 +203,7 @@ const linksList = () => {
               <BsCashCoin  className="w-12 h-12 text-white" />
             </div>
           </div>
-          <div className='flex flex-col w-full gap-2 p-4 h-24 justify-between'>
+          <div className='flex flex-col w-full gap-2 p-4 h-36 justify-between'>
               <h1 className='text-lg font-semibold'>
                 You can choose any product from our store.
               </h1>
