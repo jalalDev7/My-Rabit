@@ -14,7 +14,7 @@ import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import LinkEditor from './LinkEditor'
 import { useState } from 'react'
 
-const linksList = () => {
+const LinksList = () => {
   
   const [IsOpen, SetIsOpen] = useState(false)
   const utils = trpc.useContext()
@@ -181,4 +181,4 @@ const linksList = () => {
   )
 }
 
-export default linksList
+export default LinksList
