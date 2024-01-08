@@ -16,7 +16,7 @@ import { useState } from 'react'
 
 const linksList = () => {
   
-  const [isOpen,setIsOpen] = useState(false)
+  const [IsOpen, SetIsOpen] = useState(false)
   const utils = trpc.useContext()
   const {data: links, isLoading} = trpc.getUserLinks.useQuery(undefined, {retry:false})
     
@@ -140,12 +140,12 @@ const linksList = () => {
                 You can also add some other links, by clicking add new link.
               </h1>
               <div>
-                <Dialog open={isOpen} onOpenChange={(v) => {
+                <Dialog open={IsOpen} onOpenChange={(v) => {
                   if(!v) {
-                    setIsOpen(v)
+                    SetIsOpen(v)
                   }
                 }}>
-                <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+                <DialogTrigger onClick={() => SetIsOpen(true)} asChild>
                   <div className='flex w-full p-2 items-end justify-end text-lg font-semibold text-blue-500 cursor-pointer'>
                     Add new link
                   </div>
