@@ -152,6 +152,8 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
         
       }, [prevAvatar]);
 
+ 
+
   return (
     <>
     <div className='flex w-full items-center justify-center px-4 '>
@@ -457,7 +459,10 @@ const Setup = (props: {userData: typeOb, others: typeOthers}) => {
                   <>
                   <div className="flex flex-row gap-2 w-full items-center justify-end px-4 mt-8 mb-2">
                     <div className="flex bg-blue-500 rounded-lg text-white font-semibold px-6 py-2 cursor-pointer"
-                    onClick={() => setStep(2)}>
+                    onClick={async () => {
+                      const checkUserName = await form.trigger("username")
+                      if (checkUserName) setStep(2)
+                    }}>
                       Next step
                     </div>
                   </div>
