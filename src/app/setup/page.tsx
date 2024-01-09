@@ -35,7 +35,7 @@ const page = async () => {
     if (!getAllOthers) return notFound()
     
   return (
-    <div className="flex w-full py-24  bg-zinc-100">
+    <div className="flex w-full py-24 min-h-screen bg-zinc-100">
       <Setup userData={dbUser} others={getAllOthers}/>
     </div>
   )
